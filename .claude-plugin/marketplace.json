@@ -5,7 +5,7 @@
     },
     "plugins": [
         {
-            "name": "augmented-developer",
+            "name": "leoweb-ad",
             "source": "./augmented-developer",
             "description": "Development pipelines, workflows and tools"
         }
