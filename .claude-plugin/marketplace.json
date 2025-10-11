@@ -1,0 +1,13 @@
+{
+    "name": "leoweb-cc-plugins",
+    "owner": {
+        "name": "LeoWeb"
+    },
+    "plugins": [
+        {
+            "name": "augmented-developer",
+            "source": "./plugins/augmented-developer",
+            "description": "Development pipelines, workflows and tools"
+        }
+    ]
+}
