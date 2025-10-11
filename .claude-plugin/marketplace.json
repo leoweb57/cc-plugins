@@ -6,7 +6,7 @@
     "plugins": [
         {
             "name": "augmented-developer",
-            "source": "./plugins/augmented-developer",
+            "source": "./augmented-developer",
             "description": "Development pipelines, workflows and tools"
         }
     ]
