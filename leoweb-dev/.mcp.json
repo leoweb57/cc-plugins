@@ -112,12 +112,6 @@
       "USE_PIPELINE": "true"
     }
   },
-  "kubernetes": {
-    "command": "npx",
-    "args": [
-      "mcp-server-kubernetes"
-    ]
-  },
   "magic": {
     "command": "npx",
     "args": [
