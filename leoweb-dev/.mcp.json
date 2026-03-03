@@ -140,5 +140,9 @@
       "-y",
       "tavily-mcp@0.1.2"
     ]
+  },
+  "wake-mcp": {
+    "command": "wake-mcp",
+    "args": []
   }
 }
