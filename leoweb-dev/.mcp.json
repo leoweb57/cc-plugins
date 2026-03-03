@@ -30,7 +30,7 @@
     "args": [
       "-y",
       "@modelcontextprotocol/server-filesystem",
-      "/workspace"
+      "${MCP_FILESYSTEM_ROOT}"
     ]
   },
   "long-reasoning": {
