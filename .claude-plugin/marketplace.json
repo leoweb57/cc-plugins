@@ -5,9 +5,9 @@
     },
     "plugins": [
         {
-            "name": "leoweb-ad",
-            "source": "./augmented-developer",
-            "description": "Development pipelines, workflows and tools"
+            "name": "leoweb-dev",
+            "source": "./leoweb-dev",
+            "description": "Dev environment: agents, skills, commands, MCP servers"
         }
     ]
 }

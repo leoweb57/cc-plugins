@@ -1,0 +1,144 @@
+{
+  "memory": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-memory"
+    ]
+  },
+  "sequential-thinking": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-sequential-thinking"
+    ]
+  },
+  "time": {
+    "command": "uvx",
+    "args": [
+      "mcp-server-time"
+    ]
+  },
+  "fetch": {
+    "command": "uvx",
+    "args": [
+      "mcp-server-fetch"
+    ]
+  },
+  "filesystem": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "/workspace"
+    ]
+  },
+  "long-reasoning": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "long-reasoning-mcp"
+    ]
+  },
+  "context7": {
+    "type": "http",
+    "url": "https://mcp.context7.com/mcp"
+  },
+  "deepwiki": {
+    "type": "http",
+    "url": "https://mcp.deepwiki.com/mcp"
+  },
+  "exa": {
+    "type": "http",
+    "url": "https://mcp.exa.ai/mcp"
+  },
+  "chrome-devtools": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "chrome-devtools-mcp@latest"
+    ]
+  },
+  "playwright": {
+    "command": "npx",
+    "args": [
+      "@playwright/mcp@latest",
+      "--headless",
+      "--output-dir",
+      ".playwright-mcp"
+    ]
+  },
+  "notionApi": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@notionhq/notion-mcp-server"
+    ],
+    "env": {
+      "NOTION_TOKEN": "${NOTION_TOKEN}"
+    }
+  },
+  "Framelink Figma MCP": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "figma-developer-mcp",
+      "--figma-api-key=${FIGMA_API_KEY}",
+      "--stdio"
+    ]
+  },
+  "github": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-github"
+    ],
+    "env": {
+      "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+    }
+  },
+  "gitlab": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@zereight/mcp-gitlab"
+    ],
+    "env": {
+      "GITLAB_PERSONAL_ACCESS_TOKEN": "${GITLAB_PERSONAL_ACCESS_TOKEN}",
+      "GITLAB_API_URL": "https://gitlab.com/api/v4",
+      "GITLAB_READ_ONLY_MODE": "false",
+      "USE_GITLAB_WIKI": "true",
+      "USE_MILESTONE": "true",
+      "USE_PIPELINE": "true"
+    }
+  },
+  "kubernetes": {
+    "command": "npx",
+    "args": [
+      "mcp-server-kubernetes"
+    ]
+  },
+  "magic": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@21st-dev/magic"
+    ]
+  },
+  "serena": {
+    "command": "uvx",
+    "args": [
+      "--from",
+      "git+https://github.com/oraios/serena",
+      "serena",
+      "start-mcp-server"
+    ]
+  },
+  "tavily": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "tavily-mcp@0.1.2"
+    ]
+  }
+}
