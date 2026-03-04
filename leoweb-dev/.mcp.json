@@ -1,11 +1,4 @@
 {
-  "memory": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "@modelcontextprotocol/server-memory"
-    ]
-  },
   "sequential-thinking": {
     "command": "npx",
     "args": [
@@ -17,27 +10,6 @@
     "command": "uvx",
     "args": [
       "mcp-server-time"
-    ]
-  },
-  "fetch": {
-    "command": "uvx",
-    "args": [
-      "mcp-server-fetch"
-    ]
-  },
-  "filesystem": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "@modelcontextprotocol/server-filesystem",
-      "${MCP_FILESYSTEM_ROOT}"
-    ]
-  },
-  "long-reasoning": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "long-reasoning-mcp"
     ]
   },
   "context7": {
@@ -63,13 +35,6 @@
     "env": {
       "EXA_API_KEY": "${EXA_API_KEY}"
     }
-  },
-  "chrome-devtools": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "chrome-devtools-mcp@latest"
-    ]
   },
   "playwright": {
     "command": "npx",
@@ -123,13 +88,6 @@
       "USE_MILESTONE": "true",
       "USE_PIPELINE": "true"
     }
-  },
-  "magic": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "@21st-dev/magic"
-    ]
   },
   "serena": {
     "command": "uvx",
