@@ -15,9 +15,23 @@ nécessairement les 9 à chaque fois, seulement celles qui apportent un éclaira
 
 ## Les experts et leurs cadres
 
-Les cadres théoriques de chaque expert sont définis dans le fichier partagé :
-**`shared/business-frameworks.md`** — lis ce fichier pour connaître chaque expert, son framework,
-ses questions clés et son cadre d'analyse.
+Chaque expert est défini comme un agent autonome dans `agents/business-experts/`. Les cadres théoriques
+sont dans `shared/business-frameworks.md`.
+
+| Agent | Prisme | Fichier |
+|---|---|---|
+| **Christensen** | Innovation disruptive, Jobs-to-be-Done | `agents/business-experts/christensen.md` |
+| **Porter** | Cinq forces, chaîne de valeur, avantage concurrentiel | `agents/business-experts/porter.md` |
+| **Drucker** | Finalité, valeur client, innovation systématique | `agents/business-experts/drucker.md` |
+| **Godin** | Vache Pourpre, tribus, permission marketing | `agents/business-experts/godin.md` |
+| **Kim & Mauborgne** | Océan Bleu, innovation de valeur, ERRC | `agents/business-experts/kim-mauborgne.md` |
+| **Collins** | Concept du hérisson, volant d'inertie, discipline | `agents/business-experts/collins.md` |
+| **Taleb** | Antifragilité, cygnes noirs, options asymétriques | `agents/business-experts/taleb.md` |
+| **Meadows** | Pensée systémique, points de levier, boucles | `agents/business-experts/meadows.md` |
+| **Doumont** | Communication structurée, clarté, charge cognitive | `agents/business-experts/doumont.md` |
+
+Chaque agent a sa propre persona, son domaine de compétences et sa stratégie d'analyse détaillés dans son fichier.
+Lancer les agents pertinents en parallèle — pas nécessairement les 9 à chaque fois.
 
 ## Mode d'interaction
 

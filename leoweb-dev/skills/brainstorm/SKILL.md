@@ -38,60 +38,23 @@ Chaque agent reçoit le sujet, le contexte et les questions clés, et produit so
 
 ### Les 7 experts
 
-**Business & Métier** — Pense en valeur
-- Quel problème métier concret cette feature résout-elle ?
-- Est-ce que ça apporte de la valeur mesurable (revenu, rétention, conversion, gain de temps) ?
-- Quel est le coût d'opportunité — que ne fait-on PAS en faisant ça ?
-- Est-ce aligné avec la stratégie produit et les priorités business ?
-- Quel est le MVP — que peut-on couper pour livrer plus vite sans perdre la valeur ?
-- Pour enrichir son analyse, cet agent doit lire les cadres théoriques dans **`shared/business-frameworks.md`**
-  et appliquer les frameworks les plus pertinents au sujet (Christensen, Porter, Godin, etc.)
+Chaque expert est défini comme un agent autonome dans `agents/brainstorm/`. Lancer ces agents en parallèle :
 
-**Sécurité** — Pense en attaquant
-- Quelles surfaces d'attaque cette approche expose-t-elle ?
-- Quelles données sensibles sont en jeu ?
-- Quels sont les scénarios d'abus possibles ?
-- Quelles mesures de protection sont nécessaires ?
-- Où sont les risques d'injection, de fuite, d'escalade de privilèges ?
+| Agent | Prisme | Fichier |
+|---|---|---|
+| **Business & Valeur Métier** | Pense en valeur, ROI, coût d'opportunité | `agents/brainstorm/business-value.md` |
+| **Sécurité** | Pense en attaquant, surfaces d'attaque, abus | `agents/brainstorm/security.md` |
+| **Performance** | Pense en charge, scalabilité, ressources | `agents/brainstorm/performance.md` |
+| **Maintenabilité** | Pense dans 6 mois, lisibilité, dette technique | `agents/brainstorm/maintainability.md` |
+| **Expérience Utilisateur** | Pense comme l'utilisateur final, flux, accessibilité | `agents/brainstorm/user-experience.md` |
+| **Architecture** | Pense en système, intégration, dépendances | `agents/brainstorm/architecture.md` |
+| **Qualité & Testabilité** | Pense en tests, cas limites, régression | `agents/brainstorm/quality-testing.md` |
 
-**Performance** — Pense en charge
-- Comment ça se comporte à grande échelle ?
-- Quels sont les goulots d'étranglement prévisibles ?
-- Quelles sont les implications mémoire, CPU, réseau, BDD ?
-- Où faut-il du cache, de la pagination, du lazy loading ?
-- Quel est le coût de cette approche en termes de ressources ?
-
-**Maintenabilité** — Pense dans 6 mois
-- Est-ce qu'un développeur qui n'a pas le contexte comprendrait ce code ?
-- Quelle dette technique cette approche introduit-elle ?
-- Est-ce que c'est facile à modifier, étendre, supprimer ?
-- Est-ce que les responsabilités sont bien séparées ?
-- Est-ce cohérent avec les patterns existants du projet ?
-
-**Expérience utilisateur** — Pense comme l'utilisateur final
-- Est-ce que l'utilisateur comprend intuitivement ce qui se passe ?
-- Quels sont les cas d'erreur visibles par l'utilisateur ?
-- Est-ce que l'expérience est fluide, rapide, prévisible ?
-- Quels feedback visuels sont nécessaires (loading, erreurs, succès) ?
-- Est-ce accessible ? Est-ce que ça marche sur mobile ?
-
-**Architecture** — Pense en système
-- Est-ce que cette approche s'intègre bien dans l'architecture existante ?
-- Quelles dépendances est-ce que ça crée ou renforce ?
-- Est-ce que les couches sont bien respectées (frontend/backend/BDD) ?
-- Quels sont les impacts sur les autres modules ?
-- Est-ce qu'il y a un risque de couplage fort ?
-
-**Qualité & Testabilité** — Pense en tests
-- Comment on teste ça ? (unitaire, intégration, E2E)
-- Quels sont les cas limites et les scénarios d'échec ?
-- Est-ce que le code est facilement mockable/injectable ?
-- Quels sont les scénarios de régression possibles ?
-- Quelle couverture de test est réaliste et suffisante ?
+Chaque agent a sa propre persona, son domaine de compétences et sa stratégie d'analyse détaillés dans son fichier.
 
 ### Consignes pour chaque agent
 
-Chaque agent doit produire :
+Chaque agent doit produire (format défini dans son fichier agent) :
 - **3-5 points clés** vus à travers son prisme (pas un cours magistral)
 - **Risques identifiés** avec niveau de gravité (critique / important / mineur)
 - **Recommandations concrètes** (pas de généralités — des actions spécifiques au contexte)
