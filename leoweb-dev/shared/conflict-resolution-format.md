@@ -1,6 +1,6 @@
 # Format du rapport de résolution
 
-Ressource partagée utilisée par les commandes `/resolve-conflicts` et `/merge`.
+Ressource partagée utilisée par les commandes `/resolve` et `/merge`.
 Structure du rapport de résolution, organisé par domaine fonctionnel.
 
 Pour chaque conflit (réel ou anticipé) :

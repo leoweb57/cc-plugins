@@ -1,6 +1,6 @@
 # Cadres théoriques business
 
-Ressource partagée utilisée par les skills `business-panel-experts` et `brainstorm`.
+Ressource partagée utilisée par les skills `business-experts` et `brainstorm`.
 Chaque cadre représente un expert avec son prisme d'analyse.
 
 ## Clayton Christensen — Disruption et innovation

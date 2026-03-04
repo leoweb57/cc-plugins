@@ -1,4 +1,4 @@
-# /resolve-conflicts - Résoudre les conflits de merge avec compréhension contextuelle
+# /resolve - Résoudre les conflits de merge avec compréhension contextuelle
 
 Commande de résolution de conflits de merge git. Elle analyse l'intention derrière chaque branche en s'appuyant sur la documentation du projet et l'historique git, puis propose des résolutions argumentées par domaine fonctionnel. Elle ne touche pas à Git (pas de commit, pas de push).
 

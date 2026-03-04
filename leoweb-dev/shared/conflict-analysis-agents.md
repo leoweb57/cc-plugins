@@ -1,6 +1,6 @@
 # Agents d'analyse contextuelle
 
-Ressource partagée utilisée par les commandes `/resolve-conflicts` et `/merge`.
+Ressource partagée utilisée par les commandes `/resolve` et `/merge`.
 Trois agents spécialisés lancés en parallèle pour comprendre le contexte des modifications.
 
 ## Agent A — Documentation

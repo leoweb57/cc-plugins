@@ -1,6 +1,6 @@
 # Classification des conflits
 
-Ressource partagée utilisée par les commandes `/resolve-conflicts` et `/merge`.
+Ressource partagée utilisée par les commandes `/resolve` et `/merge`.
 Table de classification pour catégoriser chaque conflit (réel ou anticipé) et déterminer l'action appropriée.
 
 | Classification | Critère | Action |

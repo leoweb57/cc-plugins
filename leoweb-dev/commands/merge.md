@@ -1,6 +1,6 @@
 # /merge - Préparer et exécuter un merge entre deux branches
 
-Commande proactive de merge. Elle analyse les divergences entre deux branches **avant** le merge, anticipe les zones de friction, propose une stratégie de résolution, exécute le merge, puis résout les conflits éventuels avec le contexte déjà acquis. Contrairement à `/resolve-conflicts` (réactif — on est déjà en état de conflit), `/merge` est proactif : on comprend d'abord, on merge ensuite.
+Commande proactive de merge. Elle analyse les divergences entre deux branches **avant** le merge, anticipe les zones de friction, propose une stratégie de résolution, exécute le merge, puis résout les conflits éventuels avec le contexte déjà acquis. Contrairement à `/resolve` (réactif — on est déjà en état de conflit), `/merge` est proactif : on comprend d'abord, on merge ensuite.
 
 Ce que cette commande fait :
 - Analyse les modifications de chaque branche par rapport à l'ancêtre commun
@@ -78,7 +78,7 @@ c. Si des conflits surviennent : passe à la Phase 6
 
 ## Phase 6 : Résolution des conflits (si nécessaire)
 
-Enchaîne sur le workflow de `/resolve-conflicts` à partir de sa Phase 1, avec les avantages suivants :
+Enchaîne sur le workflow de `/resolve` à partir de sa Phase 1, avec les avantages suivants :
 - L'analyse contextuelle des Phases 2-3 est déjà disponible — pas besoin de relancer les agents
 - Le contexte intentionnel de l'utilisateur est connu
 - Les pré-résolutions validées en Phase 4 sont appliquées automatiquement sur les hunks correspondants

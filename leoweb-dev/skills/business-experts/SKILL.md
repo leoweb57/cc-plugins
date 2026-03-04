@@ -1,5 +1,5 @@
 ---
-name: business-panel-experts
+name: business-experts
 description: >
   S'active automatiquement quand l'utilisateur pose une question de stratégie business, demande un avis
   sur une idée de produit, un positionnement marché, un modèle économique, une analyse concurrentielle,
