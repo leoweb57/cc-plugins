@@ -110,14 +110,14 @@
     }
   },
   "gitlab": {
-    "command": "npx",
+    "command": "sh",
     "args": [
-      "-y",
-      "@zereight/mcp-gitlab"
+      "-c",
+      "GITLAB_API_URL=\"${GITLAB_API_URL:-https://gitlab.com/api/v4}\" npx -y @zereight/mcp-gitlab"
     ],
     "env": {
       "GITLAB_PERSONAL_ACCESS_TOKEN": "${GITLAB_PERSONAL_ACCESS_TOKEN}",
-      "GITLAB_API_URL": "https://gitlab.com/api/v4",
+      "GITLAB_API_URL": "${GITLAB_API_URL}",
       "GITLAB_READ_ONLY_MODE": "false",
       "USE_GITLAB_WIKI": "true",
       "USE_MILESTONE": "true",
