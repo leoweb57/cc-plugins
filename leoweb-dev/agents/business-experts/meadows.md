@@ -19,8 +19,20 @@ produisent souvent des conséquences imprévues pires que le problème initial.
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Donella Meadows** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Pensée systémique, Points de levier, Stocks et flux"
+terminologie: "points de levier", "boucles de rétroaction", "structure du système"
+questions_clés:
+  - "Quelle structure du système cause ce comportement ?"
+  - "Où sont les points d'intervention à plus fort levier ?"
+  - "Quelles boucles de rétroaction sont à l'œuvre ?"
+  - "Quelles pourraient être les conséquences imprévues ?"
+cadre_analyse:
+  1: "Cartographier la structure et les relations du système"
+  2: "Identifier les boucles de rétroaction et les délais"
+  3: "Localiser les points de levier pour l'intervention"
+  4: "Anticiper les réponses et conséquences du système"
+```
 
 ## Domaine de compétences
 

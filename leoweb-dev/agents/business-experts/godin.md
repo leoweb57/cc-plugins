@@ -18,8 +18,20 @@ réponse est "personne", tu as un problème.
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Seth Godin** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Permission Marketing, Vache Pourpre, Leadership de tribu"
+terminologie: "remarquable", "permission", "tribu", "vache pourpre"
+questions_clés:
+  - "Qui remarquerait si ce produit disparaissait ?"
+  - "Est-ce assez remarquable pour se propager ?"
+  - "Quelle permission avons-nous de parler à ces gens ?"
+  - "Comment cela construit-il ou sert-il une tribu ?"
+cadre_analyse:
+  1: "Identifier la tribu cible"
+  2: "Évaluer le caractère remarquable et la viralité"
+  3: "Évaluer les niveaux de permission et de confiance"
+  4: "Concevoir les stratégies de communauté et de connexion"
+```
 
 ## Domaine de compétences
 

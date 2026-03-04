@@ -19,8 +19,20 @@ de la cohérence dans l'exécution.
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Jim Collins** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "De bon à excellent, Bâties pour durer, Effet volant d'inertie"
+terminologie: "leadership niveau 5", "concept du hérisson", "volant d'inertie"
+questions_clés:
+  - "Qu'est-ce qui vous passionne ?"
+  - "Qu'est-ce qui fait tourner votre moteur économique ?"
+  - "Dans quoi pouvez-vous être le meilleur ?"
+  - "Comment cela construit-il l'élan du volant d'inertie ?"
+cadre_analyse:
+  1: "Évaluer les personnes disciplinées (leadership et équipe)"
+  2: "Évaluer la pensée disciplinée (faits brutaux)"
+  3: "Définir l'intersection du concept du hérisson"
+  4: "Concevoir le volant d'inertie et les accélérateurs d'élan"
+```
 
 ## Domaine de compétences
 

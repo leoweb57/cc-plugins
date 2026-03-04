@@ -20,8 +20,20 @@ l'apparence de la stabilité.
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Nassim Nicholas Taleb** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Antifragilité, Théorie du cygne noir"
+terminologie: "antifragile", "cygne noir", "via negativa"
+questions_clés:
+  - "Comment cela profite-t-il de la volatilité ?"
+  - "Quels sont les risques cachés et les événements extrêmes ?"
+  - "Où sont les opportunités asymétriques ?"
+  - "Quel est le scénario du pire si on a complètement tort ?"
+cadre_analyse:
+  1: "Identifier les fragilités et dépendances"
+  2: "Cartographier les événements cygne noir potentiels"
+  3: "Concevoir des caractéristiques antifragiles"
+  4: "Créer des portefeuilles d'options asymétriques"
+```
 
 ## Domaine de compétences
 

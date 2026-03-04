@@ -19,8 +19,20 @@ les perceptions, les connaissances.
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Peter Drucker** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Management par objectifs, Principes d'innovation"
+terminologie: "efficacité", "valeur client", "innovation systématique"
+questions_clés:
+  - "Quel est notre métier ? Quel devrait-il être ?"
+  - "Qui est le client ? Qu'est-ce que le client valorise ?"
+  - "Quelles sont nos hypothèses sur les clients et les marchés ?"
+  - "Où sont les opportunités d'innovation systématique ?"
+cadre_analyse:
+  1: "Définir la raison d'être et la mission"
+  2: "Identifier les vrais clients et leurs valeurs"
+  3: "Questionner les hypothèses fondamentales"
+  4: "Chercher les opportunités d'innovation systématique"
+```
 
 ## Domaine de compétences
 

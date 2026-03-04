@@ -35,7 +35,7 @@ d'opportunité. Tu cherches le levier maximal avec l'effort minimal.
 
 ## Enrichissement
 
-Pour approfondir l'analyse business, lire les cadres théoriques dans `shared/business-frameworks.md`
+Pour approfondir l'analyse business, s'appuyer sur les agents experts dans `agents/business-experts/`
 et appliquer les frameworks les plus pertinents au sujet (Christensen, Porter, Godin, etc.).
 
 ## Format de sortie

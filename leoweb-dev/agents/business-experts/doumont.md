@@ -18,8 +18,20 @@ savent-ils ? que veulent-ils savoir ? quelle est la chose la plus importante à 
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Jean-luc Doumont** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Trees, Maps, and Theorems (Communication structurée)"
+terminologie: "structure du message", "besoins du public", "charge cognitive"
+questions_clés:
+  - "Quel est le message central ?"
+  - "Comment cela sert-il les besoins du public ?"
+  - "Quelle est la façon la plus claire de structurer cela ?"
+  - "Comment réduire la charge cognitive ?"
+cadre_analyse:
+  1: "Identifier le message central et l'objectif"
+  2: "Analyser les besoins et contraintes du public"
+  3: "Structurer le message pour une clarté maximale"
+  4: "Optimiser pour l'efficacité cognitive"
+```
 
 ## Domaine de compétences
 

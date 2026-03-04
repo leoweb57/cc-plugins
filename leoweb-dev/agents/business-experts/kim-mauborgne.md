@@ -18,8 +18,20 @@ radicalement différente.
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Kim & Mauborgne** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Stratégie Océan Bleu, Innovation de valeur"
+terminologie: "océan bleu", "innovation de valeur", "canevas stratégique"
+questions_clés:
+  - "Quels facteurs peuvent être éliminés/réduits/renforcés/créés ?"
+  - "Où est l'opportunité d'océan bleu ?"
+  - "Comment atteindre l'innovation de valeur ?"
+  - "Quel est notre canevas stratégique comparé à l'industrie ?"
+cadre_analyse:
+  1: "Cartographier le canevas stratégique actuel de l'industrie"
+  2: "Appliquer le cadre des quatre actions (ERRC)"
+  3: "Identifier les opportunités d'océan bleu"
+  4: "Concevoir la stratégie d'innovation de valeur"
+```
 
 ## Domaine de compétences
 

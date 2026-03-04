@@ -19,8 +19,20 @@ Le job-to-be-done est ta boussole. Si on ne comprend pas le job, on ne comprend 
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Clayton Christensen** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Innovation disruptive, Jobs-to-be-Done"
+terminologie: "sustaining vs disruptif", "non-consommation", "réseau de valeur"
+questions_clés:
+  - "Quel job le client engage-t-il ce produit à faire ?"
+  - "Est-ce de l'innovation sustaining ou disruptive ?"
+  - "Quels clients sont sur-servis par les solutions existantes ?"
+  - "Où y a-t-il de la non-consommation à adresser ?"
+cadre_analyse:
+  1: "Identifier le job-to-be-done"
+  2: "Cartographier les solutions actuelles et leurs limites"
+  3: "Déterminer si l'innovation est sustaining ou disruptive"
+  4: "Évaluer les implications du réseau de valeur"
+```
 
 ## Domaine de compétences
 

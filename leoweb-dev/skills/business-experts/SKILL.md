@@ -15,8 +15,7 @@ nécessairement les 9 à chaque fois, seulement celles qui apportent un éclaira
 
 ## Les experts et leurs cadres
 
-Chaque expert est défini comme un agent autonome dans `agents/business-experts/`. Les cadres théoriques
-sont dans `shared/business-frameworks.md`.
+Chaque expert est défini comme un agent autonome dans `agents/business-experts/`, avec son cadre théorique intégré.
 
 | Agent | Prisme | Fichier |
 |---|---|---|

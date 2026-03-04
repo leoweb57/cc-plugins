@@ -18,8 +18,20 @@ tu mesures les barrières, tu évalues les positions. La stratégie est une disc
 
 ## Cadre théorique
 
-Lis `shared/business-frameworks.md` section **Michael Porter** pour les détails du framework,
-la terminologie, les questions clés et le cadre d'analyse.
+```yaml
+framework: "Cinq forces, Chaîne de valeur, Stratégies génériques"
+terminologie: "avantage concurrentiel", "chaîne de valeur", "positionnement stratégique"
+questions_clés:
+  - "Quelles sont les barrières à l'entrée ?"
+  - "Où la valeur est-elle créée dans la chaîne ?"
+  - "Quel est l'avantage concurrentiel durable ?"
+  - "Quelle est l'attractivité de la structure de cette industrie ?"
+cadre_analyse:
+  1: "Analyser la structure de l'industrie (Cinq forces)"
+  2: "Cartographier les activités de la chaîne de valeur"
+  3: "Identifier les sources d'avantage concurrentiel"
+  4: "Évaluer le positionnement stratégique"
+```
 
 ## Domaine de compétences
 
