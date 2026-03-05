@@ -25,6 +25,8 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
    - **Ce qu'on souhaite implémenter** : description libre de la tâche
    - **Référence de ticket** (optionnel) : si un ticket existe
 
+   Si le ticket est une issue GitHub (ex: `#42` ou URL GitHub), utiliser le **MCP GitHub** (`get_issue`) pour récupérer automatiquement le titre, la description, les commentaires et les labels afin d'enrichir le contexte.
+
 5. À partir de ces éléments, déduit grosse maille :
    - Le **type** de travail : `feat` (nouvelle fonctionnalité), `fix` (correction de bug), `dev` (refacto, config, docs)
    - Les **modules potentiellement impactés** : frontend, backend, shared, docker, docker-compose, config
@@ -41,7 +43,7 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
      - Pièges évités, approches écartées
      - Erreurs et points sensibles signalés dans les `review.md`
 
-7. **Exploration du code actuel** — dans le périmètre identifié, en utilisant **Serena** pour une exploration sémantique efficace :
+7. **Exploration du code actuel** — dans le périmètre identifié, en utilisant **Serena** pour une exploration sémantique efficace. Si le périmètre implique des librairies open-source, activer le skill `check-deps` pour vérifier les APIs et contraintes architecturales :
    - `get_symbols_overview` pour comprendre la structure des modules concernés sans lire tout le code
    - `find_symbol` pour inspecter les interfaces et signatures clés
    - `find_referencing_symbols` pour cartographier les dépendances entre composants
@@ -80,7 +82,7 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
     - **Contraintes identifiées** : ADR en vigueur, patterns à respecter, limitations techniques
     - **Contexte historique pertinent** : choix passés, pièges à éviter, approches écartées
     - **Risques** : zones fragiles, dépendances sensibles
-    - Date de création
+    - Date de création (obtenue via MCP **Time** `get_current_time`)
 
 ## Phase 4 : Planification
 
@@ -88,7 +90,7 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
     - La spec enrichie (critères d'acceptation, périmètre, contraintes, risques)
     - Les ADR et contraintes architecturales en vigueur
 
-14. Laisse Claude Code faire son travail de planification : brainstorming technique, découpage en phases, identification des tâches, analyse de la codebase, proposition du plan à l'utilisateur.
+14. Laisse Claude Code faire son travail de planification : brainstorming technique, découpage en phases, identification des tâches, analyse de la codebase, proposition du plan à l'utilisateur. Pour les features complexes (multi-modules, changements architecturaux), utiliser le MCP **sequential-thinking** (`sequentialthinking`) pour décomposer le problème en sous-problèmes et structurer le plan.
 
 15. Quand l'utilisateur valide le plan, **AVANT toute implémentation** :
     - **OBLIGATOIRE** : écrire `plan.md` dans le dossier spec résolu à l'étape 3, en suivant le template `docs/specs/_template/plan.md`

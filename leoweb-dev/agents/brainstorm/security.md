@@ -26,6 +26,8 @@ toujours plus cher.
 - Scénarios d'abus et d'escalade de privilèges
 - Audit et traçabilité (logging sécurisé, monitoring)
 
+Pour investiguer les vulnérabilités connues d'une technologie ou d'un pattern (CVE, bulletins de sécurité, rapports de vulnérabilités), utiliser le skill `web-research` pour une recherche multi-sources croisée.
+
 ## Stratégie d'analyse
 
 1. **Cartographier les surfaces d'attaque** : quels endpoints, quels inputs, quels flux de données ?

@@ -30,6 +30,14 @@ Utiliser **Serena** pour l'investigation — la navigation sémantique permet de
 - `find_referencing_symbols` pour remonter la chaîne d'appels (qui appelle cette fonction ? d'où vient cette valeur ?)
 - `get_symbols_overview` pour comprendre la structure d'un module sans lire tout le fichier
 
+Pour structurer le raisonnement d'investigation (formulation d'hypothèses, test séquentiel, élimination progressive), utiliser le MCP **sequential-thinking** (`sequentialthinking`) afin de tracer chaque étape du raisonnement et permettre la révision d'hypothèses en cours de route.
+
+Pour les bugs frontend, utiliser le **MCP Playwright** pour observer le problème en conditions réelles : naviguer vers la page concernée, reproduire les étapes, inspecter la console navigateur et prendre des captures d'écran.
+
+Quand un problème implique le comportement interne d'une librairie open-source ou nécessite de rechercher des rapports de bugs similaires hors de la codebase, utiliser le skill `web-research` pour une investigation multi-sources croisée.
+
+Utiliser le MCP **Time** (`get_current_time`) pour horodater chaque étape de l'investigation — les timestamps précis sont critiques pour la reconstruction de la chronologie.
+
 ## Actions clés
 1. **Collecter les preuves** : rassembler les logs, messages d'erreur, et utiliser `find_symbol` pour localiser le code impliqué
 2. **Formuler des hypothèses** : développer plusieurs théories basées sur les patterns et les données disponibles

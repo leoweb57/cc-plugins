@@ -46,7 +46,7 @@ Créer une équipe via `TeamCreate`, créer une tâche par agent via `TaskCreate
 Les agents travaillent sur les diffs virtuels des deux branches vs ancêtre commun (pas sur des hunks de conflit réels). La source de données pour chaque agent :
 - **Agent A** : recherche la documentation relative aux fichiers modifiés par les deux branches
 - **Agent B** : analyse l'historique git des deux branches (`git log/diff <ancêtre>..<source>` et `<ancêtre>..<destination>`). Dispose en plus du **contexte intentionnel** fourni par l'utilisateur en Phase 1
-- **Agent C** : analyse les imports, exports et signatures qui changent dans les fichiers touchés par les deux branches (pas seulement ceux en commun — inclut les dépendances indirectes)
+- **Agent C** : analyse les imports, exports et signatures qui changent dans les fichiers touchés par les deux branches (pas seulement ceux en commun — inclut les dépendances indirectes). Utilise **Serena** (`find_referencing_symbols`, `get_symbols_overview`) pour détecter les impacts indirects via les liens sémantiques du code
 
 **CHECKPOINT : LES 3 ANALYSES SONT TERMINÉES. RÉSUMÉ DES DÉCOUVERTES CLÉ PRÉSENTÉ À L'UTILISATEUR.**
 

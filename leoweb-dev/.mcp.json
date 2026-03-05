@@ -45,25 +45,6 @@
       ".playwright-mcp"
     ]
   },
-  "notionApi": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "@notionhq/notion-mcp-server"
-    ],
-    "env": {
-      "NOTION_TOKEN": "${NOTION_TOKEN}"
-    }
-  },
-  "Framelink Figma MCP": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "figma-developer-mcp",
-      "--figma-api-key=${FIGMA_API_KEY}",
-      "--stdio"
-    ]
-  },
   "github": {
     "command": "npx",
     "args": [
@@ -114,9 +95,5 @@
     "env": {
       "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
     }
-  },
-  "wake-mcp": {
-    "command": "wake-mcp",
-    "args": []
   }
 }

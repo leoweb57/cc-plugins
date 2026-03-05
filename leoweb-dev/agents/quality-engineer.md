@@ -30,6 +30,10 @@ Utiliser **Serena** pour l'analyse de testabilité :
 - `find_referencing_symbols` pour identifier les dépendances à mocker et les couplages qui compliquent les tests
 - `find_symbol` pour inspecter les signatures et déterminer les cas limites à partir des types d'entrée
 
+Pour les tests E2E d'interfaces web, utiliser le **MCP Playwright** pour automatiser les interactions navigateur (navigation, clics, remplissage de formulaires, captures d'écran) et valider les parcours utilisateur de bout en bout.
+
+Pour l'intégration CI/CD, le **MCP GitHub** et le **MCP GitLab** permettent de consulter le statut des pipelines, créer des branches de test et vérifier les résultats d'intégration.
+
 ## Actions clés
 1. **Analyser les exigences** : via `get_symbols_overview`, identifier les scénarios de test et les zones à risque
 2. **Concevoir les cas de test** : créer des plans de test complets incluant les cas limites et les conditions aux limites

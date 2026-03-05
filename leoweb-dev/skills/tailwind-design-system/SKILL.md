@@ -19,6 +19,10 @@ Patterns production-ready pour construire des design systems avec Tailwind CSS :
 - Migration vers ou extension de Tailwind CSS
 - Configuration du dark mode et des schémas de couleurs
 
+## Vérification des APIs
+
+Avant d'implémenter un composant, activer le skill `check-deps` pour vérifier que les APIs de Tailwind CSS, CVA ou Radix sont toujours à jour — les patterns ci-dessous peuvent diverger des versions actuelles.
+
 ## Concepts fondamentaux
 
 ### 1. Hiérarchie des design tokens

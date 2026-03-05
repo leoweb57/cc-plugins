@@ -44,7 +44,7 @@ Créer une équipe via `TeamCreate`, créer une tâche par agent via `TaskCreate
 Les agents travaillent sur les hunks de conflit réels (marqueurs `<<<<<<<` / `=======` / `>>>>>>>`). La source de données pour chaque agent :
 - **Agent A** : recherche la documentation relative aux fichiers en conflit
 - **Agent B** : analyse l'historique git sur les fichiers en conflit (`git log/diff <ancêtre>..HEAD` et `<ancêtre>..<branche-entrante>`)
-- **Agent C** : analyse les imports, exports et signatures qui changent dans les hunks en conflit
+- **Agent C** : analyse les imports, exports et signatures qui changent dans les hunks en conflit. Utilise **Serena** (`find_referencing_symbols`, `get_symbols_overview`) pour tracer les dépendances sémantiques au-delà du texte brut des fichiers en conflit
 
 **CHECKPOINT : LES 3 ANALYSES SONT TERMINÉES. RÉSUMÉ DES DÉCOUVERTES CLÉ PRÉSENTÉ À L'UTILISATEUR.**
 

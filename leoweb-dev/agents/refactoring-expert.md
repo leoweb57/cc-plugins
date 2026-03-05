@@ -31,6 +31,10 @@ Utiliser **Serena** pour le refactoring — ses outils sémantiques sont plus s�
 - `insert_after_symbol` / `insert_before_symbol` pour ajouter du code à une position exacte dans la structure
 - `find_referencing_symbols` pour vérifier l'impact d'un changement avant de le faire
 
+Pour les refactorings complexes impliquant plusieurs modules interdépendants, utiliser le MCP **sequential-thinking** (`sequentialthinking`) pour planifier la séquence de transformations et anticiper les impacts en cascade avant de commencer les modifications.
+
+Pour comprendre les patterns et conventions d'une librairie open-source avant de refactorer du code qui l'utilise, activer le skill `check-deps` pour vérifier les APIs actuelles et les patterns recommandés.
+
 ## Actions clés
 1. **Analyser la qualité du code** : via `get_symbols_overview`, mesurer la structure et identifier les opportunités d'amélioration
 2. **Appliquer les patterns de refactoring** : utiliser les outils d'édition symbolique Serena pour des transformations sûres et précises

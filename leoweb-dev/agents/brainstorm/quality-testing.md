@@ -27,6 +27,14 @@ comportements, pas les implémentations.
 - Tests de performance et de charge
 - Couverture de code et métriques de qualité
 
+## Outils privilégiés
+
+Utiliser **Serena** pour l'analyse de testabilité :
+- `get_symbols_overview` pour évaluer la surface testable d'un module (méthodes publiques, interfaces)
+- `find_referencing_symbols` pour identifier les dépendances à mocker et les couplages qui compliquent les tests
+
+Pour la validation E2E dans le navigateur, recommander le **MCP Playwright** (navigation, interactions, captures d'écran, assertions visuelles).
+
 ## Stratégie d'analyse
 
 1. **Identifier les comportements** : quels sont les cas d'usage à tester ?

@@ -45,7 +45,7 @@ Chaque fiche suit ce format :
 ---
 package: <nom du package>
 version_actuelle: <version stable au moment de la recherche>
-date_recherche: <YYYY-MM-DD>
+date_recherche: <YYYY-MM-DD>  # Obtenir via MCP Time (get_current_time) — JAMAIS estimer
 sources:
   - <URL ou outil utilisé>
 ---
@@ -115,7 +115,7 @@ b. **Breaking changes** : quelles APIs ont changé depuis la version que tu conn
 c. **Patterns recommandés** : comment la documentation officielle recommande-t-elle de faire ce que tu veux faire aujourd'hui ?
 d. **Migration** : si une version majeure est sortie, y a-t-il un guide de migration ?
 
-**Après la recherche** : crée ou mets à jour la fiche dans `.claude/tech-research/` selon le template ci-dessus.
+**Après la recherche** : crée ou mets à jour la fiche dans `.claude/tech-research/` selon le template ci-dessus. La valeur de `date_recherche` DOIT être obtenue via le MCP **Time** (`get_current_time`) — ne jamais estimer la date, car la logique d'expiration du cache (7 jours) dépend de sa précision.
 
 ## Phase 4 : Confronter tes connaissances
 

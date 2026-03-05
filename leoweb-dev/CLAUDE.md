@@ -1,5 +1,52 @@
 # Instructions plugin leoweb-dev
 
+## Catalogue des ressources disponibles
+
+Ce plugin fournit des agents, skills et commandes spécialisés. Consulte cette liste pour identifier l'outil adapté à chaque situation.
+
+### Skills (déclenchés automatiquement ou manuellement)
+
+| Skill | Déclencheur automatique | Description |
+|---|---|---|
+| `check-deps` | Avant d'implémenter du code utilisant une lib/framework externe | Vérifie les versions et APIs actuelles via Context7, Exa, Tavily, DeepWiki, WebSearch, Firecrawl |
+| `web-research` | Recherche d'information sur le web (veille, investigation, analyse) | Orchestration multi-sources en parallèle avec synthèse croisée |
+| `verify-implementation` | Après implémentation d'une feature | Vérifie que le code produit correspond au plan et aux exigences |
+| `tailwind-design-system` | Travail sur du styling Tailwind, design tokens, composants UI | Patterns CVA, compound components, dark mode, design tokens |
+| `nextjs-app-router-patterns` | Travail avec Next.js App Router | Server Components, streaming, routes parallèles, Server Actions, cache |
+| `brainstorm` | Analyse multi-perspectives d'une solution technique | Équipe de 7 agents spécialisés (architecture, performance, sécurité, UX, qualité, maintenabilité, valeur business) |
+| `business-experts` | Analyse stratégique/business d'un produit ou d'une décision | Panel de 9 experts business (Porter, Drucker, Christensen, Godin, Taleb, etc.) |
+
+### Agents (utilisables individuellement via l'outil Agent)
+
+| Agent | Quand l'utiliser |
+|---|---|
+| `react-developer` | Composants React, Next.js, state management, styling, accessibilité, performance frontend |
+| `mobile-developer` | React Native, Flutter, Expo, intégrations natives, offline-first, déploiement app stores |
+| `deep-research` | Recherche approfondie avec stratégies adaptatives et exploration multi-sources |
+| `refactoring-expert` | Refactoring de code avec Serena, analyse d'impact, restructuration safe |
+| `root-cause-analyst` | Diagnostic de bugs complexes, analyse de traces d'exécution, identification de causes racines |
+| `quality-engineer` | Stratégie de tests, analyse de testabilité, couverture, qualité du code |
+| `brainstorm/architecture` | Évaluation de l'architecture technique, patterns, scalabilité |
+| `brainstorm/performance` | Analyse de performance, bottlenecks, optimisation |
+| `brainstorm/security` | Audit de sécurité, vulnérabilités, OWASP |
+| `brainstorm/user-experience` | UX, ergonomie, accessibilité, parcours utilisateur |
+| `brainstorm/quality-testing` | Stratégie de tests, couverture, edge cases |
+| `brainstorm/maintainability` | Maintenabilité, dette technique, lisibilité du code |
+| `brainstorm/business-value` | Valeur business, ROI, priorisation |
+| `business-experts/porter` | Stratégie concurrentielle, 5 forces, chaîne de valeur |
+| `business-experts/drucker` | Management, efficacité, innovation organisationnelle |
+| `business-experts/christensen` | Innovation disruptive, jobs-to-be-done |
+| `business-experts/godin` | Marketing, tribus, permission marketing, Purple Cow |
+| `business-experts/kim-mauborgne` | Océan bleu, création de nouveaux marchés |
+| `business-experts/collins` | Excellence durable, Good to Great, Hedgehog Concept |
+| `business-experts/taleb` | Antifragilité, risques, cygnes noirs, optionalité |
+| `business-experts/meadows` | Pensée systémique, boucles de rétroaction, leviers |
+| `business-experts/doumont` | Communication efficace, structuration de l'information |
+
+Les agents `brainstorm/*` et `business-experts/*` peuvent être invoqués individuellement ou orchestrés en équipe via leurs skills respectifs (`brainstorm` et `business-experts`).
+
+---
+
 ## Recherche web multi-sources obligatoire
 
 Pour toute recherche d'information sur le web (veille, investigation, analyse, mise à jour), active le skill `web-research` qui orchestre Exa, Tavily, WebSearch, DeepWiki et Firecrawl en parallèle et croise les résultats. Ne jamais se fier à une seule source — croiser systématiquement. Exception : pour la vérification de versions/APIs d'une lib spécifique, utilise `check-deps` à la place.

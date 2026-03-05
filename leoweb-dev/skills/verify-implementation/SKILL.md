@@ -19,6 +19,8 @@ L'utilisateur attend des résultats vérifiés, pas des suppositions optimistes.
 
 ## Phase 1 : Identifier ce qui a changé
 
+Utiliser **Serena** (`get_symbols_overview`) pour lister les symboles modifiés ou ajoutés sans relire tous les fichiers, et `find_referencing_symbols` pour vérifier que les appelants existants ne sont pas cassés par les changements.
+
 Liste concrètement ce qui a été modifié :
 - Fichiers modifiés (et ce qui a changé dans chacun)
 - Nouveaux endpoints, routes, composants, méthodes, migrations de base de données

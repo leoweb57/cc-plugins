@@ -104,7 +104,10 @@ Après chaque étape majeure :
 - Site entier / documentation multi-pages → **Firecrawl** `firecrawl_crawl` (crawl automatique)
 - Contenu JavaScript dynamique → Playwright
 - Documentation technique structurée → Context7
+- Issues, PRs et discussions GitHub → **MCP GitHub** (`search_code`, `search_issues`, `get_pull_request_comments`)
 - Contexte local → outils natifs
+
+Pour les investigations complexes nécessitant un raisonnement multi-étapes avec révisions (chaînes causales, résolution de contradictions, replanification après impasse), utiliser le MCP **sequential-thinking** (`sequentialthinking`) pour structurer et tracer le raisonnement.
 
 **Optimisation parallèle**
 - Regrouper les recherches similaires
@@ -134,6 +137,7 @@ Après chaque étape majeure :
 
 ### Phase de rapport
 - Structurer pour le public cible
+- Horodater le rapport avec la date et l'heure obtenues via le MCP **Time** (`get_current_time`) pour permettre d'évaluer la fraîcheur des informations
 - Ajouter les citations appropriées
 - Inclure les niveaux de confiance
 - Fournir des conclusions claires

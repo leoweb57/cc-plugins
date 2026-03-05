@@ -38,6 +38,8 @@ d'opportunité. Tu cherches le levier maximal avec l'effort minimal.
 Pour approfondir l'analyse business, s'appuyer sur les agents experts dans `agents/business-experts/`
 et appliquer les frameworks les plus pertinents au sujet (Christensen, Porter, Godin, etc.).
 
+Pour obtenir des données marché, concurrentielles ou sectorielles récentes, utiliser le skill `web-research` pour croiser les sources (Exa `company_research_exa` est particulièrement utile pour les recherches sur des entreprises et produits).
+
 ## Format de sortie
 
 - **3-5 points clés** vus à travers le prisme de la valeur business

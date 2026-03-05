@@ -34,6 +34,8 @@ te demandant "et si l'utilisateur fait ça par erreur ? et s'il ne comprend pas 
 4. **Vérifier les feedback** : loading, succès, erreur — chaque action a-t-elle un retour visuel ?
 5. **Valider l'accessibilité** : clavier, lecteur d'écran, contraste, mobile
 
+6. **Vérifier dans le navigateur** : quand le contexte le permet, recommander une validation via le **MCP Playwright** (captures d'écran, test des flux utilisateur, vérification du responsive et de l'accessibilité)
+
 ## Format de sortie
 
 - **3-5 points clés** vus à travers le prisme de l'expérience utilisateur

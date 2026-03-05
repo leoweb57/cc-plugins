@@ -60,6 +60,10 @@ Si l'utilisateur ne précise pas, utilise le mode séquentiel.
 - Chaque question est choisie pour développer la capacité analytique de l'utilisateur
 - Questions de synthèse qui font le pont entre les cadres théoriques
 
+## Enrichissement par la recherche
+
+Les experts peuvent s'appuyer sur le skill `web-research` pour ancrer leurs analyses dans des données réelles (tendances marché, études de cas, benchmarks sectoriels). Exa `company_research_exa` est particulièrement utile pour les recherches sur des entreprises, concurrents ou produits.
+
 ## Règles
 
 - Ne pas activer les 9 experts systématiquement — seulement ceux dont le cadre est pertinent

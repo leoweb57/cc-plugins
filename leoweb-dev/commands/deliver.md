@@ -24,6 +24,8 @@ Commande de documentation à lancer avant de pousser du code. Elle analyse les c
 - Signale les fichiers imprévus ou manquants
 
 ### 3. changes.md — Registre factuel
+Horodater le document avec la date du jour obtenue via le MCP **Time** (`get_current_time`).
+
 Génère ou met à jour `changes.md` dans le dossier spec résolu à l'étape 1 :
 - **Commits** : liste des commits de la branche (hash court, message, date)
 - **Fichiers impactés** : liste complète avec type de modification (ajout/modif/suppression)
