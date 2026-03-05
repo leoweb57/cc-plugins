@@ -22,6 +22,7 @@ L'utilisateur attend des résultats vérifiés, pas des suppositions optimistes.
 Utiliser **Serena** (`get_symbols_overview`) pour lister les symboles modifiés ou ajoutés sans relire tous les fichiers, et `find_referencing_symbols` pour vérifier que les appelants existants ne sont pas cassés par les changements.
 
 Liste concrètement ce qui a été modifié :
+
 - Fichiers modifiés (et ce qui a changé dans chacun)
 - Nouveaux endpoints, routes, composants, méthodes, migrations de base de données
 - Changements de configuration
@@ -30,10 +31,12 @@ Liste concrètement ce qui a été modifié :
 ## Phase 2 : Déterminer les critères d'acceptation
 
 **Si un plan ou une spec existe** (ex: `spec.md`, `plan.md`, ou instructions de l'utilisateur) :
+
 - Extraire chaque critère d'acceptation
 - Chaque critère devient un scénario de test
 
 **Si aucun critère explicite n'existe** (demande ad-hoc, bugfix, modification rapide) :
+
 - Formuler toi-même les critères d'acceptation à partir de ce que l'utilisateur a demandé
 - Les présenter brièvement : "Je vais vérifier : 1) ... 2) ... 3) ..."
 - Inclure l'inverse : vérifier que rien n'a été cassé (régression)
@@ -42,15 +45,18 @@ Liste concrètement ce qui a été modifié :
 
 Pour chaque critère, choisir la méthode de vérification la plus adaptée :
 
-| Ce qui a changé | Comment vérifier |
-|---|---|
-| UI / visuel / composant frontend | **Playwright MCP** : naviguer, interagir, prendre des captures d'écran |
-| Endpoint API | **curl / httpie** via Bash : appeler l'endpoint, vérifier la réponse |
-| Schéma ou données en base | **Requête SQL** via Bash : vérifier la structure des tables, l'intégrité des données |
-| Méthode / logique backend | **Lancer les tests existants** (vitest, pytest, etc.) ou écrire un script rapide |
-| Configuration / environnement | **Vérifier le service en cours** : redémarrer si nécessaire, vérifier le comportement |
-| Docker / infrastructure | **Commandes docker compose** : vérifier que les services sont up et healthy |
-| Génération / transformation de fichiers | **Lire le fichier de sortie** et vérifier son contenu |
+| Ce qui a changé                         | Comment vérifier                                                                                                                                         |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UI / visuel / composant frontend        | **Playwright MCP** : naviguer, interagir, prendre des captures d'écran                                                                                   |
+| Endpoint API                            | **curl / httpie** via Bash : appeler l'endpoint, vérifier la réponse                                                                                     |
+| Schéma ou données en base               | **Requête SQL** via Bash : vérifier la structure des tables, l'intégrité des données                                                                     |
+| Méthode / logique backend               | **Lancer les tests existants** (vitest, pytest, etc.) ou écrire un script rapide                                                                         |
+| Configuration / environnement           | **Vérifier le service en cours** : redémarrer si nécessaire, vérifier le comportement                                                                    |
+| Docker / infrastructure                 | **Commandes docker compose** : vérifier que les services sont up et healthy                                                                              |
+| Pipeline CI/CD                          | **MCP GitHub** (`get_pull_request_status`, `list_commits`) ou **MCP GitLab** (`get_pipeline`, `get_pipeline_job_output`) : vérifier que les jobs passent |
+| Dépendances ajoutées ou modifiées       | Skill `check-deps` : vérifier que les versions sont correctes et que les APIs utilisées correspondent à la version installée                             |
+| Imports, signatures, appels             | **Serena** (`find_referencing_symbols`) : vérifier que tous les appelants existants sont compatibles avec les changements de signatures ou de modules     |
+| Génération / transformation de fichiers | **Lire le fichier de sortie** et vérifier son contenu                                                                                                    |
 
 Utiliser plusieurs outils si un critère couvre plusieurs couches (ex: "la soumission du formulaire sauvegarde en BDD" = Playwright + SQL).
 
@@ -64,6 +70,7 @@ Pour chaque critère d'acceptation :
 4. **Verdict** : PASS ou FAIL avec explication
 
 Si un test ÉCHOUE :
+
 - Corriger le problème immédiatement
 - Relancer le test en échec
 - Répéter jusqu'à ce qu'il passe
@@ -87,6 +94,7 @@ Testé :
 ```
 
 Si certains scénarios n'ont pas pu être testés (ex: nécessite l'environnement de production, un service tiers, des identifiants utilisateur) :
+
 - Indiquer clairement ce qui n'a pas pu être vérifié et pourquoi
 - Suggérer comment l'utilisateur peut le vérifier manuellement
 
