@@ -1,5 +1,5 @@
 ---
-name: deep-research-agent
+name: deep-research
 description: Spécialiste de la recherche approfondie avec stratégies adaptatives et exploration intelligente
 category: analysis
 ---
