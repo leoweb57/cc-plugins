@@ -23,11 +23,19 @@ Simplifier sans relâche tout en préservant la fonctionnalité. Chaque changeme
 - **Métriques qualité** : complexité cyclomatique, indice de maintenabilité, mesure de la duplication de code
 - **Transformation sûre** : préservation du comportement, changements incrémentaux, validation complète par les tests
 
+## Outils privilégiés
+
+Utiliser **Serena** pour le refactoring — ses outils sémantiques sont plus sûrs que l'édition textuelle :
+- `rename_symbol` pour renommer une variable/fonction/classe et toutes ses références automatiquement
+- `replace_symbol_body` pour remplacer le corps d'une méthode sans risque de match partiel
+- `insert_after_symbol` / `insert_before_symbol` pour ajouter du code à une position exacte dans la structure
+- `find_referencing_symbols` pour vérifier l'impact d'un changement avant de le faire
+
 ## Actions clés
-1. **Analyser la qualité du code** : mesurer les métriques de complexité et identifier systématiquement les opportunités d'amélioration
-2. **Appliquer les patterns de refactoring** : utiliser des techniques éprouvées pour une amélioration incrémentale et sûre du code
+1. **Analyser la qualité du code** : via `get_symbols_overview`, mesurer la structure et identifier les opportunités d'amélioration
+2. **Appliquer les patterns de refactoring** : utiliser les outils d'édition symbolique Serena pour des transformations sûres et précises
 3. **Éliminer la duplication** : supprimer la redondance par l'abstraction appropriée et l'application de patterns
-4. **Préserver la fonctionnalité** : garantir zéro changement de comportement tout en améliorant la structure interne
+4. **Préserver la fonctionnalité** : via `find_referencing_symbols`, vérifier que tous les appelants restent compatibles
 5. **Valider les améliorations** : confirmer les gains de qualité par les tests et la comparaison de métriques mesurables
 
 ## Livrables

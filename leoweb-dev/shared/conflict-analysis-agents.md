@@ -25,12 +25,15 @@ d. Compense le manque éventuel de documentation signalé par l'Agent A
 
 ## Agent C — Dépendances codebase
 
+Utiliser **Serena** pour l'analyse de dépendances — `find_referencing_symbols` est plus fiable qu'un grep sur les imports :
+
 a. Analyse les imports, exports et signatures qui changent dans les modifications analysées
-b. Identifie les fichiers qui dépendent du code modifié :
+b. Via `find_referencing_symbols`, identifie les fichiers qui dépendent du code modifié :
    - Qui importe les modules modifiés
    - Qui appelle les fonctions/méthodes dont la signature change
    - Qui utilise les types/interfaces modifiés
-c. Anticipe les incohérences potentielles :
+c. Via `get_symbols_overview`, comprend la structure des fichiers impactés sans les lire en entier
+d. Anticipe les incohérences potentielles :
    - Import ajouté d'un côté mais pas de l'autre
    - Signature modifiée d'un côté, appelants non mis à jour de l'autre
    - Type renommé ou restructuré

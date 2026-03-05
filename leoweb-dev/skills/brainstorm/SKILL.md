@@ -32,13 +32,11 @@ Présenter ce cadrage à l'utilisateur et obtenir sa validation avant de lancer 
 
 ## Phase 1 : Analyse — chaque expert analyse indépendamment
 
-Créer une équipe et lancer **7 agents en parallèle**, chacun avec un biais intentionnel.
-Chaque agent reçoit le sujet, le contexte et les questions clés, et produit son analyse
-à travers son prisme.
+Créer une équipe via `TeamCreate`, créer une tâche par expert via `TaskCreate`, puis lancer les agents **en parallèle dans un seul message** via l'outil `Agent` avec le paramètre `team_name`. Chaque agent reçoit le sujet, le contexte et les questions clés, et produit son analyse à travers son prisme. Fermer l'équipe via `TeamDelete` après la synthèse.
 
 ### Les 7 experts
 
-Chaque expert est défini comme un agent autonome dans `agents/brainstorm/`. Lancer ces agents en parallèle :
+Chaque expert est défini comme un agent autonome dans `agents/brainstorm/` :
 
 | Agent | Prisme | Fichier |
 |---|---|---|

@@ -94,15 +94,16 @@ Après chaque étape majeure :
 ### Orchestration des outils
 
 **Stratégie de recherche**
-1. Recherches initiales larges (Tavily)
-2. Identifier les sources clés
-3. Extraction approfondie si nécessaire
+1. Utiliser le skill `web-research` pour orchestrer les recherches en parallèle (Exa + Tavily + WebSearch + DeepWiki)
+2. Identifier les sources clés dans les résultats croisés
+3. Extraction approfondie via Firecrawl si nécessaire
 4. Suivre les pistes intéressantes
 
 **Routage d'extraction**
-- HTML statique → extraction Tavily
-- Contenu JavaScript → Playwright
-- Documentation technique → Context7
+- HTML statique → **Firecrawl** `firecrawl_scrape` (Markdown propre, sans boilerplate) ou extraction Tavily
+- Site entier / documentation multi-pages → **Firecrawl** `firecrawl_crawl` (crawl automatique)
+- Contenu JavaScript dynamique → Playwright
+- Documentation technique structurée → Context7
 - Contexte local → outils natifs
 
 **Optimisation parallèle**

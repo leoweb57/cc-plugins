@@ -30,7 +30,8 @@ Chaque expert est défini comme un agent autonome dans `agents/business-experts/
 | **Doumont** | Communication structurée, clarté, charge cognitive | `agents/business-experts/doumont.md` |
 
 Chaque agent a sa propre persona, son domaine de compétences et sa stratégie d'analyse détaillés dans son fichier.
-Lancer les agents pertinents en parallèle — pas nécessairement les 9 à chaque fois.
+
+Créer une équipe via `TeamCreate`, créer une tâche par expert pertinent via `TaskCreate`, puis lancer les agents **en parallèle dans un seul message** via l'outil `Agent` avec le paramètre `team_name`. Pas nécessairement les 9 à chaque fois — seulement ceux dont le cadre est pertinent. Fermer l'équipe via `TeamDelete` après la synthèse.
 
 ## Mode d'interaction
 

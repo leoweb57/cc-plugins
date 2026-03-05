@@ -37,7 +37,9 @@ Ce que cette commande ne fait PAS :
 
 ## Phase 2 : Analyse contextuelle
 
-Lance 3 analyses en parallèle via des agents spécialisés, selon le protocole décrit dans `shared/conflict-analysis-agents.md`.
+Lance 3 analyses en parallèle via une équipe d'agents spécialisés, selon le protocole décrit dans `shared/conflict-analysis-agents.md`.
+
+Créer une équipe via `TeamCreate`, créer une tâche par agent via `TaskCreate`, puis lancer les 3 agents **en parallèle dans un seul message** via l'outil `Agent` avec le paramètre `team_name`. Attendre que les 3 agents renvoient leurs résultats. Fermer l'équipe via `TeamDelete` après la synthèse.
 
 Les agents travaillent sur les hunks de conflit réels (marqueurs `<<<<<<<` / `=======` / `>>>>>>>`). La source de données pour chaque agent :
 - **Agent A** : recherche la documentation relative aux fichiers en conflit

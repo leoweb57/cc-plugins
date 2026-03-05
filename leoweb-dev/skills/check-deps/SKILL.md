@@ -95,14 +95,18 @@ Pour chaque technologie identifiée :
 
 ## Phase 3 : Recherche externe
 
-Pour chaque technologie sans fiche récente, utiliser les outils de recherche **dans cet ordre de priorité** :
+Pour chaque technologie sans fiche récente, lancer **tous** les outils de recherche pertinents **en parallèle** pour croiser les sources :
 
-| Outil                                                 | Quand l'utiliser                                                               |
+| Outil                                                 | Ce qu'il apporte                                                               |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------ |
-| **Context7** (`resolve-library-id` puis `query-docs`) | Premier réflexe — documentation officielle structurée, exemples de code à jour |
+| **Context7** (`resolve-library-id` puis `query-docs`) | Documentation officielle structurée, exemples de code à jour                   |
 | **Exa** (`web_search_exa`)                            | Changelogs, release notes, articles récents, migration guides                  |
+| **Tavily** (`tavily-search`)                          | Résultats optimisés LLM, snippets structurés, recherche multi-étapes           |
 | **DeepWiki** (`read_wiki_contents`, `ask_question`)   | Repos GitHub spécifiques — architecture, patterns, détails d'implémentation    |
-| **WebSearch / WebFetch**                              | Fallback — quand les outils ci-dessus ne suffisent pas                         |
+| **WebSearch**                                         | Recherche web généraliste, dernières infos, résultats larges                   |
+| **Firecrawl** (`firecrawl_scrape`, `firecrawl_crawl`) | Lire la doc officielle d'un site web (Markdown propre, sans boilerplate)       |
+
+Lancer au minimum 3 sources en parallèle. Firecrawl est surtout utile en second temps pour scraper les URLs clés identifiées par les autres sources.
 
 Pour chaque technologie, vérifier :
 

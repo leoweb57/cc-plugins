@@ -41,10 +41,11 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
      - Pièges évités, approches écartées
      - Erreurs et points sensibles signalés dans les `review.md`
 
-7. **Exploration du code actuel** — dans le périmètre identifié :
-   - Structure et organisation des modules concernés
+7. **Exploration du code actuel** — dans le périmètre identifié, en utilisant **Serena** pour une exploration sémantique efficace :
+   - `get_symbols_overview` pour comprendre la structure des modules concernés sans lire tout le code
+   - `find_symbol` pour inspecter les interfaces et signatures clés
+   - `find_referencing_symbols` pour cartographier les dépendances entre composants
    - Patterns en place (conventions, abstractions, interfaces)
-   - Dépendances entre composants
 
 ### Étape 2c — Brainstorming itératif enrichi
 

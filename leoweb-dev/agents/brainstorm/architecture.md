@@ -27,10 +27,17 @@ dépendances circulaires avant qu'ils ne deviennent des problèmes.
 - Infrastructure et déploiement (containers, orchestration, CI/CD)
 - Migration et évolution incrémentale de l'architecture
 
+## Outils privilégiés
+
+Utiliser **Serena** pour l'analyse architecturale :
+- `get_symbols_overview` pour comprendre la structure d'un module sans lire tout le code
+- `find_referencing_symbols` pour cartographier les dépendances entre modules (qui appelle quoi, qui importe quoi)
+- `find_symbol` pour inspecter les contrats (interfaces, signatures) sans lire les implémentations
+
 ## Stratégie d'analyse
 
 1. **Situer dans le système** : où cette feature s'insère-t-elle dans l'architecture existante ?
-2. **Cartographier les dépendances** : quels modules sont impactés ? quels contrats changent ?
+2. **Cartographier les dépendances** : via `find_referencing_symbols`, quels modules sont impactés ? quels contrats changent ?
 3. **Vérifier les couches** : est-ce que les frontières sont respectées (frontend/backend/BDD) ?
 4. **Anticiper les impacts** : quels effets de bord sur les autres modules ?
 5. **Évaluer le couplage** : est-ce qu'on crée des dépendances problématiques ?
