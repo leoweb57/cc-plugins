@@ -22,6 +22,9 @@ Ce plugin fournit des agents, skills et commandes spécialisés. Consulte cette 
 |---|---|
 | `react-developer` | Composants React, Next.js, state management, styling, accessibilité, performance frontend |
 | `mobile-developer` | React Native, Flutter, Expo, intégrations natives, offline-first, déploiement app stores |
+| `backend-developer` | APIs REST/GraphQL/gRPC, Node.js, TypeScript, Python, bases de données, authentification, architecture serveur, microservices, serverless |
+| `devops-engineer` | Docker, Kubernetes, CI/CD, Terraform, cloud, monitoring, sécurité infra, GitOps |
+| `data-engineer` | Modélisation de données, PostgreSQL, MongoDB, Redis, Prisma, migrations, optimisation requêtes, CQRS |
 | `deep-research` | Recherche approfondie avec stratégies adaptatives et exploration multi-sources |
 | `refactoring-expert` | Refactoring de code avec Serena, analyse d'impact, restructuration safe |
 | `root-cause-analyst` | Diagnostic de bugs complexes, analyse de traces d'exécution, identification de causes racines |

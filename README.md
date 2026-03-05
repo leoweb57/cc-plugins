@@ -19,6 +19,9 @@ leoweb-dev/
 │   ├── business-experts/  # 9 experts business stratégiques
 │   ├── react-developer.md
 │   ├── mobile-developer.md
+│   ├── backend-developer.md
+│   ├── devops-engineer.md
+│   ├── data-engineer.md
 │   ├── deep-research.md
 │   ├── refactoring-expert.md
 │   ├── root-cause-analyst.md
@@ -68,6 +71,9 @@ leoweb-dev/
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `react-developer`    | Développeur React 19+ / Next.js 15+ expert. Composants, state management (Zustand, React Query), Server Components, accessibilité WCAG, Core Web Vitals. Référence les skills `tailwind-design-system` et `nextjs-app-router-patterns` |
 | `mobile-developer`   | Développeur mobile expert. React Native (New Architecture, Expo), Flutter, natif iOS/Android. Offline-first, performance 60fps, CI/CD app stores. Référence le skill `tailwind-design-system` (NativeWind)                             |
+| `backend-developer`  | Développeur backend expert. APIs REST/GraphQL/gRPC, Node.js/TypeScript, Python, bases de données, authentification, microservices, serverless, sécurité OWASP, observabilité                                                           |
+| `devops-engineer`    | Ingénieur DevOps expert. Docker, Kubernetes, CI/CD (GitHub Actions, GitLab CI/CD), Terraform, cloud, monitoring (Prometheus, Grafana), sécurité infra, GitOps                                                                          |
+| `data-engineer`      | Ingénieur data expert. Modélisation de données, PostgreSQL, MongoDB, Redis, Prisma, Drizzle, optimisation de requêtes, CQRS, Event Sourcing, migrations, sécurité RGPD                                                                |
 | `deep-research`      | Recherche approfondie avec stratégies adaptatives et exploration intelligente multi-sources                                                                                                                                            |
 | `refactoring-expert` | Refactoring avec Serena (LSP). Analyse d'impact via `find_referencing_symbols`, restructuration safe via `replace_symbol_body` et `rename_symbol`                                                                                      |
 | `root-cause-analyst` | Diagnostic de bugs complexes. Trace les chemins d'exécution avec Serena, identifie les causes racines                                                                                                                                  |
