@@ -41,6 +41,7 @@
     "args": [
       "@playwright/mcp@latest",
       "--headless",
+      "--viewport-size=1920,1080",
       "--output-dir",
       ".playwright-mcp"
     ]
