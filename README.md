@@ -4,8 +4,11 @@ Plugin Claude Code personnel consolidant agents, commandes, skills et serveurs M
 
 ## Installation
 
-```bash
-claude plugin add leoweb-cc-plugins/leoweb-dev
+Dans Claude Code, exécuter les commandes slash suivantes :
+
+```
+/plugin marketplace add leoweb57/cc-plugins
+/plugin install leoweb-dev@leoweb57/cc-plugins
 ```
 
 ## Structure
