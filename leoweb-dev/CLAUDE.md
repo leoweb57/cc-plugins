@@ -6,45 +6,45 @@ Ce plugin fournit des agents, skills et commandes spécialisés. Consulte cette 
 
 ### Skills (déclenchés automatiquement ou manuellement)
 
-| Skill | Déclencheur automatique | Description |
-|---|---|---|
-| `check-deps` | Avant d'implémenter du code utilisant une lib/framework externe | Vérifie les versions et APIs actuelles via Context7, Exa, Tavily, DeepWiki, WebSearch, Firecrawl |
-| `web-research` | Recherche d'information sur le web (veille, investigation, analyse) | Orchestration multi-sources en parallèle avec synthèse croisée |
-| `verify-implementation` | Après implémentation d'une feature | Vérifie que le code produit correspond au plan et aux exigences |
-| `tailwind-design-system` | Travail sur du styling Tailwind, design tokens, composants UI | Patterns CVA, compound components, dark mode, design tokens |
-| `nextjs-app-router-patterns` | Travail avec Next.js App Router | Server Components, streaming, routes parallèles, Server Actions, cache |
-| `brainstorm` | Analyse multi-perspectives d'une solution technique | Équipe de 7 agents spécialisés (architecture, performance, sécurité, UX, qualité, maintenabilité, valeur business) |
-| `business-experts` | Analyse stratégique/business d'un produit ou d'une décision | Panel de 9 experts business (Porter, Drucker, Christensen, Godin, Taleb, etc.) |
+| Skill                        | Déclencheur automatique                                             | Description                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `check-deps`                 | Avant d'implémenter du code utilisant une lib/framework externe     | Vérifie les versions et APIs actuelles via Context7, Exa, Tavily, DeepWiki, WebSearch, Firecrawl                   |
+| `web-research`               | Recherche d'information sur le web (veille, investigation, analyse) | Orchestration multi-sources en parallèle avec synthèse croisée                                                     |
+| `verify-implementation`      | Après implémentation d'une feature                                  | Vérifie que le code produit correspond au plan et aux exigences                                                    |
+| `tailwind-design-system`     | Travail sur du styling Tailwind, design tokens, composants UI       | Patterns CVA, compound components, dark mode, design tokens                                                        |
+| `nextjs-app-router-patterns` | Travail avec Next.js App Router                                     | Server Components, streaming, routes parallèles, Server Actions, cache                                             |
+| `brainstorm`                 | Analyse multi-perspectives d'une solution technique                 | Équipe de 7 agents spécialisés (architecture, performance, sécurité, UX, qualité, maintenabilité, valeur business) |
+| `business-experts`           | Analyse stratégique/business d'un produit ou d'une décision         | Panel de 9 experts business (Porter, Drucker, Christensen, Godin, Taleb, etc.)                                     |
 
 ### Agents (utilisables individuellement via l'outil Agent)
 
-| Agent | Quand l'utiliser |
-|---|---|
-| `react-developer` | Composants React, Next.js, state management, styling, accessibilité, performance frontend |
-| `mobile-developer` | React Native, Flutter, Expo, intégrations natives, offline-first, déploiement app stores |
-| `backend-developer` | APIs REST/GraphQL/gRPC, Node.js, TypeScript, Python, bases de données, authentification, architecture serveur, microservices, serverless |
-| `devops-engineer` | Docker, Kubernetes, CI/CD, Terraform, cloud, monitoring, sécurité infra, GitOps |
-| `data-engineer` | Modélisation de données, PostgreSQL, MongoDB, Redis, Prisma, migrations, optimisation requêtes, CQRS |
-| `deep-research` | Recherche approfondie avec stratégies adaptatives et exploration multi-sources |
-| `refactoring-expert` | Refactoring de code avec Serena, analyse d'impact, restructuration safe |
-| `root-cause-analyst` | Diagnostic de bugs complexes, analyse de traces d'exécution, identification de causes racines |
-| `quality-engineer` | Stratégie de tests, analyse de testabilité, couverture, qualité du code |
-| `brainstorm/architecture` | Évaluation de l'architecture technique, patterns, scalabilité |
-| `brainstorm/performance` | Analyse de performance, bottlenecks, optimisation |
-| `brainstorm/security` | Audit de sécurité, vulnérabilités, OWASP |
-| `brainstorm/user-experience` | UX, ergonomie, accessibilité, parcours utilisateur |
-| `brainstorm/quality-testing` | Stratégie de tests, couverture, edge cases |
-| `brainstorm/maintainability` | Maintenabilité, dette technique, lisibilité du code |
-| `brainstorm/business-value` | Valeur business, ROI, priorisation |
-| `business-experts/porter` | Stratégie concurrentielle, 5 forces, chaîne de valeur |
-| `business-experts/drucker` | Management, efficacité, innovation organisationnelle |
-| `business-experts/christensen` | Innovation disruptive, jobs-to-be-done |
-| `business-experts/godin` | Marketing, tribus, permission marketing, Purple Cow |
-| `business-experts/kim-mauborgne` | Océan bleu, création de nouveaux marchés |
-| `business-experts/collins` | Excellence durable, Good to Great, Hedgehog Concept |
-| `business-experts/taleb` | Antifragilité, risques, cygnes noirs, optionalité |
-| `business-experts/meadows` | Pensée systémique, boucles de rétroaction, leviers |
-| `business-experts/doumont` | Communication efficace, structuration de l'information |
+| Agent                            | Quand l'utiliser                                                                                                                         |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `react-developer`                | Composants React, Next.js, state management, styling, accessibilité, performance frontend                                                |
+| `mobile-developer`               | React Native, Flutter, Expo, intégrations natives, offline-first, déploiement app stores                                                 |
+| `backend-developer`              | APIs REST/GraphQL/gRPC, Node.js, TypeScript, Python, bases de données, authentification, architecture serveur, microservices, serverless |
+| `devops-engineer`                | Docker, Kubernetes, CI/CD, Terraform, cloud, monitoring, sécurité infra, GitOps                                                          |
+| `data-engineer`                  | Modélisation de données, PostgreSQL, MongoDB, Redis, Prisma, migrations, optimisation requêtes, CQRS                                     |
+| `deep-research`                  | Recherche approfondie avec stratégies adaptatives et exploration multi-sources                                                           |
+| `refactoring-expert`             | Refactoring de code avec Serena, analyse d'impact, restructuration safe                                                                  |
+| `root-cause-analyst`             | Diagnostic de bugs complexes, analyse de traces d'exécution, identification de causes racines                                            |
+| `quality-engineer`               | Stratégie de tests, analyse de testabilité, couverture, qualité du code                                                                  |
+| `brainstorm/architecture`        | Évaluation de l'architecture technique, patterns, scalabilité                                                                            |
+| `brainstorm/performance`         | Analyse de performance, bottlenecks, optimisation                                                                                        |
+| `brainstorm/security`            | Audit de sécurité, vulnérabilités, OWASP                                                                                                 |
+| `brainstorm/user-experience`     | UX, ergonomie, accessibilité, parcours utilisateur                                                                                       |
+| `brainstorm/quality-testing`     | Stratégie de tests, couverture, edge cases                                                                                               |
+| `brainstorm/maintainability`     | Maintenabilité, dette technique, lisibilité du code                                                                                      |
+| `brainstorm/business-value`      | Valeur business, ROI, priorisation                                                                                                       |
+| `business-experts/porter`        | Stratégie concurrentielle, 5 forces, chaîne de valeur                                                                                    |
+| `business-experts/drucker`       | Management, efficacité, innovation organisationnelle                                                                                     |
+| `business-experts/christensen`   | Innovation disruptive, jobs-to-be-done                                                                                                   |
+| `business-experts/godin`         | Marketing, tribus, permission marketing, Purple Cow                                                                                      |
+| `business-experts/kim-mauborgne` | Océan bleu, création de nouveaux marchés                                                                                                 |
+| `business-experts/collins`       | Excellence durable, Good to Great, Hedgehog Concept                                                                                      |
+| `business-experts/taleb`         | Antifragilité, risques, cygnes noirs, optionalité                                                                                        |
+| `business-experts/meadows`       | Pensée systémique, boucles de rétroaction, leviers                                                                                       |
+| `business-experts/doumont`       | Communication efficace, structuration de l'information                                                                                   |
 
 Les agents `brainstorm/*` et `business-experts/*` peuvent être invoqués individuellement ou orchestrés en équipe via leurs skills respectifs (`brainstorm` et `business-experts`).
 
@@ -61,6 +61,7 @@ Avant d'implémenter du code qui utilise une librairie, framework, SDK ou techno
 ## Dates et timestamps obligatoires via MCP Time
 
 Ne JAMAIS inventer, deviner ou estimer une date, une heure ou un timestamp. Utilise systématiquement le MCP Time (`get_current_time`) chaque fois que tu as besoin de :
+
 - Générer un timestamp (noms de fichiers de migration, logs, identifiants horodatés)
 - Écrire une date dans du code, un fichier ou un document
 - Savoir quel jour ou quelle heure il est
@@ -75,33 +76,36 @@ Le MCP Serena apporte une couche d'intelligence sémantique sur la codebase via 
 ### Outils clés
 
 **Navigation sémantique** — explorer le code par sa structure, pas par du texte :
+
 - `get_symbols_overview` : vue d'ensemble des symboles d'un fichier (classes, fonctions, méthodes) sans lire tout le code
 - `find_symbol` : trouver un symbole par son nom (avec `include_body=True` pour lire son contenu, `depth=1` pour ses enfants)
 - `find_referencing_symbols` : trouver tous les endroits qui utilisent un symbole (appelants, importeurs, implémentations)
 
 **Édition symbolique** — modifier le code par sa structure, pas par recherche-remplacement textuel :
+
 - `replace_symbol_body` : remplacer le corps d'une fonction/méthode/classe entière
 - `insert_after_symbol` / `insert_before_symbol` : insérer du code à une position précise dans la structure
 - `rename_symbol` : renommer un symbole et toutes ses références automatiquement
 
 **Recherche et fichiers** :
+
 - `search_for_pattern` : recherche rapide par regex dans la codebase
 - `find_file` : trouver un fichier par son nom
 - `list_dir` : lister un répertoire
 
 ### Quand utiliser Serena plutôt que les outils natifs
 
-| Besoin | Outil natif | Serena | Préférer |
-|---|---|---|---|
-| Trouver un fichier par nom | Glob | `find_file` | Glob (plus rapide) |
-| Chercher du texte dans le code | Grep | `search_for_pattern` | Grep (plus rapide) |
-| Comprendre la structure d'un fichier | Read (tout le fichier) | `get_symbols_overview` | **Serena** (économise des tokens) |
-| Lire une seule méthode | Read + chercher manuellement | `find_symbol` avec `include_body=True` | **Serena** (précis) |
-| Trouver qui appelle une fonction | Grep sur le nom | `find_referencing_symbols` | **Serena** (sémantique, pas textuel) |
-| Analyser les dépendances d'un module | Grep sur les imports | `find_referencing_symbols` | **Serena** (suit les vrais liens) |
-| Renommer une variable/fonction partout | Edit avec `replace_all` | `rename_symbol` | **Serena** (safe, pas de faux positifs) |
-| Remplacer le corps d'une fonction | Edit (match textuel) | `replace_symbol_body` | **Serena** (pas de risque de match partiel) |
-| Ajouter une méthode à une classe | Edit (trouver le bon endroit) | `insert_after_symbol` | **Serena** (positionnement exact) |
+| Besoin                                 | Outil natif                   | Serena                                 | Préférer                                    |
+| -------------------------------------- | ----------------------------- | -------------------------------------- | ------------------------------------------- |
+| Trouver un fichier par nom             | Glob                          | `find_file`                            | Glob (plus rapide)                          |
+| Chercher du texte dans le code         | Grep                          | `search_for_pattern`                   | Grep (plus rapide)                          |
+| Comprendre la structure d'un fichier   | Read (tout le fichier)        | `get_symbols_overview`                 | **Serena** (économise des tokens)           |
+| Lire une seule méthode                 | Read + chercher manuellement  | `find_symbol` avec `include_body=True` | **Serena** (précis)                         |
+| Trouver qui appelle une fonction       | Grep sur le nom               | `find_referencing_symbols`             | **Serena** (sémantique, pas textuel)        |
+| Analyser les dépendances d'un module   | Grep sur les imports          | `find_referencing_symbols`             | **Serena** (suit les vrais liens)           |
+| Renommer une variable/fonction partout | Edit avec `replace_all`       | `rename_symbol`                        | **Serena** (safe, pas de faux positifs)     |
+| Remplacer le corps d'une fonction      | Edit (match textuel)          | `replace_symbol_body`                  | **Serena** (pas de risque de match partiel) |
+| Ajouter une méthode à une classe       | Edit (trouver le bon endroit) | `insert_after_symbol`                  | **Serena** (positionnement exact)           |
 
 **Règle générale** : utilise Serena dès que tu travailles sur la **structure** du code (symboles, dépendances, refactoring). Utilise les outils natifs pour les recherches textuelles simples et la lecture de fichiers non-code.
 
@@ -128,12 +132,23 @@ Le MCP Firecrawl transforme n'importe quelle page web en Markdown propre, débar
 
 ### Quand utiliser Firecrawl
 
-| Besoin | Outil alternatif | Firecrawl | Préférer |
-|---|---|---|---|
-| Lire le contenu d'une page web | `WebFetch` | `firecrawl_scrape` | **Firecrawl** (Markdown propre, sans boilerplate) |
-| Rechercher sur le web + lire les résultats | `WebSearch` puis `WebFetch` | `firecrawl_search` | **Firecrawl** (une seule étape, contenu complet) |
-| Lire la doc complète d'un projet | `WebFetch` page par page | `firecrawl_crawl` | **Firecrawl** (crawl automatique de tout le site) |
-| Scraper plusieurs pages | `WebFetch` en boucle | `firecrawl_batch_scrape` | **Firecrawl** (parallèle, plus fiable) |
-| Recherche technique (docs, APIs) | Context7, Exa | Context7, Exa | Context7/Exa (plus spécialisés pour les docs techniques) |
+| Besoin                                     | Outil alternatif            | Firecrawl                | Préférer                                                 |
+| ------------------------------------------ | --------------------------- | ------------------------ | -------------------------------------------------------- |
+| Lire le contenu d'une page web             | `WebFetch`                  | `firecrawl_scrape`       | **Firecrawl** (Markdown propre, sans boilerplate)        |
+| Rechercher sur le web + lire les résultats | `WebSearch` puis `WebFetch` | `firecrawl_search`       | **Firecrawl** (une seule étape, contenu complet)         |
+| Lire la doc complète d'un projet           | `WebFetch` page par page    | `firecrawl_crawl`        | **Firecrawl** (crawl automatique de tout le site)        |
+| Scraper plusieurs pages                    | `WebFetch` en boucle        | `firecrawl_batch_scrape` | **Firecrawl** (parallèle, plus fiable)                   |
+| Recherche technique (docs, APIs)           | Context7, Exa               | Context7, Exa            | Context7/Exa (plus spécialisés pour les docs techniques) |
 
 **Règle générale** : utilise Firecrawl dès que tu as besoin de **lire le contenu réel** d'une page web. Utilise Context7/Exa pour la recherche de documentation technique. Utilise `WebSearch` pour les recherches rapides où tu n'as pas besoin du contenu complet.
+
+## Playwright — Screenshots et tests visuels
+
+Quand tu utilises `browser_take_screenshot` :
+
+- Ne passe **JAMAIS** un `filename` sans préfixer le chemin par `.playwright-mcp/`. Exemples :
+- Correct : `filename: ".playwright-mcp/ma-capture.png"`
+- Incorrect : `filename: "ma-capture.png"` (atterrit à la racine du projet)
+- Si tu n'as pas besoin d'un nom spécifique, **ne passe pas de `filename`** du tout — le screenshot sera automatiquement sauvé dans
+  `.playwright-mcp/` avec un nom horodaté.
+- Le viewport est configuré en 1920x1080. Ne pas appeler `browser_resize` sauf demande explicite de l'utilisateur.
