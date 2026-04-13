@@ -6,13 +6,18 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
 
 ## Phase 1 : Vérification
 
-1. Vérifie qu'on n'est pas sur `main` — sinon avertit :
+1. **Rafraîchir l'état Git** — le `gitStatus` du début de conversation peut être obsolète (l'utilisateur a pu créer/changer de branche depuis). Exécute systématiquement :
+   ```bash
+   git fetch origin && git branch --show-current
+   ```
+   Utilise le résultat de `git branch --show-current` comme source de vérité pour la branche courante. Ne JAMAIS se fier au `gitStatus` initial de la conversation.
+2. Vérifie qu'on n'est pas sur `main` — sinon avertit :
    > ⚠️ Tu es sur `main`. Crée ta branche d'abord, puis relance `/feature`.
-2. Détecte la branche courante et en extrait le slug
+3. Détecte la branche courante (obtenue à l'étape 1) et en extrait le slug
    - Format attendu : `feature/slug`, `fix/slug`, ou `dev/slug` (ex: `feature/multi-project-support`)
    - Formats alternatifs acceptés : `username/slug`, `ticket-id-slug`
    - Si le format ne correspond pas : demande le contexte à l'utilisateur
-3. Résout le dossier spec pour cette branche :
+4. Résout le dossier spec pour cette branche :
    - Cherche un dossier existant via glob `docs/specs/*-slug/` (le préfixe numérique est variable)
    - Si trouvé : utilise ce dossier (reprise de travail ou `/deliver` déjà passé)
    - Si pas trouvé : sera créé en Phase 3 avec le prochain index disponible
@@ -21,19 +26,19 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
 
 ### Étape 2a — Recueil initial
 
-4. Demande à l'utilisateur :
+5. Demande à l'utilisateur :
    - **Ce qu'on souhaite implémenter** : description libre de la tâche
    - **Référence de ticket** (optionnel) : si un ticket existe
 
    Si le ticket est une issue GitHub (ex: `#42` ou URL GitHub), utiliser le **MCP GitHub** (`get_issue`) pour récupérer automatiquement le titre, la description, les commentaires et les labels afin d'enrichir le contexte.
 
-5. À partir de ces éléments, déduit grosse maille :
+6. À partir de ces éléments, déduit grosse maille :
    - Le **type** de travail : `feat` (nouvelle fonctionnalité), `fix` (correction de bug), `dev` (refacto, config, docs)
    - Les **modules potentiellement impactés** : frontend, backend, shared, docker, docker-compose, config
 
 ### Étape 2b — Analyse historique + codebase (en parallèle)
 
-6. **Analyse historique** — parcourt la documentation existante :
+7. **Analyse historique** — parcourt la documentation existante :
    - `docs/specs/` : lit `summary.md` et `changes.md` des specs qui touchent les mêmes modules/fichiers
    - `docs/adr/` : décisions architecturales en vigueur sur les modules concernés
    - `docs/architecture/overview.md` : contexte global
@@ -43,7 +48,7 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
      - Pièges évités, approches écartées
      - Erreurs et points sensibles signalés dans les `review.md`
 
-7. **Exploration du code actuel** — dans le périmètre identifié, en utilisant **Serena** pour une exploration sémantique efficace. Si le périmètre implique des librairies open-source, activer le skill `check-deps` pour vérifier les APIs et contraintes architecturales :
+8. **Exploration du code actuel** — dans le périmètre identifié, en utilisant **Serena** pour une exploration sémantique efficace. Si le périmètre implique des librairies open-source, activer le skill `check-deps` pour vérifier les APIs et contraintes architecturales :
    - `get_symbols_overview` pour comprendre la structure des modules concernés sans lire tout le code
    - `find_symbol` pour inspecter les interfaces et signatures clés
    - `find_referencing_symbols` pour cartographier les dépendances entre composants
@@ -51,29 +56,29 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
 
 ### Étape 2c — Brainstorming itératif enrichi
 
-8. Présente à l'utilisateur le **contexte complet** :
+9. Présente à l'utilisateur le **contexte complet** :
    - **Contraintes de l'existant** : code actuel, patterns en place, interfaces à respecter
    - **Historique pertinent** : problèmes passés, choix techniques, pièges évités
    - **ADR en vigueur** qui s'appliquent au périmètre
    - Si rien de pertinent n'a été trouvé, le signale aussi
 
-9. Itère avec l'utilisateur :
+10. Itère avec l'utilisateur :
    - Questions de précision sur le besoin
    - Définition du **périmètre précis** avec limites et contraintes
    - **Critères d'acceptation** : ce que l'utilisateur devrait observer fonctionnellement pour considérer le travail comme réussi
    - Arbitrages éclairés par le contexte
    - Continue jusqu'à avoir une vision complète : besoin, périmètre, contraintes, critères d'acceptation
 
-10. Résume et demande validation avant de passer à la spec
+11. Résume et demande validation avant de passer à la spec
 
 ## Phase 3 : Spec (enrichie)
 
-11. Crée le dossier spec (si pas déjà trouvé à l'étape 3) :
+12. Crée le dossier spec (si pas déjà trouvé à l'étape 4) :
     - Scanne `docs/specs/` pour trouver le plus grand index numérique existant parmi les dossiers `NNN-*` (ignore `_template`)
     - Crée `docs/specs/NNN-slug/` avec NNN = max + 1, padding sur 3 chiffres (ex: `007-multi-project-support`)
     - Si le dossier existait déjà (reprise) : le réutilise tel quel
 
-12. Génère `spec.md` dans ce dossier :
+13. Génère `spec.md` dans ce dossier :
     - Référence du ticket (si fournie)
     - Type (déduit)
     - Titre et description
@@ -86,17 +91,17 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
 
 ## Phase 4 : Planification
 
-13. Passe en mode planification natif de Claude Code en lui fournissant comme contexte :
+14. Passe en mode planification natif de Claude Code en lui fournissant comme contexte :
     - La spec enrichie (critères d'acceptation, périmètre, contraintes, risques)
     - Les ADR et contraintes architecturales en vigueur
 
-14. Laisse Claude Code faire son travail de planification : brainstorming technique, découpage en phases, identification des tâches, analyse de la codebase, proposition du plan à l'utilisateur. Pour les features complexes (multi-modules, changements architecturaux), utiliser le MCP **sequential-thinking** (`sequentialthinking`) pour décomposer le problème en sous-problèmes et structurer le plan.
+15. Laisse Claude Code faire son travail de planification : brainstorming technique, découpage en phases, identification des tâches, analyse de la codebase, proposition du plan à l'utilisateur. Pour les features complexes (multi-modules, changements architecturaux), utiliser le MCP **sequential-thinking** (`sequentialthinking`) pour décomposer le problème en sous-problèmes et structurer le plan.
 
-15. Quand l'utilisateur valide le plan, **AVANT toute implémentation** :
-    - **OBLIGATOIRE** : écrire `plan.md` dans le dossier spec résolu à l'étape 3, en suivant le template `docs/specs/_template/plan.md`
+16. Quand l'utilisateur valide le plan, **AVANT toute implémentation** :
+    - **OBLIGATOIRE** : écrire `plan.md` dans le dossier spec résolu à l'étape 4, en suivant le template `docs/specs/_template/plan.md`
     - Le fichier doit être une transcription fidèle et complète du plan : phases, tâches, contraintes techniques, scénarios de test, risques
     - **POINT DE CONTRÔLE** : vérifier que `plan.md` existe et est complet. Ne JAMAIS passer à l'implémentation sans ce fichier.
 
 ## Phase 5 : Implémentation
 
-16. Une fois `plan.md` écrit et vérifié, lance l'implémentation en suivant le plan sauvegardé.
+17. Une fois `plan.md` écrit et vérifié, lance l'implémentation en suivant le plan sauvegardé.
