@@ -1,0 +1,1 @@
+Source : [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) (`config/skills/langgraph-persistence`, commit 704e9f4), licence MIT. Copié sans modification (hors `agents/openai.yaml`, spécifique à Codex).

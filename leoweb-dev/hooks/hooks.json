@@ -1,5 +1,5 @@
 {
-    "description": "Injecte le CLAUDE.md du plugin dans le contexte à chaque début de session (découpé en parties de moins de 10 000 caractères)",
+    "description": "Injecte le CLAUDE.md du plugin à chaque début de session (découpé en parties de moins de 10 000 caractères) et prépare l'environnement des sessions lancées dans un worktree",
     "hooks": {
         "SessionStart": [
             {
@@ -20,6 +20,15 @@
                     {
                         "type": "command",
                         "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.sh\" 4"
+                    }
+                ]
+            },
+            {
+                "matcher": "startup|resume",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/setup-worktree.sh\""
                     }
                 ]
             }

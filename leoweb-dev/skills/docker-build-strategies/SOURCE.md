@@ -1,0 +1,1 @@
+Source : [docker/skills](https://github.com/docker/skills) (`skills/docker-build-strategies`, commit 38df58b), licence Apache-2.0. Modifications : traduit en français ; fichiers `skill.yaml` et `agents/openai.yaml` (spécifiques Docker/Codex) retirés.

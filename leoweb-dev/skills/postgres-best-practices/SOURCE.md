@@ -1,0 +1,1 @@
+Source : [supabase/agent-skills](https://github.com/supabase/agent-skills) (`skills/supabase-postgres-best-practices`, commit c9be0e9), licence MIT. Modifications : traduit en français, renommé `postgres-best-practices`.

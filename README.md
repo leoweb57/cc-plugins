@@ -17,7 +17,7 @@ Dans Claude Code, exécuter les commandes slash suivantes :
 leoweb-dev/
 ├── CLAUDE.md              # Règles et catalogue des ressources
 ├── .mcp.json              # Serveurs MCP (Serena, Context7, Exa, Tavily, etc.)
-├── hooks/                 # Hook SessionStart qui injecte CLAUDE.md dans chaque session
+├── hooks/                 # Hooks SessionStart : injection de CLAUDE.md, préparation des worktrees
 ├── agents/                # Agents spécialisés
 │   ├── brainstorm/        # 7 agents d'analyse multi-perspectives
 │   ├── business-experts/  # 9 experts business stratégiques
@@ -43,7 +43,11 @@ leoweb-dev/
 │   ├── nextjs-app-router-patterns/
 │   ├── brainstorm/
 │   ├── business-experts/
-│   └── karpathy-guidelines/
+│   ├── karpathy-guidelines/
+│   ├── docker-compose-patterns/, docker-build-strategies/   # traduits (docker/skills)
+│   ├── postgres-best-practices/                            # traduit (supabase/agent-skills)
+│   ├── playwright-e2e/                                     # traduit (testdino-hq/playwright-skill)
+│   └── langchain-*, langgraph-*, deep-agents-*, langfuse…  # 24 skills officiels LangChain et Langfuse (en anglais)
 └── shared/                # Ressources partagées entre commandes
 ```
 
@@ -68,6 +72,12 @@ leoweb-dev/
 | `brainstorm`                 | analyse multi-perspectives d'une solution technique         | Lance une équipe de 7 agents en parallèle (architecture, performance, sécurité, UX, qualité, maintenabilité, valeur business)                           |
 | `business-experts`           | analyse stratégique/business d'un produit ou d'une décision | Convoque un panel de 9 experts business (Porter, Drucker, Christensen, Godin, Kim & Mauborgne, Collins, Taleb, Meadows, Doumont)                        |
 | `karpathy-guidelines`        | écriture, relecture ou refactoring de code                  | 4 règles Karpathy : réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables              |
+| `docker-compose-patterns`    | création ou débogage d'un `compose.yaml`                    | Services, healthchecks, ordre de démarrage, volumes, réseaux, overrides de dev (Docker Inc., traduit) |
+| `docker-build-strategies`    | écriture ou optimisation d'un Dockerfile                    | Builds multi-stage, cache de couches, images légères (Docker Inc., traduit) |
+| `postgres-best-practices`    | schéma, migrations, index, requêtes, diagnostic PostgreSQL  | Bonnes pratiques PostgreSQL maintenues par Supabase, valables pour tout Postgres (traduit) |
+| `playwright-e2e`             | écriture ou débogage de tests Playwright                    | 50 guides : locators, assertions, fixtures, mocks réseau, auth, tests instables, CI, React/Vue (TestDino, traduit) |
+| LangChain / LangGraph / Deep Agents | développement d'applications LLM en Python ou TypeScript | 22 skills officiels `langchain-ai/langchain-skills` (fondamentaux, persistance, human-in-the-loop, RAG, middleware, dépendances, évaluation…), en anglais |
+| `langfuse`, `migrate-to-langfuse` | instrumentation, prompts, évaluations Langfuse          | Skills officiels `langfuse/skills`, en anglais |
 
 ## Agents
 
@@ -143,10 +153,14 @@ Règles injectées :
 - **Périmètre** — Ne fait que ce qui est demandé, propose les améliorations et attend l'accord avant de les implémenter
 - **Règles Karpathy** — Réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables
 - **Bascule dynamique de modèle** — Délègue chaque sous-tâche au modèle adapté (`fable`, `opus`, `sonnet`, `haiku`) selon sa complexité, y compris dans les workflows
-- **Organisation de l'implémentation** — Tâches indépendantes en lots parallèles suivis d'un test groupé, tâches dépendantes en séquentiel, outillage de test mutualisé
+- **Organisation de l'implémentation** — Tâches indépendantes en lots parallèles suivis d'un test groupé, tâches dépendantes en séquentiel, outillage de test mutualisé ; propose des agents indépendants en worktree (`claude --worktree`, `claude --bg`) pour des features entières indépendantes
 - **Tests délégués à la CI** — Si la CI couvre les tests : un commit par lot, push sur la branche de feature (jamais `main`), surveillance du pipeline en arrière-plan pendant le lot suivant
 - **Recherche web et vérification technologique proportionnées** — `web-research` en mode léger par défaut, `check-deps` seulement pour une lib nouvelle ou une montée de version majeure
 - **MCP Time** — Pour toute date ou timestamp écrit dans un fichier
 - **Serena** — Navigation et édition sémantique du code
+
+**Worktrees** : dans une session lancée avec `claude --worktree` ou `claude --bg`, le hook `hooks/setup-worktree.sh` copie les fichiers `.env*` ignorés du dépôt principal et exporte `COMPOSE_PROJECT_NAME` (unique par worktree), `WORKTREE_NAME` et `WORKTREE_HOST_PREFIX` pour faire tourner plusieurs stacks Docker/Traefik en parallèle. Il ne fait rien hors worktree.
+
+**Skills tiers** : chaque skill copié contient sa licence d'origine (`LICENSE.txt`) et sa source exacte (`SOURCE.md`, avec le commit). Pour les mettre à jour, recopier depuis le dépôt d'origine.
 
 **GitLab** : le serveur MCP utilise `https://gitlab.com/api/v4` par défaut. Pour une instance auto-hébergée, définir `GITLAB_API_URL` (et `GITLAB_PERSONAL_ACCESS_TOKEN`) dans l'environnement du shell qui lance Claude Code : un fichier `.env` du projet n'est pas lu par Claude Code, sauf s'il est chargé dans le shell (ex. `direnv`).

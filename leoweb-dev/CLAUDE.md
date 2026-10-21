@@ -2,7 +2,7 @@
 
 ## Catalogue des ressources disponibles
 
-**Skills** : `check-deps` (APIs à jour d'une lib nouvelle ou montée de version majeure), `web-research` (recherche web proportionnée, multi-sources si besoin), `verify-implementation` (vérification avant d'annoncer la fin), `karpathy-guidelines` (règles de code), `tailwind-design-system`, `nextjs-app-router-patterns`, `brainstorm` (7 agents d'analyse multi-perspectives), `business-experts` (panel de 9 experts business).
+**Skills** : `check-deps` (APIs à jour d'une lib nouvelle ou montée de version majeure), `web-research` (recherche web proportionnée, multi-sources si besoin), `verify-implementation` (vérification avant d'annoncer la fin), `karpathy-guidelines` (règles de code), `tailwind-design-system`, `nextjs-app-router-patterns`, `brainstorm` (7 agents d'analyse multi-perspectives), `business-experts` (panel de 9 experts business), `docker-compose-patterns`, `docker-build-strategies`, `postgres-best-practices`, `playwright-e2e` (écriture de tests E2E), et les skills officiels LangChain/LangGraph/Deep Agents et Langfuse.
 
 **Agents techniques** : `react-developer`, `mobile-developer`, `backend-developer`, `devops-engineer`, `data-engineer`, `deep-research`, `refactoring-expert` (Serena, analyse d'impact), `root-cause-analyst` (bugs complexes), `quality-engineer` (stratégie de tests).
 
@@ -120,6 +120,17 @@ Le plan affiche explicitement la séquence :
 Lot 1 (parallèle) : titre | footer | envoi d'email → test groupé : 1 session Playwright + test API email
 Lot 2 (séquentiel) : migration BDD → test → endpoint → test
 ```
+
+### Agents indépendants en worktree
+
+Les sous-agents servent aux tâches d'un lot : même session, tests groupés. Quand le travail contient des **features entières et indépendantes**, assez longues pour mériter chacune leur branche, leur CI et leur stack Docker, **propose** à l'utilisateur de les confier à des agents indépendants, chacun dans son worktree, et attends son accord :
+
+- `claude --worktree <nom>` : session interactive dans un nouveau worktree.
+- `claude --bg "<consigne>"` : session en arrière-plan, isolée dans son worktree, suivie avec `claude agents`.
+
+Donne pour chaque agent une consigne autonome : périmètre, branche, critères d'acceptation, tests attendus.
+
+Dans un worktree, le plugin (hook `SessionStart`) copie les fichiers `.env*` ignorés du dépôt principal et exporte `COMPOSE_PROJECT_NAME` (unique par worktree), `WORKTREE_NAME` et `WORKTREE_HOST_PREFIX`. Pour que plusieurs stacks tournent en parallèle, le `compose.yaml` ne doit pas fixer de `container_name`, ni de port hôte en dur (utiliser une variable), et les règles Traefik doivent dépendre de ces variables (ex. ``Host(`${WORKTREE_HOST_PREFIX:-}app.localhost`)``, routeur nommé avec `${COMPOSE_PROJECT_NAME}`). Si la stack du projet ne le permet pas, signale-le et propose l'adaptation sans l'appliquer d'office.
 
 ## Tests délégués à la CI
 
