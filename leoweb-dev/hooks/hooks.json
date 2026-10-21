@@ -1,0 +1,28 @@
+{
+    "description": "Injecte le CLAUDE.md du plugin dans le contexte à chaque début de session (découpé en parties de moins de 10 000 caractères)",
+    "hooks": {
+        "SessionStart": [
+            {
+                "matcher": "startup|resume|clear|compact",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.sh\" 1"
+                    },
+                    {
+                        "type": "command",
+                        "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.sh\" 2"
+                    },
+                    {
+                        "type": "command",
+                        "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.sh\" 3"
+                    },
+                    {
+                        "type": "command",
+                        "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/inject-claude-md.sh\" 4"
+                    }
+                ]
+            }
+        ]
+    }
+}

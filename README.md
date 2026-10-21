@@ -17,6 +17,7 @@ Dans Claude Code, exécuter les commandes slash suivantes :
 leoweb-dev/
 ├── CLAUDE.md              # Règles et catalogue des ressources
 ├── .mcp.json              # Serveurs MCP (Serena, Context7, Exa, Tavily, etc.)
+├── hooks/                 # Hook SessionStart qui injecte CLAUDE.md dans chaque session
 ├── agents/                # Agents spécialisés
 │   ├── brainstorm/        # 7 agents d'analyse multi-perspectives
 │   ├── business-experts/  # 9 experts business stratégiques
@@ -41,7 +42,8 @@ leoweb-dev/
 │   ├── tailwind-design-system/
 │   ├── nextjs-app-router-patterns/
 │   ├── brainstorm/
-│   └── business-experts/
+│   ├── business-experts/
+│   └── karpathy-guidelines/
 └── shared/                # Ressources partagées entre commandes
 ```
 
@@ -65,6 +67,7 @@ leoweb-dev/
 | `nextjs-app-router-patterns` | travail Next.js                                             | Server Components, streaming Suspense, routes parallèles/interceptées, Server Actions, stratégies de cache                                              |
 | `brainstorm`                 | analyse multi-perspectives d'une solution technique         | Lance une équipe de 7 agents en parallèle (architecture, performance, sécurité, UX, qualité, maintenabilité, valeur business)                           |
 | `business-experts`           | analyse stratégique/business d'un produit ou d'une décision | Convoque un panel de 9 experts business (Porter, Drucker, Christensen, Godin, Kim & Mauborgne, Collins, Taleb, Meadows, Doumont)                        |
+| `karpathy-guidelines`        | écriture, relecture ou refactoring de code                  | 4 règles Karpathy : réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables              |
 
 ## Agents
 
@@ -132,8 +135,14 @@ Le plugin déclare les serveurs MCP suivants dans `.mcp.json` :
 
 ## Règles CLAUDE.md
 
-Le fichier `CLAUDE.md` injecte des règles automatiques dans chaque conversation :
+Le fichier `CLAUDE.md` est injecté dans le contexte au début de chaque session par un hook `SessionStart` (`hooks/hooks.json`). Claude Code ne charge pas de lui-même le `CLAUDE.md` d'un plugin, et tronque toute sortie de hook au-delà d'environ 10 000 caractères : le script `hooks/inject-claude-md.sh` découpe donc le fichier entre deux sections `##` et chaque entrée du hook injecte une partie. Le fichier reste la seule source à modifier.
 
+Pour tester en local avant de déployer : `claude --plugin-dir ./leoweb-dev`, puis poser une question dont la réponse est dans `CLAUDE.md`.
+
+Règles injectées :
+
+- **Règles Karpathy** — Réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables
+- **Bascule dynamique de modèle** — Délègue chaque sous-tâche au modèle adapté (`fable`, `opus`, `sonnet`, `haiku`) selon sa complexité, y compris dans les workflows
 - **Vérification technologique obligatoire** — Déclenche `check-deps` avant d'utiliser une lib externe
 - **Recherche web multi-sources** — Déclenche `web-research` pour toute investigation web
 - **MCP Time obligatoire** — Interdit d'inventer des dates, impose `get_current_time`
