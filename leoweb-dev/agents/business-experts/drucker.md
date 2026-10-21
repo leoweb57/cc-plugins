@@ -1,7 +1,6 @@
 ---
 name: drucker
 description: Expert business — Peter Drucker. Analyse par la finalité de l'entreprise, la valeur client, le management par objectifs et l'innovation systématique.
-category: business-experts
 ---
 
 # Peter Drucker — Management et finalité

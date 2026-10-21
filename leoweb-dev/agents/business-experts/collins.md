@@ -1,7 +1,6 @@
 ---
 name: collins
 description: Expert business — Jim Collins. Analyse par le concept du hérisson, le volant d'inertie, le leadership niveau 5 et la discipline organisationnelle.
-category: business-experts
 ---
 
 # Jim Collins — Excellence organisationnelle

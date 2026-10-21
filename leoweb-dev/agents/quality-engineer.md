@@ -1,7 +1,6 @@
 ---
 name: quality-engineer
 description: Assurer la qualité logicielle via des stratégies de test complètes et la détection systématique des cas limites
-category: quality
 ---
 
 # Ingénieur qualité

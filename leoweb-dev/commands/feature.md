@@ -1,6 +1,6 @@
 # /feature - Démarrer un nouveau travail
 
-Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle structure la demande, analyse l'historique et le code existant, itère avec l'utilisateur en connaissance de cause, puis lance la planification. Elle ne touche pas à Git (pas de création de branche, pas de commit, pas de push).
+Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle structure la demande, analyse l'historique et le code existant, itère avec l'utilisateur en connaissance de cause, puis lance la planification. Elle ne crée pas de branche. En phase d'implémentation, si les tests sont délégués à la CI, elle commite et pousse sur la branche courante selon les garde-fous de la section « Tests délégués à la CI » du CLAUDE.md du plugin (jamais sur `main`).
 
 **Prérequis** : l'utilisateur a déjà créé sa branche et est dessus.
 
@@ -48,7 +48,7 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
      - Pièges évités, approches écartées
      - Erreurs et points sensibles signalés dans les `review.md`
 
-8. **Exploration du code actuel** — dans le périmètre identifié, en utilisant **Serena** pour une exploration sémantique efficace. Si le périmètre implique des librairies open-source, activer le skill `check-deps` pour vérifier les APIs et contraintes architecturales :
+8. **Exploration du code actuel** — dans le périmètre identifié, en utilisant **Serena** pour une exploration sémantique efficace. Si le périmètre implique une librairie nouvelle dans le projet, une montée de version majeure ou une API incertaine, activer le skill `check-deps` ; sinon suivre les patterns existants :
    - `get_symbols_overview` pour comprendre la structure des modules concernés sans lire tout le code
    - `find_symbol` pour inspecter les interfaces et signatures clés
    - `find_referencing_symbols` pour cartographier les dépendances entre composants
@@ -97,11 +97,23 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
 
 15. Laisse Claude Code faire son travail de planification : brainstorming technique, découpage en phases, identification des tâches, analyse de la codebase, proposition du plan à l'utilisateur. Pour les features complexes (multi-modules, changements architecturaux), utiliser le MCP **sequential-thinking** (`sequentialthinking`) pour décomposer le problème en sous-problèmes et structurer le plan.
 
+    Le plan est construit pour optimiser le temps total (sections « Organisation de l'implémentation » et « Tests délégués à la CI » du CLAUDE.md du plugin) :
+    - Pour chaque tâche : ses dépendances, le modèle qui la réalise, sa vérification
+    - Tâches indépendantes regroupées en **lots parallèles** ; tâches dépendantes enchaînées en **séquentiel**
+    - Pour chaque lot : un test groupé, l'outillage mutualisé (Playwright, serveur, Docker, BDD), et qui l'exécute (**CI** si elle couvre ces tests, sinon **local**)
+    - Si la CI est utilisée : un commit par lot
+    - Liste des tests à écrire, avec la question posée à l'utilisateur : ajout à la CI ou test ponctuel
+
 16. Quand l'utilisateur valide le plan, **AVANT toute implémentation** :
-    - **OBLIGATOIRE** : écrire `plan.md` dans le dossier spec résolu à l'étape 4, en suivant le template `docs/specs/_template/plan.md`
-    - Le fichier doit être une transcription fidèle et complète du plan : phases, tâches, contraintes techniques, scénarios de test, risques
+    - **OBLIGATOIRE** : écrire `plan.md` dans le dossier spec résolu à l'étape 4, en suivant le template `docs/specs/_template/plan.md` (ajoute les sections lots, modèle par tâche et tests CI/local si le template ne les a pas)
+    - Le fichier doit être une transcription fidèle et complète du plan : phases, lots (parallèles ou séquentiels), tâches, contraintes techniques, scénarios de test (CI ou local), risques
     - **POINT DE CONTRÔLE** : vérifier que `plan.md` existe et est complet. Ne JAMAIS passer à l'implémentation sans ce fichier.
 
 ## Phase 5 : Implémentation
 
-17. Une fois `plan.md` écrit et vérifié, lance l'implémentation en suivant le plan sauvegardé.
+17. Une fois `plan.md` écrit et vérifié, lance l'implémentation en suivant le plan sauvegardé, lot par lot :
+    - **Lot parallèle** : un sous-agent par tâche, lancés dans un seul message, chacun avec une consigne autonome (contexte, fichiers, zone à modifier, vérification légère). Une fois tout le lot terminé, un seul passage de tests groupé.
+    - **Lot séquentiel** : chaque étape est testée avant de passer à la suivante.
+    - **CI disponible** : commit + push du lot sur la branche (après confirmation au premier push, fichiers du lot uniquement), surveillance du pipeline en arrière-plan, et démarrage du lot suivant sans attendre. Si la CI échoue, correction dans un nouveau commit.
+    - En cas d'échec d'un test : correction, puis relance uniquement des tests en échec.
+18. En fin de feature : passage final de `verify-implementation` contre les critères d'acceptation de `spec.md` (suite complète une seule fois, ou statut CI vert sur le dernier commit).

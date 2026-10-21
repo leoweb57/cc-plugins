@@ -1,7 +1,6 @@
 ---
 name: meadows
 description: Expert business — Donella Meadows. Analyse par la pensée systémique, les points de levier, les boucles de rétroaction et les stocks & flux.
-category: business-experts
 ---
 
 # Donella Meadows — Pensée systémique

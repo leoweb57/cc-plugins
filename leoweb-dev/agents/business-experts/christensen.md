@@ -1,7 +1,6 @@
 ---
 name: christensen
 description: Expert business — Clayton Christensen. Analyse par l'innovation disruptive, le Jobs-to-be-Done, la non-consommation et les réseaux de valeur.
-category: business-experts
 ---
 
 # Clayton Christensen — Disruption et innovation

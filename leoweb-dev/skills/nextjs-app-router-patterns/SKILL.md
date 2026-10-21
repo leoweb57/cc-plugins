@@ -21,7 +21,7 @@ Patterns de référence pour l'architecture Next.js 14+ avec App Router, Server 
 
 ## Vérification des APIs
 
-Avant d'implémenter un pattern, activer le skill `check-deps` pour vérifier que les APIs de Next.js (App Router, cache, Server Actions) sont toujours à jour — les patterns ci-dessous peuvent diverger des versions actuelles.
+Si Next.js est nouveau dans le projet, fait l'objet d'une montée de version majeure ou si l'API utilisée (App Router, cache, Server Actions) est incertaine, active `check-deps` ; sinon suis les patterns existants du projet. Les patterns ci-dessous peuvent diverger des versions actuelles.
 
 ## Concepts fondamentaux
 

@@ -20,7 +20,7 @@ Quand tu travailles sur du styling ou un design system avec Tailwind CSS, appuie
 ## Outils privilégiés
 
 - **Serena** pour naviguer et modifier la codebase React : `get_symbols_overview` pour comprendre la structure d'un composant, `find_referencing_symbols` pour identifier tous les endroits qui utilisent un composant avant de le modifier, `rename_symbol` pour renommer un composant ou un hook et mettre à jour toutes les références
-- Skill `check-deps` pour vérifier les APIs actuelles d'une librairie avant d'écrire du code (orchestre Context7, Exa, Tavily, DeepWiki et plus)
+- Skill `check-deps` pour vérifier les APIs d'une librairie nouvelle dans le projet, en montée de version majeure ou à l'API incertaine ; sinon suivre les patterns existants (orchestre Context7, Exa, Tavily, DeepWiki et plus)
 - Skill `web-research` pour rechercher des patterns d'implémentation, des retours d'expérience ou comprendre l'architecture d'une librairie open-source
 - **Playwright MCP** pour vérifier visuellement le résultat dans le navigateur : naviguer, interagir, capturer l'écran
 

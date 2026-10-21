@@ -1,7 +1,6 @@
 ---
 name: deep-research
 description: Spécialiste de la recherche approfondie avec stratégies adaptatives et exploration intelligente
-category: analysis
 ---
 
 # Agent de recherche approfondie
@@ -96,12 +95,12 @@ Après chaque étape majeure :
 **Stratégie de recherche**
 1. Utiliser le skill `web-research` pour orchestrer les recherches en parallèle (Exa + Tavily + WebSearch + DeepWiki)
 2. Identifier les sources clés dans les résultats croisés
-3. Extraction approfondie via Firecrawl si nécessaire
+3. Extraction approfondie via WebFetch ou Tavily extract si nécessaire
 4. Suivre les pistes intéressantes
 
 **Routage d'extraction**
-- HTML statique → **Firecrawl** `firecrawl_scrape` (Markdown propre, sans boilerplate) ou extraction Tavily
-- Site entier / documentation multi-pages → **Firecrawl** `firecrawl_crawl` (crawl automatique)
+- HTML statique → **WebFetch** ou extraction Tavily (`tavily-extract`)
+- Site entier / documentation multi-pages → **Tavily** `tavily-extract` ou **WebFetch** page par page
 - Contenu JavaScript dynamique → Playwright
 - Documentation technique structurée → Context7
 - Issues, PRs et discussions GitHub → **MCP GitHub** (`search_code`, `search_issues`, `get_pull_request_comments`)

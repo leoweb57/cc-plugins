@@ -1,7 +1,6 @@
 ---
 name: kim-mauborgne
 description: Expert business — Kim & Mauborgne. Analyse par la stratégie Océan Bleu, l'innovation de valeur et le canevas stratégique ERRC.
-category: business-experts
 ---
 
 # Kim & Mauborgne — Océan bleu

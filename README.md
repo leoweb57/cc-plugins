@@ -51,8 +51,8 @@ leoweb-dev/
 
 | Commande   | Description                                                                                   |
 | ---------- | --------------------------------------------------------------------------------------------- |
-| `/feature` | Workflow complet de développement : exploration du code, planification, implémentation, tests |
-| `/deliver` | Vérification qualité, tests finaux, commit structuré — prépare une feature pour la livraison  |
+| `/feature` | Workflow complet de développement : exploration du code, planification en lots parallèles, implémentation, tests groupés (délégués à la CI si possible, avec commit/push par lot sur la branche) |
+| `/deliver` | Génère la documentation de branche avant le push : changements, synthèse, revue, ADR, cohérence de la doc d'architecture |
 | `/merge`   | Analyse contextuelle des branches, cartographie des zones de friction, exécution du merge     |
 | `/resolve` | Résolution de conflits Git avec classification automatique et agents parallèles               |
 
@@ -60,8 +60,8 @@ leoweb-dev/
 
 | Skill                        | Déclencheur                                                 | Description                                                                                                                                             |
 | ---------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `check-deps`                 | avant d'utiliser une lib externe                            | Vérifie les versions et APIs actuelles via 6 sources (Context7, Exa, Tavily, DeepWiki, WebSearch, Firecrawl). Cache local dans `.claude/tech-research/` |
-| `web-research`               | recherche d'info sur le web                                 | Orchestration multi-sources en parallèle (Exa, Tavily, WebSearch, DeepWiki) + approfondissement Firecrawl, avec synthèse croisée et score de confiance  |
+| `check-deps` | lib nouvelle, montée de version majeure ou API incertaine | Vérifie les versions et APIs actuelles en commençant par Context7, puis Exa, Tavily, DeepWiki, WebSearch si besoin. Cache local dans `.claude/tech-research/` |
+| `web-research` | recherche d'info sur le web | Mode léger par défaut (une source) ; mode complet multi-sources en parallèle (Exa, Tavily, WebSearch, DeepWiki, WebFetch) pour les sujets complexes, avec synthèse croisée et score de confiance |
 | `verify-implementation`      | après implémentation                                        | Vérifie que le code produit correspond au plan et aux exigences                                                                                         |
 | `tailwind-design-system`     | travail Tailwind/UI                                         | Patterns CVA (Class Variance Authority), design tokens avec CSS variables, compound components, dark mode, grilles responsives                          |
 | `nextjs-app-router-patterns` | travail Next.js                                             | Server Components, streaming Suspense, routes parallèles/interceptées, Server Actions, stratégies de cache                                              |
@@ -126,7 +126,6 @@ Le plugin déclare les serveurs MCP suivants dans `.mcp.json` :
 | **Exa**                 | Recherche web sémantique et code context         |
 | **Tavily**              | Recherche web avec extraction de contenu         |
 | **DeepWiki**            | Documentation IA pour repos GitHub               |
-| **Firecrawl**           | Scraping web → Markdown propre                   |
 | **Playwright**          | Automatisation navigateur, tests E2E             |
 | **GitHub**              | Gestion repos, PRs, issues GitHub                |
 | **GitLab**              | Gestion repos, MRs, pipelines GitLab             |
@@ -141,10 +140,13 @@ Pour tester en local avant de déployer : `claude --plugin-dir ./leoweb-dev`, pu
 
 Règles injectées :
 
+- **Périmètre** — Ne fait que ce qui est demandé, propose les améliorations et attend l'accord avant de les implémenter
 - **Règles Karpathy** — Réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables
 - **Bascule dynamique de modèle** — Délègue chaque sous-tâche au modèle adapté (`fable`, `opus`, `sonnet`, `haiku`) selon sa complexité, y compris dans les workflows
-- **Vérification technologique obligatoire** — Déclenche `check-deps` avant d'utiliser une lib externe
-- **Recherche web multi-sources** — Déclenche `web-research` pour toute investigation web
-- **MCP Time obligatoire** — Interdit d'inventer des dates, impose `get_current_time`
-- **Serena prioritaire** — Guide d'utilisation détaillé avec tableau comparatif vs outils natifs
-- **Firecrawl prioritaire** — Guide d'utilisation avec tableau comparatif vs WebFetch/WebSearch
+- **Organisation de l'implémentation** — Tâches indépendantes en lots parallèles suivis d'un test groupé, tâches dépendantes en séquentiel, outillage de test mutualisé
+- **Tests délégués à la CI** — Si la CI couvre les tests : un commit par lot, push sur la branche de feature (jamais `main`), surveillance du pipeline en arrière-plan pendant le lot suivant
+- **Recherche web et vérification technologique proportionnées** — `web-research` en mode léger par défaut, `check-deps` seulement pour une lib nouvelle ou une montée de version majeure
+- **MCP Time** — Pour toute date ou timestamp écrit dans un fichier
+- **Serena** — Navigation et édition sémantique du code
+
+**GitLab** : le serveur MCP utilise `https://gitlab.com/api/v4` par défaut. Pour une instance auto-hébergée, définir `GITLAB_API_URL` (et `GITLAB_PERSONAL_ACCESS_TOKEN`) dans l'environnement du shell qui lance Claude Code : un fichier `.env` du projet n'est pas lu par Claude Code, sauf s'il est chargé dans le shell (ex. `direnv`).

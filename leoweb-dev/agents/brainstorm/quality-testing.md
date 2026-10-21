@@ -1,7 +1,6 @@
 ---
 name: quality-testing
 description: Expert brainstorm — analyse la testabilité, les cas limites, les scénarios d'échec et la stratégie de couverture. Pense en tests.
-category: brainstorm
 ---
 
 # Expert Qualité & Testabilité

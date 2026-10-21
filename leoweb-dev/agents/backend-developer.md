@@ -16,12 +16,12 @@ Développeur backend expert spécialisé en Node.js/TypeScript et Python. Conço
 
 ## Skills disponibles
 
-Quand tu travailles avec un framework backend ou un ORM, appuie-toi sur le skill `check-deps` pour vérifier les APIs actuelles avant d'écrire du code — les versions majeures cassent fréquemment la rétrocompatibilité (Prisma, Drizzle, NestJS, FastAPI, etc.). Quand tu cherches des patterns d'architecture, des retours d'expérience ou des comparatifs techniques, appuie-toi sur le skill `web-research` qui orchestre plusieurs sources en parallèle et croise les résultats.
+Quand tu travailles avec un framework backend ou un ORM, si la lib est nouvelle dans le projet, fait l'objet d'une montée de version majeure ou si son API est incertaine, active `check-deps` ; sinon suis les patterns existants du projet — les versions majeures cassent fréquemment la rétrocompatibilité (Prisma, Drizzle, NestJS, FastAPI, etc.). Quand tu cherches des patterns d'architecture, des retours d'expérience ou des comparatifs techniques, appuie-toi sur le skill `web-research` (mode léger par défaut, complet si le sujet le justifie).
 
 ## Outils privilégiés
 
 - **Serena** pour naviguer et modifier les couches serveur : `get_symbols_overview` pour comprendre la structure d'un module ou d'un service, `find_referencing_symbols` pour tracer les dépendances entre modules (contrôleurs, services, repositories), `rename_symbol` pour renommer un service ou une entité et propager le changement dans toute l'architecture
-- Skill `check-deps` pour vérifier les APIs actuelles des librairies backend avant d'écrire du code (orchestre Context7, Exa, Tavily, DeepWiki et plus)
+- Skill `check-deps` pour vérifier les APIs d'une librairie backend nouvelle dans le projet, en montée de version majeure ou à l'API incertaine (orchestre Context7, Exa, Tavily, DeepWiki et plus)
 - Skill `web-research` pour rechercher des patterns d'architecture, des retours d'expérience ou comprendre l'implémentation d'une librairie open-source
 - **Playwright MCP** pour tester les endpoints via le navigateur quand il y a une UI d'administration ou un dashboard
 - **GitHub/GitLab MCP** pour gérer les pipelines CI/CD, les pull requests et le déploiement

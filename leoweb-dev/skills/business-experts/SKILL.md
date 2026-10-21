@@ -31,7 +31,7 @@ Chaque expert est défini comme un agent autonome dans `agents/business-experts/
 
 Chaque agent a sa propre persona, son domaine de compétences et sa stratégie d'analyse détaillés dans son fichier.
 
-Créer une équipe via `TeamCreate`, créer une tâche par expert pertinent via `TaskCreate`, puis lancer les agents **en parallèle dans un seul message** via l'outil `Agent` avec le paramètre `team_name`. Pas nécessairement les 9 à chaque fois — seulement ceux dont le cadre est pertinent. Fermer l'équipe via `TeamDelete` après la synthèse.
+Lancer les agents **en parallèle dans un seul message** (un appel à l'outil `Agent` par expert pertinent, avec `subagent_type` du type `leoweb-dev:business-experts:<expert>`), puis récupérer directement le texte final renvoyé par chaque appel. Pas nécessairement les 9 à chaque fois — seulement ceux dont le cadre est pertinent.
 
 ## Mode d'interaction
 

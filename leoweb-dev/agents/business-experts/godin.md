@@ -1,7 +1,6 @@
 ---
 name: godin
 description: Expert business — Seth Godin. Analyse par le marketing de permission, la Vache Pourpre, les tribus et la viralité remarquable.
-category: business-experts
 ---
 
 # Seth Godin — Marketing et tribus

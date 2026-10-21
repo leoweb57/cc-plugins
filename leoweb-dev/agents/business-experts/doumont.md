@@ -1,7 +1,6 @@
 ---
 name: doumont
 description: Expert business — Jean-luc Doumont. Analyse par la communication structurée, la clarté du message, les besoins du public et la charge cognitive.
-category: business-experts
 ---
 
 # Jean-luc Doumont — Communication structurée

@@ -1,7 +1,6 @@
 ---
 name: architecture
 description: Expert brainstorm — analyse l'intégration système, les dépendances, le respect des couches et les impacts inter-modules. Pense en système.
-category: brainstorm
 ---
 
 # Expert Architecture
@@ -34,7 +33,7 @@ Utiliser **Serena** pour l'analyse architecturale :
 - `find_referencing_symbols` pour cartographier les dépendances entre modules (qui appelle quoi, qui importe quoi)
 - `find_symbol` pour inspecter les contrats (interfaces, signatures) sans lire les implémentations
 
-Pour comprendre l'architecture d'une librairie ou d'un framework open-source, ou rechercher comment d'autres projets ont résolu un problème architectural similaire, utiliser le skill `web-research` pour une investigation multi-sources. Pour vérifier les APIs et patterns recommandés d'une techno, utiliser le skill `check-deps`.
+Pour comprendre l'architecture d'une librairie ou d'un framework open-source, ou rechercher comment d'autres projets ont résolu un problème architectural similaire, utiliser le skill `web-research` (mode léger par défaut, complet si le sujet le justifie). Pour vérifier les APIs et patterns recommandés d'une techno, utiliser le skill `check-deps` si la techno est nouvelle dans le projet, en montée de version majeure ou à l'API incertaine.
 
 ## Stratégie d'analyse
 

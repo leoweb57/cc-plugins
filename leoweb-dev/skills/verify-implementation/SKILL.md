@@ -4,8 +4,9 @@ description: >
   S'active automatiquement quand l'implémentation est terminée — quand tu es sur le point de dire
   à l'utilisateur "ça devrait marcher", "c'est fait", "tu devrais avoir le résultat attendu",
   ou toute conclusion similaire. Ne JAMAIS annoncer la fin du travail sans avoir d'abord exécuté
-  ce workflow de vérification. S'applique après l'implémentation d'un plan, la correction d'un bug,
-  l'ajout d'une fonctionnalité, ou tout changement qui produit un comportement observable.
+  ce workflow de vérification. S'exécute une fois à la fin d'un lot de tâches ou de la feature
+  (pas après chaque petite modification), après l'implémentation d'un plan, la correction d'un bug
+  ou l'ajout d'une fonctionnalité qui produit un comportement observable.
 ---
 
 # Vérification d'implémentation
@@ -16,6 +17,8 @@ Tu DOIS activer ce skill avant d'annoncer à l'utilisateur que le travail est te
 Si tu es sur le point d'écrire "ça devrait marcher", "c'est bon normalement",
 "les modifications sont en place" — ARRÊTE. Exécute ce workflow d'abord.
 L'utilisateur attend des résultats vérifiés, pas des suppositions optimistes.
+
+**Moment d'exécution** : une fois par lot de tâches indépendantes, ou une fois en fin de feature, jamais après chaque modification d'un lot. Pour des étapes dépendantes (l'une conditionne la suivante), une vérification ciblée après chaque étape suffit, et ce workflow complet s'exécute à la fin. Voir la section « Organisation de l'implémentation » du CLAUDE.md du plugin.
 
 ## Phase 1 : Identifier ce qui a changé
 
@@ -43,6 +46,8 @@ Liste concrètement ce qui a été modifié :
 
 ## Phase 3 : Choisir les outils de vérification
 
+**Si une CI couvre les tests concernés** (lint, unitaires, fonctionnels, e2e) : ne les rejoue pas en local. Pousse sur la branche de la feature si les garde-fous Git de la section « Tests délégués à la CI » du CLAUDE.md du plugin le permettent (branche de feature, confirmation du premier push, pas de déploiement), sinon vérifie en local. Attends le statut final du pipeline et utilise-le comme preuve (MCP GitHub/GitLab, `gh`, `glab`) avant le rapport. Seuls les critères que la CI ne couvre pas sont vérifiés en local avec le tableau ci-dessous.
+
 Pour chaque critère, choisir la méthode de vérification la plus adaptée :
 
 | Ce qui a changé                         | Comment vérifier                                                                                                                                         |
@@ -60,6 +65,8 @@ Pour chaque critère, choisir la méthode de vérification la plus adaptée :
 
 Utiliser plusieurs outils si un critère couvre plusieurs couches (ex: "la soumission du formulaire sauvegarde en BDD" = Playwright + SQL).
 
+**Mutualiser l'outillage** : monte une seule fois ce qui est coûteux (navigateur Playwright, serveur, Docker, base de test) et vérifie tous les critères du lot dans cette même session. Lance les tests en parallèle quand l'outil le permet.
+
 ## Phase 4 : Exécuter les scénarios de test
 
 Pour chaque critère d'acceptation :
@@ -76,7 +83,7 @@ Si un test ÉCHOUE :
 - Répéter jusqu'à ce qu'il passe
 - Puis continuer avec les scénarios restants
 
-Ne PAS passer au rapport après une correction — relancer TOUS les scénarios pour détecter les régressions.
+Après une correction, relancer uniquement les scénarios en échec, plus ceux qui touchent le code modifié par la correction. La suite complète ne tourne qu'une fois, en fin de feature (ou via la CI).
 
 ## Phase 5 : Rapport à l'utilisateur
 
@@ -105,4 +112,4 @@ Si certains scénarios n'ont pas pu être testés (ex: nécessite l'environnemen
 - JAMAIS rapporter des résultats partiels comme complets — tous les critères doivent passer
 - Si tu n'as aucun moyen de tester quelque chose, dis-le explicitement — ne fais pas semblant de l'avoir vérifié
 - Préférer l'exécution réelle à la relecture de code : exécuter le code bat le lire
-- Avec Playwright, tester dans plusieurs contextes si pertinent (tailles d'écran, états de données différents)
+- Avec Playwright, ne tester plusieurs tailles d'écran que si l'utilisateur le demande ou si le critère porte sur le responsive

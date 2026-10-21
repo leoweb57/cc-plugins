@@ -10,7 +10,7 @@ description: >
 
 # Brainstorm multi-perspectives
 
-Ce skill orchestre une équipe d'agents spécialisés qui analysent un problème chacun à travers
+Ce skill orchestre des agents spécialisés qui analysent un problème chacun à travers
 leur prisme d'expertise, débattent entre eux, puis un synthétiseur produit une vision consolidée.
 
 ## Quand l'activer
@@ -22,17 +22,17 @@ leur prisme d'expertise, débattent entre eux, puis un synthétiseur produit une
 
 ## Phase 0 : Préparation
 
-Avant de lancer l'équipe, formuler clairement :
+Avant de lancer les agents, formuler clairement :
 
 1. **Le sujet** : qu'est-ce qu'on analyse ? (feature, architecture, problème technique, produit)
 2. **Le contexte** : qu'est-ce qui existe déjà ? quelles sont les contraintes connues ?
 3. **Les questions clés** : qu'est-ce qu'on cherche à déterminer ?
 
-Présenter ce cadrage à l'utilisateur et obtenir sa validation avant de lancer l'équipe.
+Présenter ce cadrage à l'utilisateur et obtenir sa validation avant de lancer les agents.
 
 ## Phase 1 : Analyse — chaque expert analyse indépendamment
 
-Créer une équipe via `TeamCreate`, créer une tâche par expert via `TaskCreate`, puis lancer les agents **en parallèle dans un seul message** via l'outil `Agent` avec le paramètre `team_name`. Chaque agent reçoit le sujet, le contexte et les questions clés, et produit son analyse à travers son prisme. Fermer l'équipe via `TeamDelete` après la synthèse.
+Lancer les agents **en parallèle dans un seul message** (un appel à l'outil `Agent` par expert, avec `subagent_type` du type `leoweb-dev:brainstorm:<expert>`). Chaque agent reçoit le sujet, le contexte et les questions clés, et produit son analyse à travers son prisme. Le texte final renvoyé par chaque appel est son analyse.
 
 ### Les 7 experts
 
@@ -62,7 +62,7 @@ Chaque agent doit produire (format défini dans son fichier agent) :
 
 Une fois toutes les analyses reçues :
 
-1. **Partager les analyses** : chaque expert reçoit les analyses des autres via messages d'équipe
+1. **Partager les analyses** : lancer un second tour d'appels `Agent` en parallèle (dans un seul message), dont chaque prompt inclut les analyses des autres experts issues du tour précédent
 2. **Tour de réaction** : chaque expert peut :
    - Approuver un point d'un autre expert et le renforcer
    - Contester un point avec un argument issu de son prisme

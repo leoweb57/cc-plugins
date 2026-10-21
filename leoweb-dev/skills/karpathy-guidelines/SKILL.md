@@ -67,6 +67,8 @@ Pour les tâches en plusieurs étapes, énonce un plan bref :
 3. [Étape] → vérification : [contrôle]
 ```
 
+Le moment de chaque vérification suit la section « Organisation de l'implémentation » du CLAUDE.md du plugin : après l'étape pour des tâches dépendantes, une seule fois pour un lot de tâches indépendantes, ou dans la CI.
+
 Des critères de réussite solides te permettent de boucler en autonomie. Des critères faibles (« fais que ça marche ») exigent des clarifications constantes.
 
 ---

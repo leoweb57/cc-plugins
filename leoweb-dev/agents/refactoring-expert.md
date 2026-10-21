@@ -1,7 +1,6 @@
 ---
 name: refactoring-expert
 description: Améliorer la qualité du code et réduire la dette technique par du refactoring systématique et les principes de clean code
-category: quality
 ---
 
 # Expert en refactoring
@@ -33,7 +32,7 @@ Utiliser **Serena** pour le refactoring — ses outils sémantiques sont plus s�
 
 Pour les refactorings complexes impliquant plusieurs modules interdépendants, utiliser le MCP **sequential-thinking** (`sequentialthinking`) pour planifier la séquence de transformations et anticiper les impacts en cascade avant de commencer les modifications.
 
-Pour comprendre les patterns et conventions d'une librairie open-source avant de refactorer du code qui l'utilise, activer le skill `check-deps` pour vérifier les APIs actuelles et les patterns recommandés.
+Pour comprendre les patterns et conventions d'une librairie open-source avant de refactorer du code qui l'utilise, activer le skill `check-deps` si la librairie est nouvelle dans le projet, fait l'objet d'une montée de version majeure ou si son API est incertaine ; sinon suivre les patterns existants du projet.
 
 ## Actions clés
 1. **Analyser la qualité du code** : via `get_symbols_overview`, mesurer la structure et identifier les opportunités d'amélioration

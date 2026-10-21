@@ -2,54 +2,19 @@
 
 ## Catalogue des ressources disponibles
 
-Ce plugin fournit des agents, skills et commandes spécialisés. Consulte cette liste pour identifier l'outil adapté à chaque situation.
+**Skills** : `check-deps` (APIs à jour d'une lib nouvelle ou montée de version majeure), `web-research` (recherche web proportionnée, multi-sources si besoin), `verify-implementation` (vérification avant d'annoncer la fin), `karpathy-guidelines` (règles de code), `tailwind-design-system`, `nextjs-app-router-patterns`, `brainstorm` (7 agents d'analyse multi-perspectives), `business-experts` (panel de 9 experts business).
 
-### Skills (déclenchés automatiquement ou manuellement)
+**Agents techniques** : `react-developer`, `mobile-developer`, `backend-developer`, `devops-engineer`, `data-engineer`, `deep-research`, `refactoring-expert` (Serena, analyse d'impact), `root-cause-analyst` (bugs complexes), `quality-engineer` (stratégie de tests).
 
-| Skill                        | Déclencheur automatique                                             | Description                                                                                                        |
-| ---------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `check-deps`                 | Avant d'implémenter du code utilisant une lib/framework externe     | Vérifie les versions et APIs actuelles via Context7, Exa, Tavily, DeepWiki, WebSearch, Firecrawl                   |
-| `web-research`               | Recherche d'information sur le web (veille, investigation, analyse) | Orchestration multi-sources en parallèle avec synthèse croisée                                                     |
-| `verify-implementation`      | Après implémentation d'une feature                                  | Vérifie que le code produit correspond au plan et aux exigences                                                    |
-| `tailwind-design-system`     | Travail sur du styling Tailwind, design tokens, composants UI       | Patterns CVA, compound components, dark mode, design tokens                                                        |
-| `nextjs-app-router-patterns` | Travail avec Next.js App Router                                     | Server Components, streaming, routes parallèles, Server Actions, cache                                             |
-| `brainstorm`                 | Analyse multi-perspectives d'une solution technique                 | Équipe de 7 agents spécialisés (architecture, performance, sécurité, UX, qualité, maintenabilité, valeur business) |
-| `business-experts`           | Analyse stratégique/business d'un produit ou d'une décision         | Panel de 9 experts business (Porter, Drucker, Christensen, Godin, Taleb, etc.)                                     |
-| `karpathy-guidelines`        | Écriture, relecture ou refactoring de code                          | 4 règles Karpathy : réfléchir avant de coder, simplicité, changements chirurgicaux, objectifs vérifiables          |
-
-### Agents (utilisables individuellement via l'outil Agent)
-
-| Agent                            | Quand l'utiliser                                                                                                                         |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `react-developer`                | Composants React, Next.js, state management, styling, accessibilité, performance frontend                                                |
-| `mobile-developer`               | React Native, Flutter, Expo, intégrations natives, offline-first, déploiement app stores                                                 |
-| `backend-developer`              | APIs REST/GraphQL/gRPC, Node.js, TypeScript, Python, bases de données, authentification, architecture serveur, microservices, serverless |
-| `devops-engineer`                | Docker, Kubernetes, CI/CD, Terraform, cloud, monitoring, sécurité infra, GitOps                                                          |
-| `data-engineer`                  | Modélisation de données, PostgreSQL, MongoDB, Redis, Prisma, migrations, optimisation requêtes, CQRS                                     |
-| `deep-research`                  | Recherche approfondie avec stratégies adaptatives et exploration multi-sources                                                           |
-| `refactoring-expert`             | Refactoring de code avec Serena, analyse d'impact, restructuration safe                                                                  |
-| `root-cause-analyst`             | Diagnostic de bugs complexes, analyse de traces d'exécution, identification de causes racines                                            |
-| `quality-engineer`               | Stratégie de tests, analyse de testabilité, couverture, qualité du code                                                                  |
-| `brainstorm/architecture`        | Évaluation de l'architecture technique, patterns, scalabilité                                                                            |
-| `brainstorm/performance`         | Analyse de performance, bottlenecks, optimisation                                                                                        |
-| `brainstorm/security`            | Audit de sécurité, vulnérabilités, OWASP                                                                                                 |
-| `brainstorm/user-experience`     | UX, ergonomie, accessibilité, parcours utilisateur                                                                                       |
-| `brainstorm/quality-testing`     | Stratégie de tests, couverture, edge cases                                                                                               |
-| `brainstorm/maintainability`     | Maintenabilité, dette technique, lisibilité du code                                                                                      |
-| `brainstorm/business-value`      | Valeur business, ROI, priorisation                                                                                                       |
-| `business-experts/porter`        | Stratégie concurrentielle, 5 forces, chaîne de valeur                                                                                    |
-| `business-experts/drucker`       | Management, efficacité, innovation organisationnelle                                                                                     |
-| `business-experts/christensen`   | Innovation disruptive, jobs-to-be-done                                                                                                   |
-| `business-experts/godin`         | Marketing, tribus, permission marketing, Purple Cow                                                                                      |
-| `business-experts/kim-mauborgne` | Océan bleu, création de nouveaux marchés                                                                                                 |
-| `business-experts/collins`       | Excellence durable, Good to Great, Hedgehog Concept                                                                                      |
-| `business-experts/taleb`         | Antifragilité, risques, cygnes noirs, optionalité                                                                                        |
-| `business-experts/meadows`       | Pensée systémique, boucles de rétroaction, leviers                                                                                       |
-| `business-experts/doumont`       | Communication efficace, structuration de l'information                                                                                   |
-
-Les agents `brainstorm/*` et `business-experts/*` peuvent être invoqués individuellement ou orchestrés en équipe via leurs skills respectifs (`brainstorm` et `business-experts`).
+**Agents d'analyse** : `brainstorm/*` (architecture, performance, security, user-experience, quality-testing, maintainability, business-value) et `business-experts/*` (porter, drucker, christensen, godin, kim-mauborgne, collins, taleb, meadows, doumont), invocables seuls ou en équipe via leur skill.
 
 ---
+
+## Périmètre et communication
+
+- Fais **uniquement** ce qui est demandé.
+- Si tu vois une amélioration, une option ou une suggestion utile, propose-la en une ligne et **attends l'accord de l'utilisateur** avant de l'implémenter.
+- Réponses concises : le résultat d'abord, sans récapituler ce que l'utilisateur sait déjà.
 
 ## Règles Karpathy — Éviter les erreurs de code typiques des LLM
 
@@ -58,8 +23,6 @@ Règles tirées des [observations d'Andrej Karpathy](https://x.com/karpathy/stat
 ### 1. Réfléchir avant de coder
 
 **Ne suppose pas. Ne cache pas ta confusion. Expose les compromis.**
-
-Avant d'implémenter :
 
 - Énonce tes hypothèses explicitement. En cas de doute, demande.
 - S'il existe plusieurs interprétations, présente-les : n'en choisis pas une en silence.
@@ -82,17 +45,11 @@ Demande-toi : « Un développeur senior trouverait-il ça trop compliqué ? » S
 
 **Ne touche qu'à ce qui est nécessaire. Ne nettoie que ton propre désordre.**
 
-Quand tu modifies du code existant :
-
 - N'« améliore » pas le code, les commentaires ou le formatage adjacents.
 - Ne refactore pas ce qui n'est pas cassé.
 - Respecte le style existant, même si tu ferais autrement.
 - Si tu remarques du code mort sans rapport, signale-le : ne le supprime pas.
-
-Quand tes changements créent des orphelins :
-
-- Supprime les imports/variables/fonctions que TES changements ont rendus inutilisés.
-- Ne supprime pas le code mort préexistant sauf si on te le demande.
+- Supprime les imports/variables/fonctions que TES changements ont rendus inutilisés, pas le code mort préexistant.
 
 Le test : chaque ligne modifiée doit se rattacher directement à la demande de l'utilisateur.
 
@@ -106,141 +63,102 @@ Transforme les tâches en objectifs vérifiables :
 - « Corriger le bug » → « Écrire un test qui le reproduit, puis le faire passer »
 - « Refactorer X » → « S'assurer que les tests passent avant et après »
 
-Pour les tâches en plusieurs étapes, énonce un plan bref :
-
-```
-1. [Étape] → vérification : [contrôle]
-2. [Étape] → vérification : [contrôle]
-3. [Étape] → vérification : [contrôle]
-```
-
-Des critères de réussite solides te permettent de boucler en autonomie. Des critères faibles (« fais que ça marche ») exigent des clarifications constantes.
+Chaque tâche du plan a sa vérification. Le **moment** où elle s'exécute suit la section « Organisation de l'implémentation » : après l'étape pour des tâches dépendantes, une seule fois pour tout un lot de tâches indépendantes, ou dans la CI.
 
 ## Bascule dynamique de modèle
 
 Le modèle de la session (choisi par l'utilisateur) est l'**orchestrateur**. Tu as l'autorisation permanente de déléguer des sous-tâches à des sous-agents tournant sur un autre modèle quand c'est plus rapide ou plus pertinent, sans attendre qu'on te le demande.
 
-### Comment choisir le modèle
-
-- Outil Agent : paramètre `model` (`fable`, `opus`, `sonnet`, `haiku`).
-- Workflow : option `model` de chaque `agent(...)`, à fixer **par étape**, éventuellement avec `effort`.
-- Utilise toujours les alias de famille, jamais un ID complet : l'alias pointe sur la dernière version disponible.
+- Outil Agent : paramètre `model` (`fable`, `opus`, `sonnet`, `haiku`). Workflow : option `model` de chaque `agent(...)`, fixée **par étape**.
+- Utilise toujours les alias de famille, jamais un ID complet : l'alias pointe sur la dernière version.
 - Les agents du plugin sont en `model: inherit` ; le paramètre `model` passé à l'appel prend le dessus.
 
-| Modèle   | Tâches adaptées                                                                                                                              |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fable`  | Raisonnement le plus exigeant : architecture, décisions structurantes, bugs complexes multi-modules, revue adversariale, juge final, synthèse |
-| `opus`   | Implémentation complexe ou multi-fichiers, refactoring avec analyse d'impact, code review approfondie, vérification d'une implémentation     |
+| Modèle | Tâches adaptées |
+| --- | --- |
+| `fable` | Raisonnement le plus exigeant : architecture, décisions structurantes, bugs complexes multi-modules, revue adversariale, juge final, synthèse |
+| `opus` | Implémentation complexe ou multi-fichiers, refactoring avec analyse d'impact, code review approfondie, vérification d'une implémentation |
 | `sonnet` | Implémentation bien spécifiée, tâches de dev standard, écriture de tests à partir d'un plan clair, exploration de codebase, recherche web/doc |
-| `haiku`  | Tâches mécaniques : localiser des fichiers, grep, extraction ou résumé de contenu, renommages, formatage, vérifications simples              |
+| `haiku` | Tâches mécaniques : localiser des fichiers, grep, extraction ou résumé de contenu, renommages, formatage, vérifications simples |
 
 Règle de base : **le modèle le moins coûteux capable de réussir la tâche du premier coup**. En cas de doute entre deux niveaux, prends le plus haut.
 
-### Découpage des tâches par complexité
-
-1. Le thread principal garde le cadrage, le dialogue avec l'utilisateur, les décisions et l'intégration finale.
-2. Décompose le travail en sous-tâches et attribue à chacune un niveau de complexité, donc un modèle.
-3. Plus le modèle est petit, plus la consigne doit être autonome et précise : contexte, fichiers concernés, contraintes, et critère de vérification (cf. règle Karpathy n°4). Une tâche mal spécifiée ne descend pas sous `opus`.
-4. Dans un workflow, enchaîne typiquement : exploration (`haiku`/`sonnet`) → implémentation (`sonnet`/`opus`) → vérification ou jugement (`opus`/`fable`).
-
-### Garde-fous
-
+- Le thread principal garde le cadrage, le dialogue avec l'utilisateur, les décisions et l'intégration finale.
+- Plus le modèle est petit, plus la consigne doit être autonome et précise : contexte, fichiers, contraintes, critère de vérification. Une tâche mal spécifiée ne descend pas sous `opus`.
 - Descendre sous le modèle de session est libre. Monter au-dessus n'est justifié que si la tâche l'exige vraiment ; signale-le en une ligne.
 - Si un sous-agent échoue ou rend un résultat douteux, relance au niveau supérieur plutôt que de réessayer au même niveau.
-- Si l'utilisateur impose un modèle pour une tâche ou interdit la délégation, respecte-le.
+- Si l'utilisateur impose un modèle ou interdit la délégation, respecte-le.
 - Quand tu lances plusieurs sous-agents, annonce la répartition en une ligne (ex. : « exploration sur Haiku, implémentation sur Sonnet, revue sur Opus »).
 
-## Recherche web multi-sources obligatoire
+## Organisation de l'implémentation : lots, parallélisme et tests groupés
 
-Pour toute recherche d'information sur le web (veille, investigation, analyse, mise à jour), active le skill `web-research` qui orchestre Exa, Tavily, WebSearch, DeepWiki et Firecrawl en parallèle et croise les résultats. Ne jamais se fier à une seule source — croiser systématiquement. Exception : pour la vérification de versions/APIs d'une lib spécifique, utilise `check-deps` à la place.
+Dès qu'une demande comporte plusieurs tâches, la planification optimise le temps total : ce qui peut être **parallélisé**, ce qui peut être **regroupé**, et dans quel **ordre** enchaîner le tout.
 
-## Vérification technologique obligatoire
+### Deux modes, choisis tâche par tâche
 
-Avant d'implémenter du code qui utilise une librairie, framework, SDK ou technologie externe, active le skill `check-deps` pour vérifier que tes connaissances sont à jour. Tes données de training ont un cutoff — les APIs changent, les versions majeures cassent la rétrocompatibilité. Ne fais jamais confiance à ta mémoire sur les APIs externes sans vérification.
+- **Séquentiel** : quand une étape conditionne la suivante (migration BDD puis endpoint qui l'utilise), teste après chaque étape avant de continuer.
+- **Par lots** : les tâches indépendantes sont regroupées en un lot. Exemple : modifier le titre, le footer et l'envoi d'email d'une page = un lot, et non trois cycles « modifier → tester ».
 
-## Dates et timestamps obligatoires via MCP Time
+### Déroulé d'un lot
 
-Ne JAMAIS inventer, deviner ou estimer une date, une heure ou un timestamp. Utilise systématiquement le MCP Time (`get_current_time`) chaque fois que tu as besoin de :
+1. Un sous-agent par tâche, tous lancés en parallèle (dans un seul message), chacun sur le modèle adapté.
+2. Plusieurs agents peuvent travailler sur le même fichier si leurs zones sont distinctes, avec des éditions ciblées (Edit, Serena), jamais une réécriture complète du fichier (Write). Si les zones se chevauchent, regroupe ces tâches dans un même agent.
+3. Pendant le dev, seulement des vérifications légères et rapides : typecheck, lint, tests unitaires des fichiers touchés.
+4. Une fois **tout** le lot développé, **un seul passage de tests** couvre toutes les tâches du lot.
+5. Puis le lot suivant.
 
-- Générer un timestamp (noms de fichiers de migration, logs, identifiants horodatés)
-- Écrire une date dans du code, un fichier ou un document
-- Savoir quel jour ou quelle heure il est
-- Comparer des dates ou calculer des durées par rapport à maintenant
+### Règles de test
 
-Tu n'as PAS de notion fiable du temps. Le contexte système peut contenir une date approximative mais elle ne suffit pas pour des timestamps précis. Le MCP Time est ta seule source de vérité temporelle.
+- L'outillage coûteux (navigateur Playwright, serveur, Docker, base de test) est monté **une seule fois par lot** et sert à tester toutes les tâches du lot, jamais pour une seule tâche si d'autres peuvent en profiter.
+- Exécute les tests en parallèle quand l'outil le permet (workers Playwright, `vitest`/`pytest -n`, etc.).
+- En cas d'échec : corrige, puis relance **uniquement les tests en échec**. La suite complète ne tourne qu'une fois, en fin de feature.
+
+### Format dans le plan
+
+Le plan affiche explicitement la séquence :
+
+```
+Lot 1 (parallèle) : titre | footer | envoi d'email → test groupé : 1 session Playwright + test API email
+Lot 2 (séquentiel) : migration BDD → test → endpoint → test
+```
+
+## Tests délégués à la CI
+
+Si le projet a une CI qui joue déjà les tests (lint, unitaires, fonctionnels, e2e), ne rejoue pas en local le passage de tests groupé du lot : délègue-le à la CI. Les vérifications légères pendant le dev (typecheck, lint, tests unitaires des fichiers touchés) restent locales.
+
+1. **Détection** (en planification) : repère la CI (`.github/workflows/`, `.gitlab-ci.yml`), les jobs qu'elle exécute, et vérifie ton accès (MCP GitHub/GitLab, `gh` ou `glab`). Si elle ne couvre pas les tests ou si tu n'y as pas accès, reste sur les tests groupés en local et ne commite pas : l'utilisateur gère Git.
+2. **Découpage par commit** : le plan prévoit un commit par lot. Une fois le lot développé, commite et pousse sur la branche de la feature (voir les garde-fous ci-dessous).
+3. **Pendant que la CI tourne, continue le lot suivant.** Surveille le pipeline en arrière-plan : quelques secondes après le push, récupère l'ID du run (`gh run list --branch <branche> --limit 1 --json databaseId -q '.[0].databaseId'`), puis `gh run watch <id> --exit-status` en commande d'arrière-plan. Côté GitLab : MCP GitLab (`list_pipelines`, `get_pipeline`) ou `glab ci status`.
+4. **Si la CI échoue** : corrige dans un nouveau commit qui ne contient que les fichiers du correctif, et repousse. Ne rejoue en local que ce qu'il faut pour diagnostiquer.
+5. **Tests non couverts par la CI** (non écrits, vérifications manuelles ou visuelles) : joue-les en local, groupés par lot.
+6. **Nouveaux tests** : pour chaque test que tu écris, demande à l'utilisateur s'il doit être **ajouté à la CI** (test durable) ou s'il est **ponctuel** pour ce dev. Ne surcharge jamais la CI sans son accord.
+
+**Garde-fous Git** :
+
+- **Premier push** : avant le tout premier push d'une feature, demande confirmation une fois (`git push -u origin <branche>`). Si l'utilisateur accepte, les pushs suivants sur cette branche sont autorisés sans redemander. S'il refuse, reste sur les tests locaux.
+- **Branche** : si la branche courante est `main` ou la branche par défaut du projet, ne commite pas et ne pousse pas : reste sur les tests locaux. Jamais de force-push.
+- **Contenu du commit** : stage uniquement les fichiers du lot (`git add <fichiers>`), jamais `git add -A` ni `git add .`. Seul le thread principal commite, jamais les sous-agents. Ne contourne jamais les hooks (`--no-verify`).
+- **Déploiement** : vérifie les déclencheurs des jobs de déploiement (`on: push` sans filtre de branche côté GitHub, `rules`/`only` côté GitLab). Si un push sur la branche peut déployer, ou en cas de doute, demande ; sinon tests en local.
+- Les commits de travail sont libres : ils pourront être regroupés en squash au merge de la PR/MR.
+
+## Recherche web proportionnée
+
+Active le skill `web-research` pour les recherches d'information sur le web. Par défaut, mode léger : une question simple se règle avec une source bien choisie. Le mode multi-sources en parallèle est réservé aux sujets complexes ou contradictoires, à la veille, à l'investigation, ou quand l'utilisateur demande une recherche approfondie. Pour les versions/APIs d'une lib, utilise `check-deps`.
+
+## Vérification technologique
+
+Active le skill `check-deps` avant d'utiliser une librairie, un framework ou un SDK **nouveau dans le projet**, lors d'une montée de version majeure, ou quand tu n'es pas sûr d'une API. Pas besoin pour les packages déjà utilisés dans le projet avec des patterns établis : suis les patterns existants.
+
+## Dates et timestamps via MCP Time
+
+N'invente jamais une date ou une heure à écrire dans un fichier (noms de migration, logs, specs, identifiants horodatés) : obtiens-la via le MCP Time (`get_current_time`). Pour le reste, la date du contexte système suffit.
 
 ## Serena — Navigation et édition sémantique du code
 
-Le MCP Serena apporte une couche d'intelligence sémantique sur la codebase via le Language Server Protocol (LSP). Contrairement aux outils natifs (Grep, Glob, Read) qui travaillent sur du texte brut, Serena comprend la **structure** du code : classes, méthodes, fonctions, imports, dépendances symboliques.
+Le MCP Serena comprend la **structure** du code via LSP (classes, fonctions, références). Utilise-le pour travailler sur des symboles ; garde Glob/Grep/Read pour les recherches textuelles simples et les fichiers non-code.
 
-### Outils clés
-
-**Navigation sémantique** — explorer le code par sa structure, pas par du texte :
-
-- `get_symbols_overview` : vue d'ensemble des symboles d'un fichier (classes, fonctions, méthodes) sans lire tout le code
-- `find_symbol` : trouver un symbole par son nom (avec `include_body=True` pour lire son contenu, `depth=1` pour ses enfants)
-- `find_referencing_symbols` : trouver tous les endroits qui utilisent un symbole (appelants, importeurs, implémentations)
-
-**Édition symbolique** — modifier le code par sa structure, pas par recherche-remplacement textuel :
-
-- `replace_symbol_body` : remplacer le corps d'une fonction/méthode/classe entière
-- `insert_after_symbol` / `insert_before_symbol` : insérer du code à une position précise dans la structure
-- `rename_symbol` : renommer un symbole et toutes ses références automatiquement
-
-**Recherche et fichiers** :
-
-- `search_for_pattern` : recherche rapide par regex dans la codebase
-- `find_file` : trouver un fichier par son nom
-- `list_dir` : lister un répertoire
-
-### Quand utiliser Serena plutôt que les outils natifs
-
-| Besoin                                 | Outil natif                   | Serena                                 | Préférer                                    |
-| -------------------------------------- | ----------------------------- | -------------------------------------- | ------------------------------------------- |
-| Trouver un fichier par nom             | Glob                          | `find_file`                            | Glob (plus rapide)                          |
-| Chercher du texte dans le code         | Grep                          | `search_for_pattern`                   | Grep (plus rapide)                          |
-| Comprendre la structure d'un fichier   | Read (tout le fichier)        | `get_symbols_overview`                 | **Serena** (économise des tokens)           |
-| Lire une seule méthode                 | Read + chercher manuellement  | `find_symbol` avec `include_body=True` | **Serena** (précis)                         |
-| Trouver qui appelle une fonction       | Grep sur le nom               | `find_referencing_symbols`             | **Serena** (sémantique, pas textuel)        |
-| Analyser les dépendances d'un module   | Grep sur les imports          | `find_referencing_symbols`             | **Serena** (suit les vrais liens)           |
-| Renommer une variable/fonction partout | Edit avec `replace_all`       | `rename_symbol`                        | **Serena** (safe, pas de faux positifs)     |
-| Remplacer le corps d'une fonction      | Edit (match textuel)          | `replace_symbol_body`                  | **Serena** (pas de risque de match partiel) |
-| Ajouter une méthode à une classe       | Edit (trouver le bon endroit) | `insert_after_symbol`                  | **Serena** (positionnement exact)           |
-
-**Règle générale** : utilise Serena dès que tu travailles sur la **structure** du code (symboles, dépendances, refactoring). Utilise les outils natifs pour les recherches textuelles simples et la lecture de fichiers non-code.
-
-### Workflow recommandé avec Serena
-
-1. `get_symbols_overview` pour comprendre la structure d'un fichier sans le lire en entier
-2. `find_symbol` avec `include_body=True` pour lire seulement les symboles qui t'intéressent
-3. `find_referencing_symbols` pour comprendre l'impact d'une modification avant de la faire
-4. Éditer via `replace_symbol_body` / `insert_after_symbol` / `rename_symbol` pour des modifications sûres
-
-Cela économise des tokens (pas besoin de lire des fichiers entiers) et réduit les erreurs (pas de match textuel ambigu).
-
-## Firecrawl — Scraping web propre pour l'IA
-
-Le MCP Firecrawl transforme n'importe quelle page web en Markdown propre, débarrassé du boilerplate (navigation, pubs, footers, scripts). C'est nettement supérieur au `fetch` natif ou à `WebFetch` pour extraire du contenu web exploitable.
-
-### Outils clés
-
-- `firecrawl_scrape` : scraper une URL précise → Markdown propre
-- `firecrawl_search` : recherche web + scraping optionnel des résultats (contenu réel, pas juste des snippets)
-- `firecrawl_crawl` : crawler un site entier (avec limite de profondeur) → toutes les pages en Markdown
-- `firecrawl_batch_scrape` : scraper une liste d'URLs en parallèle
-- `firecrawl_extract` : extraction structurée de données spécifiques
-
-### Quand utiliser Firecrawl
-
-| Besoin                                     | Outil alternatif            | Firecrawl                | Préférer                                                 |
-| ------------------------------------------ | --------------------------- | ------------------------ | -------------------------------------------------------- |
-| Lire le contenu d'une page web             | `WebFetch`                  | `firecrawl_scrape`       | **Firecrawl** (Markdown propre, sans boilerplate)        |
-| Rechercher sur le web + lire les résultats | `WebSearch` puis `WebFetch` | `firecrawl_search`       | **Firecrawl** (une seule étape, contenu complet)         |
-| Lire la doc complète d'un projet           | `WebFetch` page par page    | `firecrawl_crawl`        | **Firecrawl** (crawl automatique de tout le site)        |
-| Scraper plusieurs pages                    | `WebFetch` en boucle        | `firecrawl_batch_scrape` | **Firecrawl** (parallèle, plus fiable)                   |
-| Recherche technique (docs, APIs)           | Context7, Exa               | Context7, Exa            | Context7/Exa (plus spécialisés pour les docs techniques) |
-
-**Règle générale** : utilise Firecrawl dès que tu as besoin de **lire le contenu réel** d'une page web. Utilise Context7/Exa pour la recherche de documentation technique. Utilise `WebSearch` pour les recherches rapides où tu n'as pas besoin du contenu complet.
+- Comprendre un fichier sans le lire en entier : `get_symbols_overview`, puis `find_symbol` avec `include_body=True` sur ce qui t'intéresse.
+- Mesurer l'impact avant de modifier : `find_referencing_symbols`.
+- Éditer de façon sûre : `replace_symbol_body`, `insert_after_symbol` / `insert_before_symbol`, `rename_symbol` (renomme toutes les références).
 
 ## Playwright — Screenshots et tests visuels
 

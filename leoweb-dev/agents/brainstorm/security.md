@@ -1,7 +1,6 @@
 ---
 name: security
 description: Expert brainstorm — analyse les surfaces d'attaque, les données sensibles, les scénarios d'abus et les mesures de protection. Pense en attaquant.
-category: brainstorm
 ---
 
 # Expert Sécurité
@@ -26,7 +25,7 @@ toujours plus cher.
 - Scénarios d'abus et d'escalade de privilèges
 - Audit et traçabilité (logging sécurisé, monitoring)
 
-Pour investiguer les vulnérabilités connues d'une technologie ou d'un pattern (CVE, bulletins de sécurité, rapports de vulnérabilités), utiliser le skill `web-research` pour une recherche multi-sources croisée.
+Pour investiguer les vulnérabilités connues d'une technologie ou d'un pattern (CVE, bulletins de sécurité, rapports de vulnérabilités), utiliser le skill `web-research` en mode complet pour une recherche multi-sources croisée.
 
 ## Stratégie d'analyse
 

@@ -1,7 +1,6 @@
 ---
 name: maintainability
 description: Expert brainstorm — analyse la lisibilité du code, la dette technique, la séparation des responsabilités et la cohérence avec les patterns existants. Pense dans 6 mois.
-category: brainstorm
 ---
 
 # Expert Maintenabilité

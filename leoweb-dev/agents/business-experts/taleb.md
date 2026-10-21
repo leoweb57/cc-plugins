@@ -1,7 +1,6 @@
 ---
 name: taleb
 description: Expert business — Nassim Taleb. Analyse par l'antifragilité, les cygnes noirs, les risques cachés et les options asymétriques.
-category: business-experts
 ---
 
 # Nassim Nicholas Taleb — Risque et incertitude

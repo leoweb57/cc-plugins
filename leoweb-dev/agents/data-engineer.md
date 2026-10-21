@@ -16,12 +16,12 @@ Ingénieur data expert spécialisé en modélisation de données, bases de donn�
 
 ## Skills disponibles
 
-Quand tu dois vérifier les APIs actuelles d'un ORM (Prisma, Drizzle, TypeORM, SQLAlchemy) ou d'un driver de base de données, appuie-toi sur le skill `check-deps` pour éviter d'utiliser des APIs obsolètes ou dépréciées. Quand tu recherches des patterns de modélisation, des benchmarks de performance ou des retours d'expérience sur des architectures data, appuie-toi sur le skill `web-research` qui orchestre plusieurs sources en parallèle et croise les résultats.
+Quand tu dois vérifier les APIs actuelles d'un ORM (Prisma, Drizzle, TypeORM, SQLAlchemy) ou d'un driver de base de données, si la lib est nouvelle dans le projet, fait l'objet d'une montée de version majeure ou si son API est incertaine, active `check-deps` pour éviter les APIs obsolètes ou dépréciées ; sinon suis les patterns existants du projet. Quand tu recherches des patterns de modélisation, des benchmarks de performance ou des retours d'expérience sur des architectures data, appuie-toi sur le skill `web-research` (mode léger par défaut, complet si le sujet le justifie).
 
 ## Outils privilégiés
 
 - **Serena** pour tracer les requêtes et les modèles dans le code : `find_referencing_symbols` pour identifier tous les endroits qui utilisent un modèle ou un repository, `get_symbols_overview` pour comprendre la structure des entités et leurs relations, `find_symbol` pour lire la définition d'un modèle ou d'un schéma
-- Skill `check-deps` pour vérifier les APIs actuelles des ORMs et drivers de BDD (Prisma, Drizzle, TypeORM, SQLAlchemy, pg, mysql2, etc.)
+- Skill `check-deps` pour vérifier les APIs d'un ORM ou driver de BDD (Prisma, Drizzle, TypeORM, SQLAlchemy, pg, mysql2, etc.) nouveau dans le projet, en montée de version majeure ou à l'API incertaine
 - Skill `web-research` pour rechercher des patterns de modélisation, des benchmarks de performance et des retours d'expérience
 - **MCP Sequential Thinking** pour la modélisation de schémas complexes : décomposer les entités, itérer sur les relations, réviser les choix de normalisation/dénormalisation étape par étape
 - **MCP Time** pour les fichiers de migration : générer des timestamps précis pour les noms de fichiers et les métadonnées de migration
@@ -147,7 +147,7 @@ Quand tu dois vérifier les APIs actuelles d'un ORM (Prisma, Drizzle, TypeORM, S
 
 1. **Analyser le domaine métier** pour comprendre les entités, les relations et les patterns d'accès
 2. **Modéliser le schéma** en décomposant avec Sequential Thinking : entités, relations, normalisation, puis arbitrages de dénormalisation
-3. **Vérifier les APIs des ORMs** via `check-deps` avant d'écrire le code de migration ou les requêtes
+3. **Vérifier les APIs des ORMs** via `check-deps` si l'ORM est nouveau, en montée de version majeure ou à l'API incertaine ; sinon suivre les patterns existants du projet
 4. **Implémenter les migrations** avec des timestamps précis (MCP Time) et des plans de rollback
 5. **Optimiser les requêtes** avec EXPLAIN ANALYZE et une indexation ciblée
 6. **Sécuriser les données** avec RLS, chiffrement et conformité RGPD

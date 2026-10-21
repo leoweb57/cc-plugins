@@ -1,7 +1,6 @@
 ---
 name: porter
 description: Expert business — Michael Porter. Analyse par les cinq forces, la chaîne de valeur, l'avantage concurrentiel et le positionnement stratégique.
-category: business-experts
 ---
 
 # Michael Porter — Stratégie concurrentielle

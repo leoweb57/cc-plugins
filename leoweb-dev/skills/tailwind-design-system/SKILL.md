@@ -21,7 +21,7 @@ Patterns production-ready pour construire des design systems avec Tailwind CSS :
 
 ## Vérification des APIs
 
-Avant d'implémenter un composant, activer le skill `check-deps` pour vérifier que les APIs de Tailwind CSS, CVA ou Radix sont toujours à jour — les patterns ci-dessous peuvent diverger des versions actuelles.
+Si Tailwind CSS, CVA ou Radix sont nouveaux dans le projet, font l'objet d'une montée de version majeure ou si leur API est incertaine, active `check-deps` ; sinon suis les patterns existants du projet. Les patterns ci-dessous peuvent diverger des versions actuelles.
 
 ## Concepts fondamentaux
 

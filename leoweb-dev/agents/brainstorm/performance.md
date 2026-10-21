@@ -1,7 +1,6 @@
 ---
 name: performance
 description: Expert brainstorm — analyse les goulots d'étranglement, la scalabilité, la consommation de ressources et les stratégies de cache. Pense en charge.
-category: brainstorm
 ---
 
 # Expert Performance

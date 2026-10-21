@@ -1,7 +1,6 @@
 ---
 name: user-experience
 description: Expert brainstorm — analyse l'expérience utilisateur, les flux d'interaction, l'accessibilité et les feedback visuels. Pense comme l'utilisateur final.
-category: brainstorm
 ---
 
 # Expert Expérience Utilisateur

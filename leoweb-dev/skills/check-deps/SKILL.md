@@ -1,28 +1,31 @@
 ---
 name: check-deps
 description: >
-  S'active automatiquement quand tu es sur le point d'implémenter du code qui utilise une librairie,
-  un framework, une API externe, un SDK ou toute technologie tierce. Ne JAMAIS commencer à coder
-  avec une techno externe sans avoir d'abord vérifié que tes connaissances sont à jour.
-  S'applique quand tu proposes d'utiliser une techno, quand l'utilisateur en demande une,
-  ou quand tu écris du code qui importe un package externe.
+  S'active quand tu es sur le point d'utiliser une librairie, un framework ou un SDK NOUVEAU pour le projet,
+  de faire une montée de version majeure, ou d'utiliser une API externe dont tu n'es pas sûr de l'usage actuel.
+  Ne s'applique PAS aux packages déjà utilisés dans le projet avec des patterns établis (suis alors le code existant),
+  ni à la stdlib, ni aux modifications mineures de code existant.
 ---
 
 # Recherche technologique
 
 ## Déclencheur
 
-Tu DOIS activer ce skill avant d'écrire du code qui utilise une technologie externe.
-Si tu es sur le point d'écrire un `import`, un `require`, un `pip install`, un `npm install`,
-ou tout code qui s'appuie sur une librairie/framework/SDK externe — ARRÊTE. Exécute ce workflow d'abord.
+Active ce skill avant d'écrire du code dans l'un de ces cas :
+
+- une librairie/framework/SDK **nouveau pour le projet** (pas encore utilisé, `npm install` / `pip install` à venir)
+- une **montée de version majeure** d'une dépendance existante
+- une **API externe dont tu n'es pas sûr** de l'usage actuel (signature, comportement, dépréciation)
+
+Dans ces cas, exécute ce workflow d'abord.
 Tes connaissances ont un cutoff. Les APIs changent, les méthodes sont dépréciées, les versions majeures
 cassent la rétrocompatibilité. L'utilisateur attend du code qui fonctionne avec la version actuelle,
 pas avec celle de ton training.
 
 ## Quand ce skill NE s'applique PAS
 
+- **Packages déjà utilisés dans le projet avec des patterns établis** — suis les patterns existants, ne relance aucune recherche
 - Librairies standard du langage (Python stdlib, Node.js built-ins, etc.)
-- Packages déjà utilisés dans le projet avec des patterns établis — dans ce cas, suis les patterns existants
 - Modifications mineures sur du code existant qui utilise déjà la techno (le projet fait déjà référence)
 
 ## Cache local : `.claude/tech-research/`
@@ -95,18 +98,18 @@ Pour chaque technologie identifiée :
 
 ## Phase 3 : Recherche externe
 
-Pour chaque technologie sans fiche récente, lancer **tous** les outils de recherche pertinents **en parallèle** pour croiser les sources :
+Pour chaque technologie sans fiche récente, **commence par Context7** (`resolve-library-id` puis `query-docs`). S'il suffit (version, patterns, breaking changes couverts), arrête-toi là et crée la fiche. Sinon, escalade vers les autres sources selon le besoin (en parallèle si plusieurs) :
 
 | Outil                                                 | Ce qu'il apporte                                                               |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------ |
-| **Context7** (`resolve-library-id` puis `query-docs`) | Documentation officielle structurée, exemples de code à jour                   |
+| **Context7** (`resolve-library-id` puis `query-docs`) | Premier réflexe : documentation officielle structurée, exemples de code à jour |
 | **Exa** (`web_search_exa`)                            | Changelogs, release notes, articles récents, migration guides                  |
 | **Tavily** (`tavily-search`)                          | Résultats optimisés LLM, snippets structurés, recherche multi-étapes           |
-| **DeepWiki** (`read_wiki_contents`, `ask_question`)   | Repos GitHub spécifiques — architecture, patterns, détails d'implémentation    |
+| **DeepWiki** (`read_wiki_contents`, `ask_wiki_question`)   | Repos GitHub spécifiques — architecture, patterns, détails d'implémentation    |
 | **WebSearch**                                         | Recherche web généraliste, dernières infos, résultats larges                   |
-| **Firecrawl** (`firecrawl_scrape`, `firecrawl_crawl`) | Lire la doc officielle d'un site web (Markdown propre, sans boilerplate)       |
+| **WebFetch** / **Tavily** (`tavily-extract`)          | Lire le contenu complet d'une page de doc ou d'un changelog identifié          |
 
-Lancer au minimum 3 sources en parallèle. Firecrawl est surtout utile en second temps pour scraper les URLs clés identifiées par les autres sources.
+N'escalade que si Context7 est insuffisant ou absent. WebFetch / Tavily extract servent en second temps à lire les URLs clés identifiées par les autres sources.
 
 Pour chaque technologie, vérifier :
 
@@ -145,7 +148,7 @@ Ne pas détailler sauf si l'utilisateur le demande. L'objectif est de confirmer 
 
 - JAMAIS supposer qu'une API existe encore sans vérifier — les méthodes sont renommées, dépréciées, supprimées
 - JAMAIS écrire du code basé uniquement sur ta mémoire pour une techno que tu n'as pas vérifiée dans cette session
-- Si Context7 n'a pas la lib, passer immédiatement à Exa ou DeepWiki — ne pas abandonner la recherche
+- Si Context7 n'a pas la lib ou ne suffit pas, passer à Exa ou DeepWiki — ne pas abandonner la recherche
 - Si aucun outil ne donne de résultat fiable, le dire explicitement : "Je n'ai pas pu vérifier la version actuelle de X, mon code est basé sur la v3.x de mon training"
 - Préférer un import vérifié à dix suppositions — une seule API dépréciée peut casser tout le projet
 - Toujours écrire/mettre à jour la fiche après une recherche — le prochain appel en bénéficiera
