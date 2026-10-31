@@ -1,8 +1,8 @@
 # /feature - Démarrer un nouveau travail
 
-Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle structure la demande, analyse l'historique et le code existant, itère avec l'utilisateur en connaissance de cause, puis lance la planification. Elle ne crée pas de branche. En phase d'implémentation, si les tests sont délégués à la CI, elle commite et pousse sur la branche courante selon les garde-fous de la section « Tests délégués à la CI » du CLAUDE.md du plugin (jamais sur `main`).
+Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle structure la demande, analyse l'historique et le code existant, itère avec l'utilisateur en connaissance de cause, puis lance la planification. Elle ne crée pas de branche. En phase d'implémentation, si les tests sont délégués à la CI, elle commite et pousse sur la branche courante selon les garde-fous de la section « Tests délégués à la CI » du CLAUDE.md du plugin.
 
-**Prérequis** : l'utilisateur a déjà créé sa branche et est dessus.
+**Prérequis** : l'utilisateur est sur sa branche de travail (`main` ou une branche dédiée).
 
 ## Phase 1 : Vérification
 
@@ -11,9 +11,8 @@ Commande de cadrage pour démarrer toute feature, bugfix ou modification. Elle s
    git fetch origin && git branch --show-current
    ```
    Utilise le résultat de `git branch --show-current` comme source de vérité pour la branche courante. Ne JAMAIS se fier au `gitStatus` initial de la conversation.
-2. Vérifie qu'on n'est pas sur `main` — sinon avertit :
-   > ⚠️ Tu es sur `main`. Crée ta branche d'abord, puis relance `/feature`.
-3. Détecte la branche courante (obtenue à l'étape 1) et en extrait le slug
+2. Travailler sur `main` (ou la branche par défaut) est autorisé : ne demande pas de créer une branche.
+3. Détecte la branche courante (obtenue à l'étape 1) et en extrait le slug. Pour un projet travaillant sur `main`, tirer le slug du chantier demandé ou du dossier de spec existant, jamais du nom `main`.
    - Format attendu : `feature/slug`, `fix/slug`, ou `dev/slug` (ex: `feature/multi-project-support`)
    - Formats alternatifs acceptés : `username/slug`, `ticket-id-slug`
    - Si le format ne correspond pas : demande le contexte à l'utilisateur

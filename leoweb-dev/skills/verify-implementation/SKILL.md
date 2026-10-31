@@ -46,7 +46,7 @@ Liste concrètement ce qui a été modifié :
 
 ## Phase 3 : Choisir les outils de vérification
 
-**Si une CI couvre les tests concernés** (lint, unitaires, fonctionnels, e2e) : ne les rejoue pas en local. Pousse sur la branche de la feature si les garde-fous Git de la section « Tests délégués à la CI » du CLAUDE.md du plugin le permettent (branche de feature, confirmation du premier push, pas de déploiement), sinon vérifie en local. Attends le statut final du pipeline et utilise-le comme preuve (MCP GitHub/GitLab, `gh`, `glab`) avant le rapport. Seuls les critères que la CI ne couvre pas sont vérifiés en local avec le tableau ci-dessous.
+**Si une CI couvre les tests concernés** (lint, unitaires, fonctionnels, e2e) : ne les rejoue pas en local. Pousse sur la branche courante si les garde-fous Git de la section « Tests délégués à la CI » du CLAUDE.md du plugin le permettent (confirmation du premier push, pas de déploiement), sinon vérifie en local. Attends le statut final du pipeline et utilise-le comme preuve (MCP GitHub/GitLab, `gh`, `glab`) avant le rapport. Seuls les critères que la CI ne couvre pas sont vérifiés en local avec le tableau ci-dessous.
 
 Pour chaque critère, choisir la méthode de vérification la plus adaptée :
 

@@ -137,7 +137,7 @@ Dans un worktree, le plugin (hook `SessionStart`) copie les fichiers `.env*` ign
 Si le projet a une CI qui joue déjà les tests (lint, unitaires, fonctionnels, e2e), ne rejoue pas en local le passage de tests groupé du lot : délègue-le à la CI. Les vérifications légères pendant le dev (typecheck, lint, tests unitaires des fichiers touchés) restent locales.
 
 1. **Détection** (en planification) : repère la CI (`.github/workflows/`, `.gitlab-ci.yml`), les jobs qu'elle exécute, et vérifie ton accès (MCP GitHub/GitLab, `gh` ou `glab`). Si elle ne couvre pas les tests ou si tu n'y as pas accès, reste sur les tests groupés en local et ne commite pas : l'utilisateur gère Git.
-2. **Découpage par commit** : le plan prévoit un commit par lot. Une fois le lot développé, commite et pousse sur la branche de la feature (voir les garde-fous ci-dessous).
+2. **Découpage par commit** : le plan prévoit un commit par lot. Une fois le lot développé, commite et pousse sur la branche courante (voir les garde-fous ci-dessous).
 3. **Pendant que la CI tourne, continue le lot suivant.** Surveille le pipeline en arrière-plan : quelques secondes après le push, récupère l'ID du run (`gh run list --branch <branche> --limit 1 --json databaseId -q '.[0].databaseId'`), puis `gh run watch <id> --exit-status` en commande d'arrière-plan. Côté GitLab : MCP GitLab (`list_pipelines`, `get_pipeline`) ou `glab ci status`.
 4. **Si la CI échoue** : corrige dans un nouveau commit qui ne contient que les fichiers du correctif, et repousse. Ne rejoue en local que ce qu'il faut pour diagnostiquer.
 5. **Tests non couverts par la CI** (non écrits, vérifications manuelles ou visuelles) : joue-les en local, groupés par lot.
@@ -146,7 +146,7 @@ Si le projet a une CI qui joue déjà les tests (lint, unitaires, fonctionnels, 
 **Garde-fous Git** :
 
 - **Premier push** : avant le tout premier push d'une feature, demande confirmation une fois (`git push -u origin <branche>`). Si l'utilisateur accepte, les pushs suivants sur cette branche sont autorisés sans redemander. S'il refuse, reste sur les tests locaux.
-- **Branche** : si la branche courante est `main` ou la branche par défaut du projet, ne commite pas et ne pousse pas : reste sur les tests locaux. Jamais de force-push.
+- **Branche** : commits et pushs autorisés sur la branche courante, y compris `main`. Jamais de force-push.
 - **Contenu du commit** : stage uniquement les fichiers du lot (`git add <fichiers>`), jamais `git add -A` ni `git add .`. Seul le thread principal commite, jamais les sous-agents. Ne contourne jamais les hooks (`--no-verify`).
 - **Déploiement** : vérifie les déclencheurs des jobs de déploiement (`on: push` sans filtre de branche côté GitHub, `rules`/`only` côté GitLab). Si un push sur la branche peut déployer, ou en cas de doute, demande ; sinon tests en local.
 - Les commits de travail sont libres : ils pourront être regroupés en squash au merge de la PR/MR.

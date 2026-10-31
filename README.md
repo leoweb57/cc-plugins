@@ -154,7 +154,7 @@ Règles injectées :
 - **Règles Karpathy** — Réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables
 - **Bascule dynamique de modèle** — Délègue chaque sous-tâche au modèle adapté (`fable`, `opus`, `sonnet`, `haiku`) selon sa complexité, y compris dans les workflows
 - **Organisation de l'implémentation** — Tâches indépendantes en lots parallèles suivis d'un test groupé, tâches dépendantes en séquentiel, outillage de test mutualisé ; propose des agents indépendants en worktree (`claude --worktree`, `claude --bg`) pour des features entières indépendantes
-- **Tests délégués à la CI** — Si la CI couvre les tests : un commit par lot, push sur la branche de feature (jamais `main`), surveillance du pipeline en arrière-plan pendant le lot suivant
+- **Tests délégués à la CI** — Si la CI couvre les tests : un commit par lot, push sur la branche courante (y compris `main`), surveillance du pipeline en arrière-plan pendant le lot suivant
 - **Recherche web et vérification technologique proportionnées** — `web-research` en mode léger par défaut, `check-deps` seulement pour une lib nouvelle ou une montée de version majeure
 - **MCP Time** — Pour toute date ou timestamp écrit dans un fichier
 - **Serena** — Navigation et édition sémantique du code
