@@ -70,10 +70,11 @@ Lance ces outils là où tournent les tests du projet : sur l'hôte, ou dans le 
   npx -y jscpd@4 --min-lines 4 --min-tokens 50 --reporters console <fichiers>
   ```
   Avec le reporter `console`, jscpd n'écrit aucun fichier.
-- **Mutation** (sur demande) : Infection, limité aux lignes modifiées :
+- **Mutation** (sur demande) : Infection, limité aux lignes modifiées, avec le même pilote de couverture que PHPUnit :
   ```bash
-  vendor/bin/infection --git-diff-lines --git-diff-base=<référence du périmètre> --threads=max
+  vendor/bin/infection --git-diff-lines --git-diff-base=<référence du périmètre> --threads=max --no-progress
   ```
+  Si Infection n'est pas dans les dépendances du projet, propose de l'ajouter sans l'installer d'office. Sans `infection.json5` dans le projet, Infection en crée un au premier lancement : supprime-le à la fin s'il n'existait pas.
 
 ## Vue (`.vue`)
 

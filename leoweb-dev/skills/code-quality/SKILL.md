@@ -11,11 +11,13 @@ description: >
 
 Principes inspirés de [ub-mode](https://github.com/unclebob/ub-mode) de Robert C. Martin (Uncle Bob), reformulés et adaptés à ce plugin, et des outils de mesure qui les accompagnent ([crapper](https://github.com/unclebob/crapper), [dryer](https://github.com/unclebob/dryer), [mutator](https://github.com/unclebob/mutator), licence 0BSD). Ils complètent le skill `karpathy-guidelines`.
 
+**Pendant l'implémentation**, les sections 1 et 2 guident l'écriture du code, sans outil de mesure : les vérifications restent celles de la section « Organisation de l'implémentation » du CLAUDE.md du plugin (typecheck, lint, tests des fichiers touchés). Les outils de mesure (crapper, dryer, mutator, PHPMD, jscpd, Infection, Stryker) ne tournent que dans l'analyse qualité de la section 3 : commandes `/quality` et `/deliver`, ou demande explicite de l'utilisateur.
+
 Les pratiques de ub-mode qui font agir l'agent de lui-même (push sur la branche principale en fin de travail, nettoyage des worktrees, journal exhaustif de chaque action) ne sont pas reprises : les règles Git et de communication du CLAUDE.md du plugin s'appliquent.
 
 ## 1. D'abord, que ça marche
 
-- **Une décision, un seul endroit.** Une règle métier, une constante ou un choix technique n'existe qu'une fois dans le code.
+- **Pas de règle en double.** Chaque règle métier, constante ou choix technique a une source unique dans le code ; les autres endroits y font référence.
 - **Les données avant la logique.** Fixe la forme des données (types, schéma, structures) avant d'écrire le traitement.
 - **Test d'abord.** Écris le test qui échoue, vérifie qu'il échoue pour la raison attendue, puis fais le plus petit changement qui le fait passer. Si un test honnête est impraticable, n'écris pas un mauvais test : dis-le.
 - **Repenser plutôt que greffer.** Quand un besoin nouveau ne rentre pas dans la conception, demande-toi ce que tu aurais construit s'il avait été là dès le départ. Si cette refonte dépasse la demande, propose-la à l'utilisateur au lieu de l'appliquer.
@@ -34,12 +36,12 @@ Les pratiques de ub-mode qui font agir l'agent de lui-même (push sur la branche
 
 ## 2. Ensuite, que ce soit bien
 
-- **Corriger la cause.** Reproduis le défaut, corrige sa cause. Une garde qui masque le plantage n'est pas une correction.
-- **Tester le comportement, pas l'implémentation.** Le test appelle le code comme son utilisateur et vérifie ce que cet utilisateur observerait. Un test qui passerait encore si toutes les fonctions ne renvoyaient rien est à jeter.
+- **Corriger la cause.** Un bug se reproduit d'abord, par un test de préférence, puis se corrige là où il naît. Un `try/catch` vide, une valeur par défaut ou un `if` qui évite le plantage sans traiter son origine laisse le bug en place.
+- **Tester le comportement, pas l'implémentation.** Un test passe par l'interface publique du code et vérifie un résultat observable de l'extérieur. Un test qui ne vérifie aucun résultat (pas d'assertion sur une valeur, un effet ou une erreur attendue) ne protège rien : réécris-le ou supprime-le.
 - **Complexité maîtrisée.** Chaque fonction reste sous un score CRAP de 10, en la découpant, en la testant, ou les deux. Un `switch`/`match` plat qui fait monter la complexité n'est pas forcément à découper : juge au cas par cas.
 - **Pas de duplication structurelle.** Les blocs dont la structure est identique à 80 % ou plus sont factorisés, sauf s'ils évoluent pour des raisons différentes.
 - **Tests de mutation.** Couvre le code non couvert, renforce les tests qui laissent survivre des mutants, supprime le code mort.
-- **Refactorer sous tests.** Fige le comportement par des tests, change la structure, prouve que le comportement n'a pas changé.
+- **Refactorer sous tests.** Avant de restructurer, assure-toi que des tests décrivent le comportement actuel (écris-les s'il n'y en a pas) ; ils doivent passer avant et après le changement.
 
 ## 3. Analyse qualité
 
