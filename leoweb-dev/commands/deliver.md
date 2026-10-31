@@ -1,6 +1,6 @@
 # /deliver - Générer la documentation de branche
 
-Commande de documentation à lancer avant de pousser du code. Elle analyse les changements, génère la documentation technique, maintient les ADR et vérifie la cohérence architecturale. Elle ne touche pas à Git (pas de commit, pas de push).
+Commande de documentation à lancer avant de pousser du code. Elle analyse les changements, lance une analyse qualité du code (`/quality`), génère la documentation technique, maintient les ADR et vérifie la cohérence architecturale. Elle ne touche pas à Git (pas de commit, pas de push).
 
 **Prérequis** : l'utilisateur a committé ses changements sur sa branche.
 
@@ -23,7 +23,12 @@ Commande de documentation à lancer avant de pousser du code. Elle analyse les c
 - Compare avec le périmètre prévu dans la spec
 - Signale les fichiers imprévus ou manquants
 
-### 3. changes.md — Registre factuel
+### 3. Analyse qualité
+- Lance la commande `/quality` du plugin via l'outil Skill (`leoweb-dev:quality`) avec l'argument `--deliver` : elle analyse toute la branche sans poser la question du périmètre (complexité et CRAP, duplication, relecture selon le skill `code-quality`), présente les constats et propose de les corriger maintenant ou de les consigner dans `review.md`
+- Si des corrections sont appliquées, la suite de `/deliver` documente l'état corrigé ; signale que ces fichiers sont à commiter
+- Garde les constats non corrigés et les limites de l'analyse pour la section « Qualité du code » de `review.md`
+
+### 4. changes.md — Registre factuel
 Horodater le document avec la date du jour obtenue via le MCP **Time** (`get_current_time`).
 
 Génère ou met à jour `changes.md` dans le dossier spec résolu à l'étape 1 :
@@ -34,7 +39,7 @@ Génère ou met à jour `changes.md` dans le dossier spec résolu à l'étape 1 
 
 C'est le registre technique. Pour retrouver le diff exact d'un changement, on fait `git diff <hash>` à partir des commits listés ici.
 
-### 4. summary.md — Mémoire technique de la branche
+### 5. summary.md — Mémoire technique de la branche
 Génère `summary.md` dans le dossier spec résolu à l'étape 1 :
 - **Objectif** : ce qu'on a cherché à accomplir, corriger ou améliorer, et pourquoi
 - **Cheminement** : le parcours technique — ce qu'on a essayé, les problèmes rencontrés, les choix faits en cours de route et leurs raisons
@@ -44,7 +49,7 @@ Génère `summary.md` dans le dossier spec résolu à l'étape 1 :
 
 C'est la mémoire de la branche. On la lit pour comprendre pourquoi les choses ont été faites de cette manière, quel chemin a été pris, et éviter de reproduire les mêmes erreurs ou de revenir en arrière sur des décisions déjà prises.
 
-### 5. review.md — Bilan de validation
+### 6. review.md — Bilan de validation
 Bilan qualité du travail autonome de Claude Code. Ce fichier documente ce que Claude Code a mis en place de lui-même pour valider que l'implémentation est fonctionnelle et conforme à la demande initiale.
 
 Génère `review.md` dans le dossier spec résolu à l'étape 1 :
@@ -53,10 +58,11 @@ Génère `review.md` dans le dossier spec résolu à l'étape 1 :
 - **Scénarios de test** : pour chaque scénario du plan, ce qui a été exécuté concrètement (vitest, Playwright MCP, script custom, vérification manuelle par Claude Code) et le résultat
 - **Points sensibles** : ce qui n'a pas pu être testé et pourquoi, tests qui échouent avec diagnostic, zones de code non couvertes par les tests, cas limites identifiés mais non validés
 - **Erreurs rencontrées** : problèmes détectés pendant la validation, même s'ils ont été corrigés — pour que le reviewer comprenne les zones fragiles
+- **Qualité du code** : résultat de l'analyse qualité de l'étape 3 — mesures principales (pires scores CRAP, duplications), constats non corrigés triés par sévérité avec `fichier:ligne` et correction proposée, constats corrigés pendant `/deliver`, limites de l'analyse (langages non mesurés, couverture indisponible, mutation non lancée)
 
 Ce fichier ne juge pas le travail de l'utilisateur et ne décide pas du merge. Il sert de guide pour la code review humaine : le reviewer peut s'appuyer dessus pour identifier les points sensibles, les zones non testées, et concentrer sa relecture là où c'est le plus utile.
 
-### 6. Gestion des ADR
+### 7. Gestion des ADR
 - **Audit** : parcourt les ADR existantes au statut "Accepté" dans `docs/adr/`
   - Vérifie si les modifications de la branche contredisent ou rendent obsolète une ADR existante
   - Si oui : propose de la marquer "Déprécié" ou "Remplacé par ADR-NNN"
@@ -70,7 +76,7 @@ Ce fichier ne juge pas le travail de l'utilisateur et ne décide pas du merge. I
   - Génère `docs/adr/NNN-titre-slug.md`
   - Met à jour les anciennes ADR impactées
 
-### 7. Intégrité de l'architecture
+### 8. Intégrité de l'architecture
 - Relit `docs/architecture/overview.md` et vérifie sa cohérence avec l'état actuel du code :
   - Nouveau service ou container ajouté → l'ajouter dans la zone correspondante
   - Module supprimé ou renommé → mettre à jour la structure
@@ -79,7 +85,7 @@ Ce fichier ne juge pas le travail de l'utilisateur et ne décide pas du merge. I
 - Si des incohérences sont détectées : met à jour `overview.md` et montre les modifications à l'utilisateur
 - Si l'architecture n'a pas changé : passe silencieusement
 
-### 8. Cohérence README.md et CLAUDE.md
+### 9. Cohérence README.md et CLAUDE.md
 - Relit `README.md` et `CLAUDE.md` à la racine du projet
 - Vérifie leur cohérence avec l'état actuel du code et les changements de la branche :
   - **Stack technique** : nouvelle lib majeure ou techno retirée → mettre à jour
@@ -93,14 +99,15 @@ Ce fichier ne juge pas le travail de l'utilisateur et ne décide pas du merge. I
 - Si des incohérences sont détectées : met à jour les fichiers et montre les modifications à l'utilisateur
 - Si rien n'a changé dans ces domaines : passe silencieusement
 
-### 9. Runbooks
+### 10. Runbooks
 - Vérifie si les changements introduisent une nouvelle procédure opérationnelle (nouveau service à démarrer, nouvelle commande de migration, nouvelle variable d'env requise...)
 - Si oui : propose la mise à jour ou la création d'un runbook dans `docs/runbooks/`
 
-### 10. Résumé
+### 11. Résumé
 - Affiche un résumé complet :
   - Commits de la branche
   - Fichiers modifiés
+  - Analyse qualité : constats corrigés et constats restants
   - Documentation générée/mise à jour
   - ADR créées ou mises à jour
   - README.md et/ou CLAUDE.md mis à jour (si applicable)
@@ -114,7 +121,7 @@ docs/specs/NNN-slug/
 ├── plan.md          # Plan d'implémentation, scénarios de test (/feature)
 ├── changes.md       # Registre : commits, fichiers, dépendances (/deliver)
 ├── summary.md       # Mémoire technique : objectif, cheminement, choix, pièges évités (/deliver)
-└── review.md        # Bilan de validation : tests, points sensibles, guide pour code review (/deliver)
+└── review.md        # Bilan de validation : tests, qualité du code, points sensibles, guide pour code review (/deliver)
 ```
 
 ## Résultat

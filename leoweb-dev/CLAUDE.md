@@ -2,7 +2,7 @@
 
 ## Catalogue des ressources disponibles
 
-**Skills** : `check-deps` (APIs à jour d'une lib nouvelle ou montée de version majeure), `web-research` (recherche web proportionnée, multi-sources si besoin), `verify-implementation` (vérification avant d'annoncer la fin), `karpathy-guidelines` (règles de code), `tailwind-design-system`, `nextjs-app-router-patterns`, `brainstorm` (7 agents d'analyse multi-perspectives), `business-experts` (panel de 9 experts business), `docker-compose-patterns`, `docker-build-strategies`, `postgres-best-practices`, `playwright-e2e` (écriture de tests E2E), et les skills officiels LangChain/LangGraph/Deep Agents et Langfuse.
+**Skills** : `check-deps` (APIs à jour d'une lib nouvelle ou montée de version majeure), `web-research` (recherche web proportionnée, multi-sources si besoin), `verify-implementation` (vérification avant d'annoncer la fin), `karpathy-guidelines` (règles de code), `code-quality` (principes de qualité, analyse CRAP/duplication/mutation, utilisé par `/quality` et `/deliver`), `tailwind-design-system`, `nextjs-app-router-patterns`, `brainstorm` (7 agents d'analyse multi-perspectives), `business-experts` (panel de 9 experts business), `docker-compose-patterns`, `docker-build-strategies`, `postgres-best-practices`, `playwright-e2e` (écriture de tests E2E), et les skills officiels LangChain/LangGraph/Deep Agents et Langfuse.
 
 **Agents techniques** : `react-developer`, `mobile-developer`, `backend-developer`, `devops-engineer`, `data-engineer`, `deep-research`, `refactoring-expert` (Serena, analyse d'impact), `root-cause-analyst` (bugs complexes), `quality-engineer` (stratégie de tests).
 

@@ -33,6 +33,7 @@ leoweb-dev/
 ├── commands/              # Commandes utilisateur (/command)
 │   ├── feature.md
 │   ├── deliver.md
+│   ├── quality.md
 │   ├── merge.md
 │   └── resolve.md
 ├── skills/                # Skills auto-déclenchés ou manuels
@@ -44,6 +45,7 @@ leoweb-dev/
 │   ├── brainstorm/
 │   ├── business-experts/
 │   ├── karpathy-guidelines/
+│   ├── code-quality/                                       # inspiré de unclebob/ub-mode
 │   ├── docker-compose-patterns/, docker-build-strategies/   # traduits (docker/skills)
 │   ├── postgres-best-practices/                            # traduit (supabase/agent-skills)
 │   ├── playwright-e2e/                                     # traduit (testdino-hq/playwright-skill)
@@ -56,7 +58,8 @@ leoweb-dev/
 | Commande   | Description                                                                                   |
 | ---------- | --------------------------------------------------------------------------------------------- |
 | `/feature` | Workflow complet de développement : exploration du code, planification en lots parallèles, implémentation, tests groupés (délégués à la CI si possible, avec commit/push par lot sur la branche) |
-| `/deliver` | Génère la documentation de branche avant le push : changements, synthèse, revue, ADR, cohérence de la doc d'architecture |
+| `/deliver` | Génère la documentation de branche avant le push : analyse qualité (`/quality`), changements, synthèse, revue, ADR, cohérence de la doc d'architecture |
+| `/quality` | Analyse qualité du code non commité, du dernier commit ou de toute la branche (complexité et CRAP, duplication, principes de conception), puis propose de corriger ou de consigner les constats dans un fichier Markdown. Accepte des points de vigilance en argument |
 | `/merge`   | Analyse contextuelle des branches, cartographie des zones de friction, exécution du merge     |
 | `/resolve` | Résolution de conflits Git avec classification automatique et agents parallèles               |
 
@@ -72,6 +75,7 @@ leoweb-dev/
 | `brainstorm`                 | analyse multi-perspectives d'une solution technique         | Lance une équipe de 7 agents en parallèle (architecture, performance, sécurité, UX, qualité, maintenabilité, valeur business)                           |
 | `business-experts`           | analyse stratégique/business d'un produit ou d'une décision | Convoque un panel de 9 experts business (Porter, Drucker, Christensen, Godin, Kim & Mauborgne, Collins, Taleb, Meadows, Doumont)                        |
 | `karpathy-guidelines`        | écriture, relecture ou refactoring de code                  | 4 règles Karpathy : réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables              |
+| `code-quality`               | implémentation ou refactoring non trivial, analyse qualité  | Principes inspirés de ub-mode (Uncle Bob) et analyse mesurée : CRAP < 10 et duplication via crapper/dryer (Python, TS/JS), PHPUnit crap4j/PHPMD et jscpd (PHP, Vue), mutation sur demande (mutator, Infection, Stryker) |
 | `docker-compose-patterns`    | création ou débogage d'un `compose.yaml`                    | Services, healthchecks, ordre de démarrage, volumes, réseaux, overrides de dev (Docker Inc., traduit) |
 | `docker-build-strategies`    | écriture ou optimisation d'un Dockerfile                    | Builds multi-stage, cache de couches, images légères (Docker Inc., traduit) |
 | `postgres-best-practices`    | schéma, migrations, index, requêtes, diagnostic PostgreSQL  | Bonnes pratiques PostgreSQL maintenues par Supabase, valables pour tout Postgres (traduit) |
