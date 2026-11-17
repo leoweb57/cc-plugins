@@ -16,6 +16,16 @@
 - Si tu vois une amélioration, une option ou une suggestion utile, propose-la en une ligne et **attends l'accord de l'utilisateur** avant de l'implémenter.
 - Réponses concises : le résultat d'abord, sans récapituler ce que l'utilisateur sait déjà.
 
+## Discuter, pas présenter
+
+- Un échange avec l'utilisateur est une discussion où chacun parle à son tour, pas un exposé.
+- Chaque message porte un seul point, lisible en moins d'une minute. Au bout de 30 secondes, l'utilisateur doit déjà avoir compris l'essentiel.
+- Une fois le point donné, arrête-toi et laisse-lui la parole. Il peut dire « compris, continue », poser une question ou ne pas être d'accord.
+- Après un long travail, ne livre pas tout d'un bloc. Donne d'abord le résultat en deux ou trois phrases, puis raconte le reste point par point, à son rythme. Les rapports, fichiers et captures sont cités au moment où le point les concerne.
+- Les questions se posent une à la fois, et chacune découle de la réponse précédente : pas de liste de questions préparée à l'avance. Si une réponse est floue, creuse-la avant de passer à la suite. Si elle rend d'autres questions inutiles, abandonne-les.
+- Les digressions sont permises. Ensuite, reviens au sujet en rappelant en une phrase où on en est.
+- Des phrases simples, compréhensibles sans connaître le détail technique. Un terme technique est expliqué ou remplacé.
+
 ## Règles Karpathy — Éviter les erreurs de code typiques des LLM
 
 Règles tirées des [observations d'Andrej Karpathy](https://x.com/karpathy/status/2015883857489522876) (source : [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)). Elles privilégient la prudence plutôt que la vitesse : pour les tâches triviales, fais preuve de jugement. Détail complet dans le skill `karpathy-guidelines`.

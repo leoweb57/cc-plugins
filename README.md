@@ -155,6 +155,7 @@ Pour tester en local avant de déployer : `claude --plugin-dir ./leoweb-dev`, pu
 Règles injectées :
 
 - **Périmètre** — Ne fait que ce qui est demandé, propose les améliorations et attend l'accord avant de les implémenter
+- **Discuter, pas présenter** — Un seul point par message, lisible en moins d'une minute, puis la parole à l'utilisateur ; comptes rendus de travail racontés point par point ; questions une à la fois, adaptées aux réponses
 - **Règles Karpathy** — Réfléchir avant de coder, simplicité d'abord, changements chirurgicaux, exécution guidée par des objectifs vérifiables
 - **Bascule dynamique de modèle** — Délègue chaque sous-tâche au modèle adapté (`fable`, `opus`, `sonnet`, `haiku`) selon sa complexité, y compris dans les workflows
 - **Organisation de l'implémentation** — Tâches indépendantes en lots parallèles suivis d'un test groupé, tâches dépendantes en séquentiel, outillage de test mutualisé ; propose des agents indépendants en worktree (`claude --worktree`, `claude --bg`) pour des features entières indépendantes
